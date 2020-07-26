@@ -1,0 +1,57 @@
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+HELP.md
+target/
+# !.mvn/wrapper/maven-wrapper.jar
+# !**/src/main/**
+# !**/src/test/**
+
+### VS Code ###
+.vscode/
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+
+## SUBVERSION
+.svn
+
+## XCODE
+*[Ff]rameworks/
+build/
+.build/
+.publish/
+xcuserdata/
+*.xcworkspace
+.swiftpm/
