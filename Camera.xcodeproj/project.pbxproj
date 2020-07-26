@@ -11,8 +11,10 @@
 		D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C6124CDD4E200A69248 /* Assets.xcassets */; };
 		D3EC8C6524CDD4E200A69248 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C6324CDD4E200A69248 /* MainMenu.xib */; };
 		D3EC8C6E24CDD53C00A69248 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C6D24CDD53C00A69248 /* AppController.swift */; };
-		D3EC8C7024CDD54700A69248 /* PrimaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C6F24CDD54600A69248 /* PrimaryVC.swift */; };
+		D3EC8C7024CDD54700A69248 /* ContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C6F24CDD54600A69248 /* ContentVC.swift */; };
 		D3EC8C7224CDD55900A69248 /* PrimaryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C7124CDD55900A69248 /* PrimaryVC.xib */; };
+		D3EC8C7724CDD67700A69248 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C7424CDD67700A69248 /* CameraViewController.xib */; };
+		D3EC8C7824CDD67700A69248 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C7624CDD67700A69248 /* CameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,8 +25,12 @@
 		D3EC8C6624CDD4E200A69248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3EC8C6724CDD4E200A69248 /* Camera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Camera.entitlements; sourceTree = "<group>"; };
 		D3EC8C6D24CDD53C00A69248 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
-		D3EC8C6F24CDD54600A69248 /* PrimaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryVC.swift; sourceTree = "<group>"; };
+		D3EC8C6F24CDD54600A69248 /* ContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentVC.swift; sourceTree = "<group>"; };
 		D3EC8C7124CDD55900A69248 /* PrimaryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrimaryVC.xib; sourceTree = "<group>"; };
+		D3EC8C7324CDD67600A69248 /* Camera-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Camera-Bridging-Header.h"; sourceTree = "<group>"; };
+		D3EC8C7424CDD67700A69248 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		D3EC8C7524CDD67700A69248 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		D3EC8C7624CDD67700A69248 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,10 +67,14 @@
 				D3EC8C6D24CDD53C00A69248 /* AppController.swift */,
 				D3EC8C6124CDD4E200A69248 /* Assets.xcassets */,
 				D3EC8C6324CDD4E200A69248 /* MainMenu.xib */,
-				D3EC8C6F24CDD54600A69248 /* PrimaryVC.swift */,
+				D3EC8C6F24CDD54600A69248 /* ContentVC.swift */,
 				D3EC8C7124CDD55900A69248 /* PrimaryVC.xib */,
+				D3EC8C7524CDD67700A69248 /* CameraViewController.h */,
+				D3EC8C7624CDD67700A69248 /* CameraViewController.m */,
+				D3EC8C7424CDD67700A69248 /* CameraViewController.xib */,
 				D3EC8C6624CDD4E200A69248 /* Info.plist */,
 				D3EC8C6724CDD4E200A69248 /* Camera.entitlements */,
+				D3EC8C7324CDD67600A69248 /* Camera-Bridging-Header.h */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -101,6 +111,7 @@
 				TargetAttributes = {
 					D3EC8C5B24CDD4DF00A69248 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -128,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */,
+				D3EC8C7724CDD67700A69248 /* CameraViewController.xib in Resources */,
 				D3EC8C7224CDD55900A69248 /* PrimaryVC.xib in Resources */,
 				D3EC8C6524CDD4E200A69248 /* MainMenu.xib in Resources */,
 			);
@@ -141,7 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */,
-				D3EC8C7024CDD54700A69248 /* PrimaryVC.swift in Sources */,
+				D3EC8C7824CDD67700A69248 /* CameraViewController.m in Sources */,
+				D3EC8C7024CDD54700A69248 /* ContentVC.swift in Sources */,
 				D3EC8C6E24CDD53C00A69248 /* AppController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +290,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Camera/Camera.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -289,6 +303,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iliosinc.Camera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Camera/Camera-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -297,6 +313,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Camera/Camera.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -309,6 +326,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iliosinc.Camera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Camera/Camera-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

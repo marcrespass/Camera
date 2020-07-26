@@ -32,5 +32,7 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera wants to use your camera to take pictures!</string>
 </dict>
 </plist>
