@@ -64,7 +64,7 @@
 {
     // Get the layer from the view (which is set in IB to want a layer)
     CALayer *cameraDisplayViewLayer = [self.cameraDisplayView layer];
-    [cameraDisplayViewLayer setBackgroundColor:CGColorGetConstantColor(kCGColorBlack)];
+    cameraDisplayViewLayer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
 
     // Create the AVCaptureVideoPreviewLayer and add it as a sub layer of previewViewLayer which retains it
     AVCaptureVideoPreviewLayer *newPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.avCaptureSession];
@@ -128,6 +128,7 @@
         [self refreshDevices];
     }];
     [self.observers addObject:deviceWasConnectedObserver];
+
     id deviceWasDisconnectedObserver = [NSNotificationCenter.defaultCenter addObserverForName:AVCaptureDeviceWasDisconnectedNotification
                                                                        object:nil
                                                                         queue:[NSOperationQueue mainQueue]
@@ -184,7 +185,7 @@
 
         [self.avCaptureSession beginConfiguration];
 
-        if (![[self videoDevices] containsObject:[self selectedVideoDevice]])
+        if (![self.videoDevices containsObject:self.selectedVideoDevice])
         {
             [self setSelectedVideoDevice:nil];
         }
@@ -240,39 +241,21 @@
 
 - (void)flashScreen;
 {
-    // Capture the main display
-    //    if (CGDisplayCapture( kCGDirectMainDisplay ) != kCGErrorSuccess)
-    //    {
-    //        MERLogError(@"Couldn't capture the main display!" );
-    //        return;
-    //    }
-
-    int windowLevel = CGShieldingWindowLevel();
-
-    NSRect screenRect = [[NSScreen mainScreen] frame];
-
+    NSRect screenRect = NSScreen.mainScreen.frame;
     NSWindow *window = [[NSWindow alloc] initWithContentRect:screenRect
                                                    styleMask:NSWindowStyleMaskBorderless
                                                      backing:NSBackingStoreBuffered
                                                        defer:NO
                                                       screen:[NSScreen mainScreen]];
-    //    [window setReleasedWhenClosed:YES];
-
-    [window setLevel:windowLevel];
-
-    [window setBackgroundColor:NSColor.whiteColor];
+    [window setLevel:CGShieldingWindowLevel()];
+    window.backgroundColor = NSColor.whiteColor;
     [window makeKeyAndOrderFront:nil];
-
-    [[window animator] setAlphaValue:0.0];
+    window.animator.alphaValue = 0.0;
 }
 
 #pragma mark - Actions
 - (IBAction)cancel:(id)sender;
 {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-    [NSApp sendAction:@selector(dismissCameraView) to:nil from:self];
-#pragma clang diagnostic pop
 }
 
 - (IBAction)captureImage:(id)sender;
@@ -304,9 +287,9 @@
 
     for (AVCaptureConnection *connection in self.stillImageOutput.connections)
     {
-        for (AVCaptureInputPort *port in [connection inputPorts])
+        for (AVCaptureInputPort *inputPort in [connection inputPorts])
         {
-            if ([[port mediaType] isEqual:AVMediaTypeVideo] )
+            if ([inputPort.mediaType isEqual:AVMediaTypeVideo] )
             {
                 videoConnection = connection;
                 break;
@@ -324,7 +307,6 @@
     }
 
     [self flashScreen];
-
     [self.stillImageOutput capturePhotoWithSettings:self.photoSettings delegate:self];
 }
 
@@ -389,7 +371,7 @@
 #pragma mark - Validation
 - (BOOL)validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>)anItem;
 {
-    if([anItem action] == @selector(captureImage:))
+    if(anItem.action == @selector(captureImage:))
     {
         return self.takingPicture == NO;
     }
