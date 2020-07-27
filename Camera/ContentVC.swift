@@ -34,9 +34,9 @@ class ContentVC: NSViewController {
         let mainView = self.view
         let cameraView = self.cameraVC.view
 
-        self.view.window?.setContentSize(cameraView.bounds.size)
+//        self.view.window?.setContentSize(cameraView.bounds.size)
 
-        cameraView.frame = mainView.bounds
+        mainView.frame = cameraView.frame
         mainView.addSubview(cameraView)
 
         self.constrainCurrentVCToEdges()
