@@ -7,7 +7,7 @@
 //#import "AddImageViewController.h"
 //#import "CountdownViewController.h"
 
-@interface CameraViewController : NSViewController// <CountdownViewControllerDelegate>
+@interface CameraViewController : NSViewController <AVCapturePhotoCaptureDelegate>
 {
 }
 
