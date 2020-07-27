@@ -16,24 +16,25 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView translatesAutoresizingMaskIntoConstraints="NO" id="73">
-            <rect key="frame" x="0.0" y="0.0" width="299" height="300"/>
+        <customView id="73">
+            <rect key="frame" x="0.0" y="0.0" width="466" height="325"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14" userLabel="cameraDisplayView">
-                    <rect key="frame" x="20" y="80" width="259" height="200"/>
+                    <rect key="frame" x="20" y="67" width="426" height="238"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="7zG-5k-m6t"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="V5k-Mr-IIS"/>
                     </constraints>
                 </customView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="53" userLabel="CameraControls">
-                    <rect key="frame" x="20" y="20" width="259" height="60"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="53" userLabel="cameraControlView">
+                    <rect key="frame" x="20" y="20" width="426" height="47"/>
                     <subviews>
-                        <button verticalHuggingPriority="750" tag="2112" translatesAutoresizingMaskIntoConstraints="NO" id="51">
-                            <rect key="frame" x="190" y="13" width="49" height="35"/>
+                        <button verticalHuggingPriority="750" tag="2112" translatesAutoresizingMaskIntoConstraints="NO" id="51" userLabel="takePictureButton">
+                            <rect key="frame" x="387" y="1" width="37" height="39"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="49" id="Eaa-Lj-xco"/>
-                                <constraint firstAttribute="height" constant="33" id="gw2-A0-BsG"/>
+                                <constraint firstAttribute="width" constant="37" id="Eaa-Lj-xco"/>
+                                <constraint firstAttribute="width" secondItem="51" secondAttribute="height" id="FMM-SF-55n"/>
                             </constraints>
                             <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Camera" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="52">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -50,8 +51,8 @@
                                 </binding>
                             </connections>
                         </button>
-                        <popUpButton horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="45">
-                            <rect key="frame" x="108" y="17" width="77" height="25"/>
+                        <popUpButton horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="45" userLabel="devicePopup">
+                            <rect key="frame" x="88" y="7" width="294" height="25"/>
                             <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="46">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -77,8 +78,8 @@
                                 </binding>
                             </connections>
                         </popUpButton>
-                        <button horizontalHuggingPriority="252" verticalHuggingPriority="750" tag="2111" translatesAutoresizingMaskIntoConstraints="NO" id="Rnm-AV-uXZ">
-                            <rect key="frame" x="14" y="13" width="94" height="32"/>
+                        <button horizontalHuggingPriority="252" verticalHuggingPriority="750" tag="2111" translatesAutoresizingMaskIntoConstraints="NO" id="Rnm-AV-uXZ" userLabel="cancelButton">
+                            <rect key="frame" x="-6" y="3" width="94" height="32"/>
                             <buttonCell key="cell" type="push" title="Cancelar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xuD-wo-A5T">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -93,27 +94,26 @@ Gw
                     </subviews>
                     <constraints>
                         <constraint firstItem="45" firstAttribute="firstBaseline" secondItem="Rnm-AV-uXZ" secondAttribute="firstBaseline" id="AKE-7g-Ou6"/>
-                        <constraint firstItem="Rnm-AV-uXZ" firstAttribute="leading" secondItem="53" secondAttribute="leading" constant="20" symbolic="YES" id="KwL-qG-1bt"/>
+                        <constraint firstItem="Rnm-AV-uXZ" firstAttribute="leading" secondItem="53" secondAttribute="leading" id="KwL-qG-1bt"/>
+                        <constraint firstAttribute="height" secondItem="51" secondAttribute="height" constant="10" id="Nme-3V-UEh"/>
                         <constraint firstItem="51" firstAttribute="centerY" secondItem="45" secondAttribute="centerY" id="VEZ-iu-z80"/>
-                        <constraint firstAttribute="trailing" secondItem="51" secondAttribute="trailing" constant="20" symbolic="YES" id="dYC-UU-Y6b"/>
-                        <constraint firstItem="51" firstAttribute="centerY" secondItem="53" secondAttribute="centerY" id="g2d-Ib-Osr"/>
+                        <constraint firstAttribute="trailing" secondItem="51" secondAttribute="trailing" constant="2" id="dYC-UU-Y6b"/>
+                        <constraint firstItem="51" firstAttribute="centerY" secondItem="53" secondAttribute="centerY" constant="3" id="faS-eA-Tdi"/>
                         <constraint firstItem="51" firstAttribute="leading" secondItem="45" secondAttribute="trailing" constant="8" symbolic="YES" id="gKN-xS-582"/>
                         <constraint firstItem="45" firstAttribute="leading" secondItem="Rnm-AV-uXZ" secondAttribute="trailing" constant="8" symbolic="YES" id="hgD-xS-lb0"/>
-                        <constraint firstAttribute="height" constant="60" id="jgr-hP-fCp"/>
                     </constraints>
                 </customView>
             </subviews>
             <constraints>
                 <constraint firstItem="53" firstAttribute="top" secondItem="14" secondAttribute="bottom" id="62B-8P-I2L"/>
-                <constraint firstAttribute="trailing" secondItem="53" secondAttribute="trailing" constant="20" symbolic="YES" id="63E-gz-Zbr"/>
+                <constraint firstItem="14" firstAttribute="trailing" secondItem="53" secondAttribute="trailing" id="63E-gz-Zbr"/>
                 <constraint firstAttribute="trailing" secondItem="14" secondAttribute="trailing" constant="20" symbolic="YES" id="6bY-kU-rsG"/>
                 <constraint firstAttribute="bottom" secondItem="53" secondAttribute="bottom" constant="20" symbolic="YES" id="eE6-GW-c6r"/>
-                <constraint firstItem="53" firstAttribute="width" secondItem="14" secondAttribute="width" id="hQk-i3-edi"/>
                 <constraint firstItem="14" firstAttribute="leading" secondItem="73" secondAttribute="leading" constant="20" symbolic="YES" id="mpZ-n0-MTI"/>
-                <constraint firstItem="53" firstAttribute="leading" secondItem="73" secondAttribute="leading" constant="20" symbolic="YES" id="qkf-qy-Z7N"/>
+                <constraint firstItem="53" firstAttribute="leading" secondItem="14" secondAttribute="leading" id="qkf-qy-Z7N"/>
                 <constraint firstItem="14" firstAttribute="top" secondItem="73" secondAttribute="top" constant="20" symbolic="YES" id="z5g-B8-8Bd"/>
             </constraints>
-            <point key="canvasLocation" x="108.5" y="129"/>
+            <point key="canvasLocation" x="101" y="26"/>
         </customView>
     </objects>
     <resources>
