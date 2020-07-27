@@ -41,23 +41,24 @@
                             </buttonCell>
                             <connections>
                                 <action selector="captureImage:" target="-2" id="58"/>
-                                <binding destination="-2" name="enabled" keyPath="hasRecordingDevice" id="65">
+                                <binding destination="-2" name="enabled" keyPath="self.videoDeviceInput" id="tiv-R4-fNJ">
                                     <dictionary key="options">
                                         <integer key="NSNoSelectionPlaceholder" value="0"/>
                                         <integer key="NSNotApplicablePlaceholder" value="0"/>
                                         <integer key="NSNullPlaceholder" value="0"/>
+                                        <string key="NSValueTransformerName">NSIsNotNil</string>
                                     </dictionary>
                                 </binding>
                             </connections>
                         </button>
                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="45" userLabel="devicePopup">
                             <rect key="frame" x="88" y="7" width="239" height="25"/>
-                            <popUpButtonCell key="cell" type="push" title="No device selected No device s" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="48" id="46">
+                            <popUpButtonCell key="cell" type="push" title="No device selected No device s" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="48" id="46">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                                 <menu key="menu" title="OtherViews" id="47">
                                     <items>
-                                        <menuItem title="No device selected No device s" id="48"/>
+                                        <menuItem title="No device selected No device s" state="on" id="48"/>
                                     </items>
                                 </menu>
                             </popUpButtonCell>
