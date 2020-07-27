@@ -30,18 +30,10 @@ class ContentVC: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.translatesAutoresizingMaskIntoConstraints = false
 
-        let mainView = self.view
-        let cameraView = self.cameraVC.view
-
-//        self.view.window?.setContentSize(cameraView.bounds.size)
-
-        mainView.frame = cameraView.frame
-        mainView.addSubview(cameraView)
-
+        self.view.addSubview(self.cameraVC.view)
         self.constrainCurrentVCToEdges()
-
-        self.cameraVC.setupAVCaptureSession()
     }
     
 }
