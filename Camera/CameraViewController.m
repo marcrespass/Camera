@@ -171,9 +171,6 @@
     self.view.wantsLayer = YES;
     self.cameraDisplayView.wantsLayer = YES;
 
-    self.cancelButton.title = NSLocalizedString(@"CancelLabel", @"");
-    self.takePictureButton.toolTip = NSLocalizedString(@"TakePictureTooltip", @"");
-
     dispatch_async(dispatch_get_main_queue(), ^{
         [self setupAVCaptureSession];
     });
@@ -362,27 +359,24 @@
 
 - (AVCaptureDevice *)selectedVideoDevice
 {
-    return [self.videoDeviceInput device];
+    return self.videoDeviceInput.device;
 }
 
 - (void)setSelectedVideoDevice:(AVCaptureDevice *)selectedVideoDevice
 {
     [self.avCaptureSession beginConfiguration];
 
-    if(self.videoDeviceInput)
+    if(self.videoDeviceInput) // Remove the old device input from the session
     {
-        // Remove the old device input from the session
         [self.avCaptureSession removeInput:self.videoDeviceInput];
         self.videoDeviceInput = nil;
     }
 
-    if (selectedVideoDevice)
+    if(selectedVideoDevice)
     {
         NSError *error = nil;
-
         // Create a device input for the device and add it to the session
         AVCaptureDeviceInput *newVideoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:selectedVideoDevice error:&error];
-
         if (newVideoDeviceInput == nil)
         {
             dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -392,8 +386,9 @@
         else
         {
             if (![selectedVideoDevice supportsAVCaptureSessionPreset:[self.avCaptureSession sessionPreset]])
+            {
                 [self.avCaptureSession setSessionPreset:AVCaptureSessionPresetHigh];
-
+            }
             [self.avCaptureSession addInput:newVideoDeviceInput];
             self.videoDeviceInput = newVideoDeviceInput;
         }
