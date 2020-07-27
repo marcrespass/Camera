@@ -136,7 +136,7 @@
     }
     else
     {
-        [self setSelectedVideoDevice:[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeMuxed]];
+        [self setSelectedVideoDevice:[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo]];
     }
 
     [self setupCameraPreviewLayer];
