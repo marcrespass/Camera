@@ -14,19 +14,17 @@ protocol SomeDelegate: class {
 
 final class AppController {
 
-    lazy var primaryVC: ContentVC = {
-        let pvc = ContentVC(delegate: self)
-        return pvc
+    lazy var contentVC: ContentVC = {
+        let cvc = ContentVC(delegate: self)
+        return cvc
     }()
 
     var windowControllers: [NSWindowController] = []
 
     @objc func createNewWindow() {
-        let window = NSWindow(contentViewController: self.primaryVC)
+        let window = NSWindow(contentViewController: self.contentVC)
         let wc = NSWindowController(window: window)
         self.windowControllers.append(wc)
-
-        
 
         wc.window?.center()
         wc.window?.makeKeyAndOrderFront(nil)
