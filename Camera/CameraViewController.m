@@ -7,6 +7,19 @@
 //#import "CommonMacros.h"
 
 @interface CameraViewController ()
+
+@property (nonatomic, weak) IBOutlet NSView *cameraDisplayView;
+@property (nonatomic, weak) IBOutlet NSView *cameraControlView;
+
+#pragma mark Recording
+@property (nonatomic, readwrite, strong) AVCaptureSession *avCaptureSession;
+@property (nonatomic, readwrite, strong) NSData *snapshotData;
+@property (nonatomic, readonly, assign) BOOL hasRecordingDevice;
+
+#pragma mark Device Selection
+@property (nonatomic, readwrite, strong) NSArray *videoDevices;
+@property (nonatomic, readwrite, weak) AVCaptureDevice *selectedVideoDevice; // derived
+
 @property (nonatomic, readwrite, weak) IBOutlet NSButton *cancelButton;
 @property (nonatomic, readwrite, weak) IBOutlet NSButton *takePictureButton;
 
