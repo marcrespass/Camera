@@ -77,10 +77,8 @@
     AVCaptureVideoPreviewLayer *newPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.avCaptureSession];
     newPreviewLayer.frame = cameraDisplayViewLayer.bounds;
     newPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    newPreviewLayer.autoresizingMask = (unsigned int)self.cameraDisplayView.autoresizingMask;
+    newPreviewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
     [cameraDisplayViewLayer addSublayer:newPreviewLayer];
-
-    [self refreshDevices];
 }
 
 - (void)setupAVCaptureSession;
@@ -127,7 +125,7 @@
     NSDictionary *format = [[NSDictionary alloc] initWithObjectsAndKeys: AVVideoCodecTypeJPEG, AVVideoCodecKey, nil];
     self.photoSettings = [AVCapturePhotoSettings photoSettingsWithFormat:format];
     self.stillImageOutput = [[AVCapturePhotoOutput alloc] init];
-//    [self.stillImageOutput setOutputSettings:outputSettings];
+    //    [self.stillImageOutput setOutputSettings:outputSettings];
     [self.avCaptureSession addOutput:self.stillImageOutput];
 
     // Select devices if any exist starting with a video device
@@ -142,6 +140,7 @@
     }
 
     [self setupCameraPreviewLayer];
+    [self refreshDevices];
 }
 
 - (void)tearDownAVCaptureSession;
@@ -167,21 +166,29 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
+    self.view.translatesAutoresizingMaskIntoConstraints = NO;
 
-    [self.cameraDisplayView setWantsLayer:YES];
+    self.view.wantsLayer = YES;
+    self.cameraDisplayView.wantsLayer = YES;
 
     self.cancelButton.title = NSLocalizedString(@"CancelLabel", @"");
     self.takePictureButton.toolTip = NSLocalizedString(@"TakePictureTooltip", @"");
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self setupAVCaptureSession];
+    });
 }
 
 #pragma mark - Device selection
 - (void)refreshDevices
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        AVCaptureDeviceDiscoverySession *session = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] mediaType:AVMediaTypeMuxed position:AVCaptureDevicePositionFront];
+        NSArray *deviceTypes = @[AVCaptureDeviceTypeExternalUnknown, AVCaptureDeviceTypeBuiltInWideAngleCamera];
+        AVCaptureDeviceDiscoverySession *session;
+        session = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:deviceTypes
+                                                                         mediaType:AVMediaTypeVideo
+                                                                          position:AVCaptureDevicePositionUnspecified];
         self.videoDevices = session.devices;
-        
-//        self.videoDevices = [[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo] arrayByAddingObjectsFromArray:[AVCaptureDevice devicesWithMediaType:AVMediaTypeMuxed]];
 
         [self.avCaptureSession beginConfiguration];
 
@@ -410,7 +417,6 @@
 - (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(NSError *)error;
 {
     self.snapshotData = photo.fileDataRepresentation;
-//    self.snapshotData = [AVCapturePhotoOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
     dispatch_async(dispatch_get_main_queue(), ^(void) {
         NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:@"image.jpeg"];
         NSURL *url = [NSURL fileURLWithPath:path];
