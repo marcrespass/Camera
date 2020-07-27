@@ -5,9 +5,14 @@
 @import Cocoa;
 @import AVFoundation;
 
-@interface CameraViewController : NSViewController <AVCapturePhotoCaptureDelegate>
-{
-    
-}
+NS_ASSUME_NONNULL_BEGIN
+@interface CameraViewController : NSViewController
+
+@property (nullable, nonatomic, readwrite, strong) NSData *snapshotData;
+@property (nullable, nonatomic, readwrite, strong) AVCapturePhotoOutput *stillImageOutput;
+
+- (void)flashScreen;
+- (AVCapturePhotoSettings *)photoSettings;
 
 @end
+NS_ASSUME_NONNULL_END

@@ -3,8 +3,7 @@
 //
 
 #import "CameraViewController.h"
-//#import "Roast.h"
-//#import "CommonMacros.h"
+#import "Camera-Swift.h"
 
 @interface CameraViewController ()
 
@@ -13,7 +12,6 @@
 
 #pragma mark Recording
 @property (nonatomic, readwrite, strong) AVCaptureSession *avCaptureSession;
-@property (nonatomic, readwrite, strong) NSData *snapshotData;
 
 #pragma mark Device Selection
 @property (nonatomic, readwrite, strong) NSArray *videoDevices;
@@ -25,7 +23,6 @@
 @property (nonatomic, readwrite, strong) NSMutableArray *observers;
 
 @property (nonatomic, readwrite, strong) AVCaptureDeviceInput *videoDeviceInput;
-@property (nonatomic, readwrite, strong) AVCapturePhotoOutput *stillImageOutput;
 
 @property (nonatomic, assign) BOOL takingPicture;
 
@@ -241,6 +238,7 @@
 
 - (void)flashScreen;
 {
+#ifndef DEBUG
     NSRect screenRect = NSScreen.mainScreen.frame;
     NSWindow *window = [[NSWindow alloc] initWithContentRect:screenRect
                                                    styleMask:NSWindowStyleMaskBorderless
@@ -251,6 +249,7 @@
     window.backgroundColor = NSColor.whiteColor;
     [window makeKeyAndOrderFront:nil];
     window.animator.alphaValue = 0.0;
+#endif
 }
 
 #pragma mark - Actions
@@ -260,16 +259,6 @@
 
 - (IBAction)captureImage:(id)sender;
 {
-    //    NSView *countdownView = self.countdownViewController.view;
-    //
-    //    [countdownView setFrame:[self.cameraControlView frame]];
-    //
-    //    [self.cameraControlView setHidden:YES];
-    //    [self.view addSubview:countdownView positioned:NSWindowAbove relativeTo:nil];
-    //
-    //    self.takingPicture = YES;
-    //
-    //    [self.countdownViewController beginCountdown];
     [self captureAndSaveImage];
 }
 
@@ -279,35 +268,6 @@
     NSDictionary *format = [[NSDictionary alloc] initWithObjectsAndKeys: AVVideoCodecTypeJPEG, AVVideoCodecKey, nil];
     AVCapturePhotoSettings *photoSettings = [AVCapturePhotoSettings photoSettingsWithFormat:format];
     return photoSettings;
-}
-
-- (void)captureAndSaveImage;
-{
-    AVCaptureConnection *videoConnection = nil;
-
-    for (AVCaptureConnection *connection in self.stillImageOutput.connections)
-    {
-        for (AVCaptureInputPort *inputPort in [connection inputPorts])
-        {
-            if ([inputPort.mediaType isEqual:AVMediaTypeVideo] )
-            {
-                videoConnection = connection;
-                break;
-            }
-        }
-        if(videoConnection)
-        {
-            break;
-        }
-    }
-
-    if(!videoConnection)
-    {
-        return;
-    }
-
-    [self flashScreen];
-    [self.stillImageOutput capturePhotoWithSettings:self.photoSettings delegate:self];
 }
 
 #pragma mark - CountdownViewControllerDelegate
@@ -368,30 +328,4 @@
     [self.avCaptureSession commitConfiguration];
 }
 
-#pragma mark - Validation
-- (BOOL)validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>)anItem;
-{
-    if(anItem.action == @selector(captureImage:))
-    {
-        return self.takingPicture == NO;
-    }
-
-    return YES;
-}
-
-#pragma mark - AVCapturePhotoCaptureDelegate
-- (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(NSError *)error;
-{
-    self.snapshotData = photo.fileDataRepresentation;
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-        NSString *filename = [NSUUID.UUID.UUIDString stringByAppendingPathExtension:@"jpg"];
-        NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
-        NSURL *url = [NSURL fileURLWithPath:path];
-        if([self.snapshotData writeToURL:url atomically:NO])
-        {
-            NSLog(@"Did write photo to: %@", url.path);
-        }
-    });
-
-}
 @end

@@ -26,6 +26,7 @@
 		D3EC8C7224CDD55900A69248 /* ContentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C7124CDD55900A69248 /* ContentVC.xib */; };
 		D3EC8C7724CDD67700A69248 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C7424CDD67700A69248 /* CameraViewController.xib */; };
 		D3EC8C7824CDD67700A69248 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C7624CDD67700A69248 /* CameraViewController.m */; };
+		D3F03E1B24CF99DA00214BAB /* CameraViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F03E1A24CF99DA00214BAB /* CameraViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		D3EC8C7424CDD67700A69248 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		D3EC8C7524CDD67700A69248 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		D3EC8C7624CDD67700A69248 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		D3F03E1A24CF99DA00214BAB /* CameraViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				D3EC8C7124CDD55900A69248 /* ContentVC.xib */,
 				D3EC8C7524CDD67700A69248 /* CameraViewController.h */,
 				D3EC8C7624CDD67700A69248 /* CameraViewController.m */,
+				D3F03E1A24CF99DA00214BAB /* CameraViewController+Extensions.swift */,
 				D3EC8C7424CDD67700A69248 /* CameraViewController.xib */,
 				D3EC8C6624CDD4E200A69248 /* Info.plist */,
 				D3EC8C6724CDD4E200A69248 /* Camera.entitlements */,
@@ -207,6 +210,7 @@
 				D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */,
 				D3EC8C7824CDD67700A69248 /* CameraViewController.m in Sources */,
 				D3EC8C7024CDD54700A69248 /* ContentVC.swift in Sources */,
+				D3F03E1B24CF99DA00214BAB /* CameraViewController+Extensions.swift in Sources */,
 				D3EC8C6E24CDD53C00A69248 /* AppController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
