@@ -4,13 +4,13 @@
 //https://nshipster.com/xcconfig/
 //TIP: run a build of your project with `-DAPI_TO_BE_DEPRECATED=10_14` in your CFLAGS. (Substitute 10_14 with your deploy target as needed.)
 //This gives you a preview of APIs that are soft deprecated and may be hard deprecated in the future, and many of them come with fix-its now.
-OTHER_CFLAGS = -DAPI_TO_BE_DEPRECATED=10_13
+OTHER_CFLAGS = -DAPI_TO_BE_DEPRECATED=10_15
 
 SDKROOT = macosx
 
 SWIFT_COMPILATION_MODE = wholemodule
 
-MACOSX_DEPLOYMENT_TARGET = 10.13
+MACOSX_DEPLOYMENT_TARGET = 10.15
 
 PRODUCT_NAME = $(TARGET_NAME)
 
@@ -20,7 +20,7 @@ INFOPLIST_FILE = $(PRODUCT_NAME)/Info.plist
 
 COMBINE_HIDPI_IMAGES = YES
 
-SWIFT_VERSION = 5.0
+SWIFT_VERSION = 5
 // FRAMEWORK_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/Frameworks
 
 // Code Signing Identity
