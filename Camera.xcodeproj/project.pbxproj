@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D3BB1B4E252638920092D58F /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BB1B50252638920092D58F /* CameraViewController.xib */; };
+		D3BB1B5925263B010092D58F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3BB1B5825263B010092D58F /* Localizable.strings */; };
 		D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */; };
 		D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C6124CDD4E200A69248 /* Assets.xcassets */; };
 		D3EC8C6524CDD4E200A69248 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C6324CDD4E200A69248 /* MainMenu.xib */; };
@@ -33,6 +34,7 @@
 		D3BB1B4F252638920092D58F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CameraViewController.xib; sourceTree = "<group>"; };
 		D3BB1B52252638A40092D58F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		D3BB1B56252639D20092D58F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/CameraViewController.strings; sourceTree = "<group>"; };
+		D3BB1B5825263B010092D58F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		D3EC8C5C24CDD4DF00A69248 /* Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3EC8C6124CDD4E200A69248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				D3EC8C6624CDD4E200A69248 /* Info.plist */,
 				D3EC8C6724CDD4E200A69248 /* Camera.entitlements */,
 				D3EC8C7324CDD67600A69248 /* Camera-Bridging-Header.h */,
+				D3BB1B5825263B010092D58F /* Localizable.strings */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3BB1B5925263B010092D58F /* Localizable.strings in Resources */,
 				D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */,
 				D3BB1B4E252638920092D58F /* CameraViewController.xib in Resources */,
 				D3EC8C7224CDD55900A69248 /* ContentVC.xib in Resources */,

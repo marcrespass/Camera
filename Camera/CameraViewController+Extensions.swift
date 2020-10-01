@@ -40,12 +40,26 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
 
         DispatchQueue.main.async {
             var url = URL(fileURLWithPath: NSTemporaryDirectory())
-            url.appendPathComponent(NSUUID().uuidString)
+            url.appendPathComponent("\(NSLocalizedString("Camera", comment: "")) - \(NSUUID().partialUUID())")
             url.appendPathExtension("jpg")
             if (try? data.write(to: url)) != nil {
-                print("Did write photo to: \(url.path)")
+                debugPrint("Did write photo to: \(url.path)")
+                NSWorkspace.shared.selectFile(url.path, inFileViewerRootedAtPath: "")
             }
         }
 
+    }
+}
+
+extension NSUUID {
+    func partialUUID() -> String {
+        let string = self.uuidString
+        let components = string.split { (c) -> Bool in
+            return c == "-"
+        }
+        if let last = components.last {
+            return String(last)
+        }
+        return ""
     }
 }

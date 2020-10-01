@@ -23,6 +23,7 @@ final class AppController {
 
     @objc func createNewWindow() {
         let window = NSWindow(contentViewController: self.contentVC)
+        window.title = NSLocalizedString("Camera", comment: "")
         let wc = NSWindowController(window: window)
         self.windowControllers.append(wc)
 

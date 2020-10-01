@@ -253,10 +253,6 @@
 }
 
 #pragma mark - Actions
-- (IBAction)cancel:(id)sender;
-{
-}
-
 - (IBAction)captureImage:(id)sender;
 {
     [self captureAndSaveImage];
@@ -265,7 +261,7 @@
 #pragma mark - Image Capture
 - (AVCapturePhotoSettings *)photoSettings;
 {
-    NSDictionary *format = [[NSDictionary alloc] initWithObjectsAndKeys: AVVideoCodecTypeJPEG, AVVideoCodecKey, nil];
+    NSDictionary *format = @{AVVideoCodecKey: AVVideoCodecTypeJPEG};
     AVCapturePhotoSettings *photoSettings = [AVCapturePhotoSettings photoSettingsWithFormat:format];
     return photoSettings;
 }
