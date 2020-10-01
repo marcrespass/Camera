@@ -3,7 +3,7 @@
 "47.title" = "OtherViews";
 
 /* Class = "NSMenuItem"; title = "Select camera"; ObjectID = "48"; */
-"48.title" = "Seleccionar una cámera";
+"48.title" = "Seleccionar una cámara";
 
 /* Class = "NSButton"; ibShadowedToolTip = "Take picture"; ObjectID = "51"; */
 "51.ibShadowedToolTip" = "Sacar una foto";

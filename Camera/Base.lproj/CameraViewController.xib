@@ -35,7 +35,7 @@
                                 <constraint firstAttribute="width" constant="37" id="Eaa-Lj-xco"/>
                                 <constraint firstAttribute="width" secondItem="51" secondAttribute="height" id="FMM-SF-55n"/>
                             </constraints>
-                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Camera" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="52">
+                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Camera" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="52">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -101,6 +101,6 @@
         </customView>
     </objects>
     <resources>
-        <image name="Camera" width="47" height="47"/>
+        <image name="Camera" width="55" height="55"/>
     </resources>
 </document>
