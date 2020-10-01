@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3545B42252680BF00E8432D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3545B44252680BF00E8432D /* InfoPlist.strings */; };
 		D3BB1B4E252638920092D58F /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BB1B50252638920092D58F /* CameraViewController.xib */; };
 		D3BB1B5925263B010092D58F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3BB1B5825263B010092D58F /* Localizable.strings */; };
 		D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */; };
@@ -23,6 +24,8 @@
 		D3545B312526790E00E8432D /* build-script */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "build-script"; sourceTree = "<group>"; };
 		D3545B322526790E00E8432D /* swiftlint-command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "swiftlint-command"; sourceTree = "<group>"; };
 		D3545B392526798500E8432D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		D3545B43252680BF00E8432D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D3545B45252680C000E8432D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D3A5A0CA24CE28000011668C /* App-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Release.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0CB24CE28000011668C /* Framework-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Framework-Debug.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0CC24CE28000011668C /* Tests-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Tests-Debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 				D3EC8C6724CDD4E200A69248 /* Camera.entitlements */,
 				D3EC8C7324CDD67600A69248 /* Camera-Bridging-Header.h */,
 				D3BB1B5825263B010092D58F /* Localizable.strings */,
+				D3545B44252680BF00E8432D /* InfoPlist.strings */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -194,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3BB1B5925263B010092D58F /* Localizable.strings in Resources */,
+				D3545B42252680BF00E8432D /* InfoPlist.strings in Resources */,
 				D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */,
 				D3BB1B4E252638920092D58F /* CameraViewController.xib in Resources */,
 				D3EC8C7224CDD55900A69248 /* ContentVC.xib in Resources */,
@@ -258,6 +263,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D3545B44252680BF00E8432D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3545B43252680BF00E8432D /* en */,
+				D3545B45252680C000E8432D /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		D3BB1B50252638920092D58F /* CameraViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3A5A0D224CE28000011668C /* App-Debug.xcconfig */;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = build;
 			};
 			name = Debug;
 		};
@@ -304,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3A5A0CA24CE28000011668C /* App-Release.xcconfig */;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = build;
 			};
 			name = Release;
 		};
