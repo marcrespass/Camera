@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -9,7 +10,6 @@
             <connections>
                 <outlet property="cameraControlView" destination="53" id="70"/>
                 <outlet property="cameraDisplayView" destination="14" id="69"/>
-                <outlet property="cancelButton" destination="Rnm-AV-uXZ" id="GPM-EO-fXe"/>
                 <outlet property="takePictureButton" destination="51" id="Mzp-2c-ibW"/>
                 <outlet property="view" destination="73" id="74"/>
             </connections>
@@ -29,7 +29,7 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="53" userLabel="cameraControlView">
                     <rect key="frame" x="20" y="20" width="371" height="47"/>
                     <subviews>
-                        <button verticalHuggingPriority="750" tag="2112" translatesAutoresizingMaskIntoConstraints="NO" id="51" userLabel="takePictureButton">
+                        <button toolTip="Take picture" verticalHuggingPriority="750" tag="2112" translatesAutoresizingMaskIntoConstraints="NO" id="51" userLabel="takePictureButton">
                             <rect key="frame" x="332" y="1" width="37" height="39"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="37" id="Eaa-Lj-xco"/>
@@ -52,53 +52,39 @@
                             </connections>
                         </button>
                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="45" userLabel="devicePopup">
-                            <rect key="frame" x="88" y="7" width="239" height="25"/>
-                            <popUpButtonCell key="cell" type="push" title="No device selected No device s" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="48" id="46">
+                            <rect key="frame" x="18" y="7" width="309" height="25"/>
+                            <popUpButtonCell key="cell" type="push" title="Select camera" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="48" id="46" userLabel="Camera menu">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
+                                <font key="font" metaFont="menu"/>
                                 <menu key="menu" title="OtherViews" id="47">
                                     <items>
-                                        <menuItem title="No device selected No device s" state="on" id="48"/>
+                                        <menuItem title="Select camera" state="on" id="48" userLabel="Select camera"/>
                                     </items>
                                 </menu>
                             </popUpButtonCell>
                             <connections>
-                                <binding destination="-2" name="selectedObject" keyPath="selectedVideoDevice" previousBinding="60" id="61"/>
-                                <binding destination="-2" name="content" keyPath="videoDevices" id="59">
+                                <binding destination="-2" name="contentValues" keyPath="videoDevices.localizedName" previousBinding="59" id="7Ut-fm-MHY">
                                     <dictionary key="options">
                                         <bool key="NSInsertsNullPlaceholder" value="YES"/>
+                                        <string key="NSNullPlaceholder">No camera selected</string>
                                     </dictionary>
                                 </binding>
-                                <binding destination="-2" name="contentValues" keyPath="videoDevices.localizedName" previousBinding="59" id="60">
+                                <binding destination="-2" name="selectedObject" keyPath="selectedVideoDevice" previousBinding="7Ut-fm-MHY" id="FBz-EA-4Yu"/>
+                                <binding destination="-2" name="content" keyPath="videoDevices" id="59">
                                     <dictionary key="options">
                                         <bool key="NSInsertsNullPlaceholder" value="YES"/>
                                     </dictionary>
                                 </binding>
                             </connections>
                         </popUpButton>
-                        <button horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="2111" translatesAutoresizingMaskIntoConstraints="NO" id="Rnm-AV-uXZ" userLabel="cancelButton">
-                            <rect key="frame" x="-6" y="3" width="94" height="32"/>
-                            <buttonCell key="cell" type="push" title="Cancelar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xuD-wo-A5T">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                                <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                            </buttonCell>
-                            <connections>
-                                <action selector="cancel:" target="-2" id="aqw-mr-i1Z"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="45" firstAttribute="firstBaseline" secondItem="Rnm-AV-uXZ" secondAttribute="firstBaseline" id="AKE-7g-Ou6"/>
-                        <constraint firstItem="Rnm-AV-uXZ" firstAttribute="leading" secondItem="53" secondAttribute="leading" id="KwL-qG-1bt"/>
                         <constraint firstAttribute="height" secondItem="51" secondAttribute="height" constant="10" id="Nme-3V-UEh"/>
                         <constraint firstItem="51" firstAttribute="centerY" secondItem="45" secondAttribute="centerY" id="VEZ-iu-z80"/>
                         <constraint firstAttribute="trailing" secondItem="51" secondAttribute="trailing" constant="2" id="dYC-UU-Y6b"/>
                         <constraint firstItem="51" firstAttribute="centerY" secondItem="53" secondAttribute="centerY" constant="3" id="faS-eA-Tdi"/>
                         <constraint firstItem="51" firstAttribute="leading" secondItem="45" secondAttribute="trailing" constant="8" symbolic="YES" id="gKN-xS-582"/>
-                        <constraint firstItem="45" firstAttribute="leading" secondItem="Rnm-AV-uXZ" secondAttribute="trailing" constant="8" symbolic="YES" id="hgD-xS-lb0"/>
+                        <constraint firstItem="45" firstAttribute="leading" secondItem="53" secondAttribute="leading" constant="20" symbolic="YES" id="iAI-UG-4cs"/>
                     </constraints>
                 </customView>
             </subviews>

@@ -1,0 +1,9 @@
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "47"; */
+"47.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Select camera"; ObjectID = "48"; */
+"48.title" = "Seleccionar una cámera";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "No camera selected"; ObjectID = "7Ut-fm-MHY"; */
+"7Ut-fm-MHY.ibShadowedIsNilPlaceholder" = "Ningúna cámara seleccionada";
