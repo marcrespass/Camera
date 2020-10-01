@@ -5,5 +5,8 @@
 /* Class = "NSMenuItem"; title = "Select camera"; ObjectID = "48"; */
 "48.title" = "Seleccionar una cámera";
 
+/* Class = "NSButton"; ibShadowedToolTip = "Take picture"; ObjectID = "51"; */
+"51.ibShadowedToolTip" = "Sacar una foto";
+
 /* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "No camera selected"; ObjectID = "7Ut-fm-MHY"; */
 "7Ut-fm-MHY.ibShadowedIsNilPlaceholder" = "Ningúna cámara seleccionada";
