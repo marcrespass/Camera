@@ -8,14 +8,10 @@ private extension Selector {
     static let appWindowWillClose = #selector(AppController.appWindowWillClose)
 }
 
-protocol SomeDelegate: class {
-    func executeSearch()
-}
-
 final class AppController {
 
     lazy var contentVC: ContentVC = {
-        let cvc = ContentVC(delegate: self)
+        let cvc = ContentVC()
         return cvc
     }()
 
@@ -24,6 +20,7 @@ final class AppController {
     @objc func createNewWindow() {
         let window = NSWindow(contentViewController: self.contentVC)
         window.title = NSLocalizedString("Camera", comment: "")
+        window.tabbingMode = .disallowed
         let wc = NSWindowController(window: window)
         self.windowControllers.append(wc)
 
@@ -40,13 +37,6 @@ extension AppController {
         guard let window = notification.object as? NSWindow else { return }
         NotificationCenter.default.removeObserver(self, name: NSWindow.willCloseNotification, object: window)
         self.windowControllers.removeAll { window == $0.window }
-    }
-
-}
-
-extension AppController: SomeDelegate {
-    func executeSearch() {
-        print("\(#function) not yet implemented")
     }
 
 }

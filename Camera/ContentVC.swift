@@ -10,8 +10,6 @@ import Cocoa
 fileprivate let myNibName = "ContentVC"
 
 class ContentVC: NSViewController {
-    weak var delegate: SomeDelegate?
-
     lazy var cameraVC: CameraViewController = {
         let it = CameraViewController()
         self.addChild(it)
@@ -20,8 +18,7 @@ class ContentVC: NSViewController {
 
     override var nibName: NSNib.Name? { NSNib.Name(myNibName) }
 
-    init(delegate: SomeDelegate) {
-        self.delegate = delegate
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
 
