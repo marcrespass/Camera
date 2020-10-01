@@ -7,7 +7,7 @@
 
 import Cocoa
 
-fileprivate let myNibName = "ContentVC"
+private let myNibName = "ContentVC"
 
 class ContentVC: NSViewController {
     lazy var cameraVC: CameraViewController = {
@@ -15,7 +15,7 @@ class ContentVC: NSViewController {
         self.addChild(it)
         return it
     }()
-
+    
     override var nibName: NSNib.Name? { NSNib.Name(myNibName) }
 
     init() {

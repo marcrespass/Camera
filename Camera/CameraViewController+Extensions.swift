@@ -13,13 +13,11 @@ import AVFoundation
     @objc func captureAndSaveImage() {
         var videoConnection: AVCaptureConnection?
         guard let imageOutput = self.stillImageOutput else { return }
-
+        
         for connection in imageOutput.connections {
-            for inputPort in connection.inputPorts {
-                if inputPort.mediaType == AVMediaType.video {
-                    videoConnection = connection
-                    break
-                }
+            for inputPort in connection.inputPorts where inputPort.mediaType == AVMediaType.video {
+                videoConnection = connection
+                break
             }
             if videoConnection != nil {
                 break

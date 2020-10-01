@@ -20,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3545B312526790E00E8432D /* build-script */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "build-script"; sourceTree = "<group>"; };
+		D3545B322526790E00E8432D /* swiftlint-command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "swiftlint-command"; sourceTree = "<group>"; };
+		D3545B392526798500E8432D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D3A5A0CA24CE28000011668C /* App-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Release.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0CB24CE28000011668C /* Framework-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Framework-Debug.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0CC24CE28000011668C /* Tests-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Tests-Debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3545B302526790E00E8432D /* Build-Phases */ = {
+			isa = PBXGroup;
+			children = (
+				D3545B312526790E00E8432D /* build-script */,
+				D3545B322526790E00E8432D /* swiftlint-command */,
+			);
+			path = "Build-Phases";
+			sourceTree = "<group>";
+		};
 		D3A5A0C924CE27F40011668C /* XCConfig */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +94,8 @@
 		D3EC8C5324CDD4DF00A69248 = {
 			isa = PBXGroup;
 			children = (
+				D3545B392526798500E8432D /* .swiftlint.yml */,
+				D3545B302526790E00E8432D /* Build-Phases */,
 				D3A5A0C924CE27F40011668C /* XCConfig */,
 				D3EC8C5E24CDD4DF00A69248 /* Camera */,
 				D3EC8C5D24CDD4DF00A69248 /* Products */,
@@ -124,6 +138,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3EC8C6A24CDD4E200A69248 /* Build configuration list for PBXNativeTarget "Camera" */;
 			buildPhases = (
+				D3545B362526792900E8432D /* SwiftLint */,
+				D3545B372526794000E8432D /* Build Script */,
 				D3EC8C5824CDD4DF00A69248 /* Sources */,
 				D3EC8C5924CDD4DF00A69248 /* Frameworks */,
 				D3EC8C5A24CDD4DF00A69248 /* Resources */,
@@ -186,6 +202,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D3545B362526792900E8432D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Build-Phases/swiftlint-command\n";
+		};
+		D3545B372526794000E8432D /* Build Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Build-Phases/build-script\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D3EC8C5824CDD4DF00A69248 /* Sources */ = {

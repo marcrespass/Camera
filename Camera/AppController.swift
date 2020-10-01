@@ -10,12 +10,8 @@ private extension Selector {
 
 final class AppController {
 
-    lazy var contentVC: ContentVC = {
-        let cvc = ContentVC()
-        return cvc
-    }()
-
-    var windowControllers: [NSWindowController] = []
+    let contentVC = ContentVC()
+    var windowControllers = [NSWindowController]()
 
     @objc func createNewWindow() {
         let window = NSWindow(contentViewController: self.contentVC)
@@ -27,7 +23,9 @@ final class AppController {
         wc.window?.center()
         wc.window?.makeKeyAndOrderFront(nil)
 
-        NotificationCenter.default.addObserver(self, selector: .appWindowWillClose, name: NSWindow.willCloseNotification, object: wc.window)
+        NotificationCenter.default.addObserver(self, selector: .appWindowWillClose,
+                                               name: NSWindow.willCloseNotification,
+                                               object: wc.window)
     }
 }
 
@@ -35,8 +33,9 @@ final class AppController {
 extension AppController {
     @objc func appWindowWillClose(notification: Notification) {
         guard let window = notification.object as? NSWindow else { return }
-        NotificationCenter.default.removeObserver(self, name: NSWindow.willCloseNotification, object: window)
+
+        NotificationCenter.default.removeObserver(self, name: NSWindow.willCloseNotification,
+                                                  object: window)
         self.windowControllers.removeAll { window == $0.window }
     }
-
 }

@@ -11,7 +11,6 @@ import Cocoa
 final class AppDelegate: NSObject {
     
     let appController = AppController()
-    @objc dynamic var finishedSetup = false
 
 }
 
@@ -22,9 +21,5 @@ extension AppDelegate: NSApplicationDelegate {
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         true
-    }
-    
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
     }
 }
