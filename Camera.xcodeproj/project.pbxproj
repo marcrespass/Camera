@@ -17,6 +17,7 @@
 		D3EC8C7024CDD54700A69248 /* ContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C6F24CDD54600A69248 /* ContentVC.swift */; };
 		D3EC8C7224CDD55900A69248 /* ContentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C7124CDD55900A69248 /* ContentVC.xib */; };
 		D3EC8C7824CDD67700A69248 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C7624CDD67700A69248 /* CameraViewController.m */; };
+		D3ED02AE252E477100D01BD8 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D3ED02AD252E477100D01BD8 /* Credits.rtf */; };
 		D3F03E1B24CF99DA00214BAB /* CameraViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F03E1A24CF99DA00214BAB /* CameraViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		D3EC8C7324CDD67600A69248 /* Camera-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Camera-Bridging-Header.h"; sourceTree = "<group>"; };
 		D3EC8C7524CDD67700A69248 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		D3EC8C7624CDD67700A69248 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		D3ED02AD252E477100D01BD8 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		D3F03E1A24CF99DA00214BAB /* CameraViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 				D3EC8C6624CDD4E200A69248 /* Info.plist */,
 				D3EC8C6724CDD4E200A69248 /* Camera.entitlements */,
 				D3EC8C7324CDD67600A69248 /* Camera-Bridging-Header.h */,
+				D3ED02AD252E477100D01BD8 /* Credits.rtf */,
 				D3BB1B5825263B010092D58F /* Localizable.strings */,
 				D3545B44252680BF00E8432D /* InfoPlist.strings */,
 			);
@@ -202,6 +205,7 @@
 				D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */,
 				D3BB1B4E252638920092D58F /* CameraViewController.xib in Resources */,
 				D3EC8C7224CDD55900A69248 /* ContentVC.xib in Resources */,
+				D3ED02AE252E477100D01BD8 /* Credits.rtf in Resources */,
 				D3EC8C6524CDD4E200A69248 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
