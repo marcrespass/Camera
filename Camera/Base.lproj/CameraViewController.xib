@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,7 +41,7 @@
                             </buttonCell>
                             <connections>
                                 <action selector="captureImage:" target="-2" id="58"/>
-                                <binding destination="-2" name="enabled" keyPath="self.videoDeviceInput" id="tiv-R4-fNJ">
+                                <binding destination="-2" name="enabled" keyPath="self.captureDeviceInput" id="jyz-yh-5j6">
                                     <dictionary key="options">
                                         <integer key="NSNoSelectionPlaceholder" value="0"/>
                                         <integer key="NSNotApplicablePlaceholder" value="0"/>
@@ -63,16 +63,16 @@
                                 </menu>
                             </popUpButtonCell>
                             <connections>
-                                <binding destination="-2" name="contentValues" keyPath="videoDevices.localizedName" previousBinding="59" id="7Ut-fm-MHY">
-                                    <dictionary key="options">
-                                        <bool key="NSInsertsNullPlaceholder" value="YES"/>
-                                        <string key="NSNullPlaceholder">No camera selected</string>
-                                    </dictionary>
-                                </binding>
                                 <binding destination="-2" name="selectedObject" keyPath="selectedVideoDevice" previousBinding="7Ut-fm-MHY" id="FBz-EA-4Yu"/>
                                 <binding destination="-2" name="content" keyPath="videoDevices" id="59">
                                     <dictionary key="options">
                                         <bool key="NSInsertsNullPlaceholder" value="YES"/>
+                                    </dictionary>
+                                </binding>
+                                <binding destination="-2" name="contentValues" keyPath="videoDevices.localizedName" previousBinding="59" id="7Ut-fm-MHY">
+                                    <dictionary key="options">
+                                        <bool key="NSInsertsNullPlaceholder" value="YES"/>
+                                        <string key="NSNullPlaceholder">No camera selected</string>
                                     </dictionary>
                                 </binding>
                             </connections>
