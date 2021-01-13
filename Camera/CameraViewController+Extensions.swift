@@ -14,9 +14,9 @@ import AVFoundation
         // get the stillImageOutput with a video connection
         guard let imageOutput = self.stillImageOutput, let connection = imageOutput.connection(with: .video) else { return }
 
-        connection.isVideoMirrored = true
-        let format = [AVVideoCodecKey: AVVideoCodecType.jpeg]
-        let capturePhotoSettings = AVCapturePhotoSettings(format: format) //  [AVCapturePhotoSettings photoSettingsWithFormat:format];
+        connection.isVideoMirrored = true // MER 2021-01-13 this is already set but just set it to be safe
+        let format = [AVVideoCodecKey: AVVideoCodecType.jpeg] // MER 2021-01-13 AVCapturePhotoSettings must be created new each time
+        let capturePhotoSettings = AVCapturePhotoSettings(format: format)
 
         self.flashScreen()
         imageOutput.capturePhoto(with: capturePhotoSettings, delegate: self)
