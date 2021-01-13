@@ -67,7 +67,6 @@
 - (void)setupAVCaptureSession;
 {
     self.avCaptureSession = [[AVCaptureSession alloc] init];
-
     self.stillImageOutput = [[AVCapturePhotoOutput alloc] init];
     [self.avCaptureSession addOutput:self.stillImageOutput];
 
@@ -94,8 +93,17 @@
     id didStartRunningObserver = [NSNotificationCenter.defaultCenter addObserverForName:AVCaptureSessionDidStartRunningNotification
                                                                                  object:self.avCaptureSession
                                                                                   queue:[NSOperationQueue mainQueue]
-                                                                             usingBlock:^(NSNotification *note) {
-        NSLog(@"did start running");
+                                                                             usingBlock:^(NSNotification *notification) {
+        AVCaptureSession *cs = notification.object;
+        if(![cs isKindOfClass:AVCaptureSession.class]) { return; }
+        for(AVCaptureConnection *connection in cs.connections)
+        {
+            if(connection.isVideoMirroringSupported)
+            {
+                connection.automaticallyAdjustsVideoMirroring = NO; // MER 2021-01-13 it's the second one and automaticallyAdjustsVideoMirroring==YES
+                connection.videoMirrored = YES;
+            }
+        }
     }];
     [self.observers addObject:didStartRunningObserver];
 
