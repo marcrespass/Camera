@@ -56,11 +56,12 @@
     cameraDisplayViewLayer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
 
     // Create the AVCaptureVideoPreviewLayer and add it as a sub layer of previewViewLayer which retains it
-    AVCaptureVideoPreviewLayer *newPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.avCaptureSession];
-    newPreviewLayer.frame = cameraDisplayViewLayer.bounds;
-    newPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    newPreviewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
-    [cameraDisplayViewLayer addSublayer:newPreviewLayer];
+    AVCaptureVideoPreviewLayer *videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.avCaptureSession];
+    videoPreviewLayer.frame = cameraDisplayViewLayer.bounds;
+    videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+    videoPreviewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;    
+
+    [cameraDisplayViewLayer addSublayer:videoPreviewLayer];
 }
 
 - (void)setupAVCaptureSession;
