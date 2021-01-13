@@ -8,11 +8,10 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface CameraViewController : NSViewController
 
-@property (nullable, nonatomic, readwrite, strong) NSData *snapshotData;
 @property (nullable, nonatomic, readwrite, strong) AVCapturePhotoOutput *stillImageOutput;
+@property (nonatomic, readwrite, strong) NSData *snapshotData;
 
 - (void)flashScreen;
-- (AVCapturePhotoSettings *)photoSettings;
 
 @end
 NS_ASSUME_NONNULL_END
