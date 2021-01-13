@@ -9,22 +9,14 @@
 
 @property (nonatomic, weak) IBOutlet NSView *cameraDisplayView;
 @property (nonatomic, weak) IBOutlet NSView *cameraControlView;
-
-#pragma mark Recording
-@property (nonatomic, readwrite, strong) AVCaptureSession *avCaptureSession;
-
-#pragma mark Device Selection
-@property (nonatomic, readwrite, strong) NSArray *videoDevices;
-@property (nonatomic, readwrite, weak) AVCaptureDevice *selectedVideoDevice; // derived
-
 @property (nonatomic, readwrite, weak) IBOutlet NSButton *cancelButton;
 @property (nonatomic, readwrite, weak) IBOutlet NSButton *takePictureButton;
-
+@property (nonatomic, readwrite, strong) AVCaptureSession *avCaptureSession;
+@property (nonatomic, readwrite, strong) NSArray *videoDevices;
 @property (nonatomic, readwrite, strong) NSMutableArray *observers;
-
-@property (nonatomic, readwrite, strong) AVCaptureDeviceInput *videoDeviceInput;
-
-@property (nonatomic, assign) BOOL takingPicture;
+@property (nonatomic, readwrite, strong) AVCaptureDeviceInput *captureDeviceInput;
+@property (nonatomic, readwrite, weak) AVCaptureDevice *selectedVideoDevice; // derived
+@property (nonatomic, readwrite, assign) BOOL takingPicture;
 
 //@property (nonatomic, readonly, strong) CountdownViewController *countdownViewController;
 
@@ -89,9 +81,9 @@
 {
     // Capture Notification Observers
     id runtimeErrorObserver = [NSNotificationCenter.defaultCenter addObserverForName:AVCaptureSessionRuntimeErrorNotification
-                                                              object:self.avCaptureSession
-                                                               queue:[NSOperationQueue mainQueue]
-                                                          usingBlock:^(NSNotification *note) {
+                                                                              object:self.avCaptureSession
+                                                                               queue:[NSOperationQueue mainQueue]
+                                                                          usingBlock:^(NSNotification *note) {
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             [self presentError:[[note userInfo] objectForKey:AVCaptureSessionErrorKey]];
         });
@@ -99,17 +91,17 @@
     [self.observers addObject:runtimeErrorObserver];
 
     id didStartRunningObserver = [NSNotificationCenter.defaultCenter addObserverForName:AVCaptureSessionDidStartRunningNotification
-                                                                 object:self.avCaptureSession
-                                                                  queue:[NSOperationQueue mainQueue]
-                                                             usingBlock:^(NSNotification *note) {
+                                                                                 object:self.avCaptureSession
+                                                                                  queue:[NSOperationQueue mainQueue]
+                                                                             usingBlock:^(NSNotification *note) {
         NSLog(@"did start running");
     }];
     [self.observers addObject:didStartRunningObserver];
 
     id didStopRunningObserver = [NSNotificationCenter.defaultCenter addObserverForName:AVCaptureSessionDidStopRunningNotification
-                                                                object:self.avCaptureSession
-                                                                 queue:[NSOperationQueue mainQueue]
-                                                            usingBlock:^(NSNotification *note) {
+                                                                                object:self.avCaptureSession
+                                                                                 queue:[NSOperationQueue mainQueue]
+                                                                            usingBlock:^(NSNotification *note) {
         NSLog(@"did stop running");
     }];
     [self.observers addObject:didStopRunningObserver];
@@ -118,18 +110,18 @@
 - (void)setupCaptureDeviceNotifications;
 {
     id deviceWasConnectedObserver = [NSNotificationCenter.defaultCenter addObserverForName:AVCaptureDeviceWasConnectedNotification
-                                                                    object:nil
-                                                                     queue:[NSOperationQueue mainQueue]
-                                                                usingBlock:^(NSNotification *note) {
+                                                                                    object:nil
+                                                                                     queue:[NSOperationQueue mainQueue]
+                                                                                usingBlock:^(NSNotification *note) {
         NSLog(@"AVCaptureDeviceWasConnectedNotification");
         [self refreshDevices];
     }];
     [self.observers addObject:deviceWasConnectedObserver];
 
     id deviceWasDisconnectedObserver = [NSNotificationCenter.defaultCenter addObserverForName:AVCaptureDeviceWasDisconnectedNotification
-                                                                       object:nil
-                                                                        queue:[NSOperationQueue mainQueue]
-                                                                   usingBlock:^(NSNotification *note) {
+                                                                                       object:nil
+                                                                                        queue:[NSOperationQueue mainQueue]
+                                                                                   usingBlock:^(NSNotification *note) {
         NSLog(@"AVCaptureDeviceWasDisconnectedNotification");
         [self refreshDevices];
     }];
@@ -149,7 +141,7 @@
     self.observers = nil;
 
     self.avCaptureSession = nil;
-    self.videoDeviceInput = nil;
+    self.captureDeviceInput = nil;
     self.videoDevices = nil;
     self.stillImageOutput = nil;
 
@@ -258,14 +250,6 @@
     [self captureAndSaveImage];
 }
 
-#pragma mark - Image Capture
-- (AVCapturePhotoSettings *)photoSettings;
-{
-    NSDictionary *format = @{AVVideoCodecKey: AVVideoCodecTypeJPEG};
-    AVCapturePhotoSettings *photoSettings = [AVCapturePhotoSettings photoSettingsWithFormat:format];
-    return photoSettings;
-}
-
 #pragma mark - CountdownViewControllerDelegate
 //- (void)countdownDidEnd:(CountdownViewController *)countdown;
 //{
@@ -286,17 +270,16 @@
 #pragma mark - Accessors
 - (AVCaptureDevice *)selectedVideoDevice
 {
-    return self.videoDeviceInput.device;
+    return self.captureDeviceInput.device;
 }
 
 - (void)setSelectedVideoDevice:(AVCaptureDevice *)selectedVideoDevice
 {
     [self.avCaptureSession beginConfiguration];
-
-    if(self.videoDeviceInput) // Remove the old device input from the session
+    if(self.captureDeviceInput) // Remove the old device input from the session
     {
-        [self.avCaptureSession removeInput:self.videoDeviceInput];
-        self.videoDeviceInput = nil;
+        [self.avCaptureSession removeInput:self.captureDeviceInput];
+        self.captureDeviceInput = nil;
     }
 
     if(selectedVideoDevice)
@@ -304,7 +287,7 @@
         NSError *error = nil;
         // Create a device input for the device and add it to the session
         AVCaptureDeviceInput *newVideoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:selectedVideoDevice error:&error];
-        if (newVideoDeviceInput == nil)
+        if (newVideoDeviceInput == nil && error != nil)
         {
             dispatch_async(dispatch_get_main_queue(), ^(void) {
                 [self presentError:error];
@@ -312,12 +295,9 @@
         }
         else
         {
-            if (![selectedVideoDevice supportsAVCaptureSessionPreset:[self.avCaptureSession sessionPreset]])
-            {
-                [self.avCaptureSession setSessionPreset:AVCaptureSessionPresetHigh];
-            }
+            self.avCaptureSession.sessionPreset = AVCaptureSessionPresetHigh;
             [self.avCaptureSession addInput:newVideoDeviceInput];
-            self.videoDeviceInput = newVideoDeviceInput;
+            self.captureDeviceInput = newVideoDeviceInput;
         }
     }
 
