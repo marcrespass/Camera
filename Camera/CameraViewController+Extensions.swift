@@ -10,23 +10,16 @@ import Cocoa
 import AVFoundation
 
 @objc extension CameraViewController {
-    @objc func captureAndSaveImage() {
-        var videoConnection: AVCaptureConnection?
-        guard let imageOutput = self.stillImageOutput else { return }
-        
-        for connection in imageOutput.connections {
-            for inputPort in connection.inputPorts where inputPort.mediaType == AVMediaType.video {
-                videoConnection = connection
-                break
-            }
-            if videoConnection != nil {
-                break
-            }
-        }
-        if videoConnection == nil { return }
-        self.flashScreen()
+    func captureAndSaveImage() {
+        // get the stillImageOutput with a video connection
+        guard let imageOutput = self.stillImageOutput, let connection = imageOutput.connection(with: .video) else { return }
 
-        imageOutput.capturePhoto(with: self.photoSettings(), delegate: self)
+        connection.isVideoMirrored = true
+        let format = [AVVideoCodecKey: AVVideoCodecType.jpeg]
+        let capturePhotoSettings = AVCapturePhotoSettings(format: format) //  [AVCapturePhotoSettings photoSettingsWithFormat:format];
+
+        self.flashScreen()
+        imageOutput.capturePhoto(with: capturePhotoSettings, delegate: self)
     }
 }
 
