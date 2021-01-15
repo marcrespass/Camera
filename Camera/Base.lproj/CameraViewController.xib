@@ -101,6 +101,6 @@
         </customView>
     </objects>
     <resources>
-        <image name="Camera" width="55" height="55"/>
+        <image name="Camera" width="51" height="51"/>
     </resources>
 </document>
