@@ -167,7 +167,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "ILIOS Inc.";
 				TargetAttributes = {
 					D3EC8C5B24CDD4DF00A69248 = {
