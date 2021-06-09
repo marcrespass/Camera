@@ -9,6 +9,8 @@
 import Cocoa
 import AVFoundation
 
+// https://www.appcoda.com/avfoundation-swift-guide/
+// https://www.sitepoint.com/use-avcapturephotooutputs-best-photo-features/
 @objc extension CameraViewController {
     func captureAndSaveImage() {
         // get the stillImageOutput with a video connection
