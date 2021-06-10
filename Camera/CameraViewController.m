@@ -75,18 +75,18 @@
 
 - (void)setupCameraPreviewLayer;
 {
-    // Get the layer from the view (which is set in IB to want a layer)
-    CALayer *cameraDisplayViewLayer = self.cameraDisplayView.layer;
-    [cameraDisplayViewLayer setBackgroundColor:CGColorGetConstantColor(kCGColorBlack)];
+    CALayer *viewLayer = self.cameraDisplayView.layer;
+
+    [viewLayer setBackgroundColor:CGColorGetConstantColor(kCGColorBlack)];
 
     // Create the AVCaptureVideoPreviewLayer and add it as a sub layer of previewViewLayer which retains it
-    AVCaptureVideoPreviewLayer *newPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.avCaptureSession];
-    newPreviewLayer.frame = cameraDisplayViewLayer.bounds;
-    newPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    [cameraDisplayViewLayer addSublayer:newPreviewLayer];
+    AVCaptureVideoPreviewLayer *videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.avCaptureSession];
+    videoPreviewLayer.frame = viewLayer.bounds;
+    videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+    [viewLayer addSublayer:videoPreviewLayer];
 
-    newPreviewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
-    cameraDisplayViewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
+    videoPreviewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
+    viewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
 
     [self refreshDevices];
 }
