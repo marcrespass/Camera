@@ -5,13 +5,8 @@
 @import Cocoa;
 @import AVFoundation;
 
-NS_ASSUME_NONNULL_BEGIN
-@interface CameraViewController : NSViewController
+#import "CountdownViewController.h"
 
-@property (nullable, nonatomic, readwrite, strong) AVCapturePhotoOutput *stillImageOutput;
-@property (nonatomic, readwrite, strong) NSData *snapshotData;
-
-- (void)flashScreen;
+@interface CameraViewController : NSViewController <CountdownViewControllerDelegate>
 
 @end
-NS_ASSUME_NONNULL_END

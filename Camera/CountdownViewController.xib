@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CountdownViewController">
+            <connections>
+                <outlet property="imageView1" destination="13" id="Irg-pa-RY8"/>
+                <outlet property="imageView2" destination="15" id="z2z-rl-4fh"/>
+                <outlet property="imageView3" destination="17" id="2Cf-3W-z6e"/>
+                <outlet property="imageViewCamera" destination="11" id="Olo-ov-Ift"/>
+                <outlet property="view" destination="3" id="21"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="3">
+            <rect key="frame" x="0.0" y="0.0" width="504" height="47"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GxE-XM-US9" userLabel="Background">
+                    <rect key="frame" x="0.0" y="0.0" width="504" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="47" id="fJB-uL-LlU"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="countdown-background" id="z58-aI-iav"/>
+                </imageView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="mM1-Zd-Fxj" userLabel="CountdownView">
+                    <rect key="frame" x="130" y="0.0" width="244" height="47"/>
+                    <subviews>
+                        <imageView tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="13" userLabel="1ImageView">
+                            <rect key="frame" x="0.0" y="1" width="61" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="61" id="9JO-7X-Lum"/>
+                                <constraint firstAttribute="height" constant="45" id="xf7-bp-YZn"/>
+                            </constraints>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="countdown-no1_dim" id="14"/>
+                        </imageView>
+                        <imageView tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="15" userLabel="2ImageView">
+                            <rect key="frame" x="61" y="1" width="61" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="61" id="R0E-wm-FdQ"/>
+                                <constraint firstAttribute="height" constant="45" id="kAX-IA-DFZ"/>
+                            </constraints>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="countdown-no2_dim" id="16"/>
+                        </imageView>
+                        <imageView tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="17" userLabel="3ImageView">
+                            <rect key="frame" x="122" y="1" width="61" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="61" id="T7G-CS-9ag"/>
+                                <constraint firstAttribute="height" constant="45" id="in7-VO-7rZ"/>
+                            </constraints>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="countdown-no3_dim" id="18"/>
+                        </imageView>
+                        <imageView toolTip="Take a photo" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="11" userLabel="CameraImageView">
+                            <rect key="frame" x="183" y="1" width="61" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="61" id="Eke-4P-2qZ"/>
+                                <constraint firstAttribute="height" constant="45" id="aij-Rg-KMK"/>
+                            </constraints>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="countdown-camera_dim" id="12"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="17" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="0rq-Ys-kXa"/>
+                        <constraint firstAttribute="height" constant="47" id="D2r-nx-fQL"/>
+                        <constraint firstItem="11" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="GEC-CI-1cR"/>
+                        <constraint firstItem="17" firstAttribute="leading" secondItem="15" secondAttribute="trailing" id="K83-Po-sHg"/>
+                        <constraint firstItem="15" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="Oqc-Jl-z7g"/>
+                        <constraint firstItem="11" firstAttribute="leading" secondItem="17" secondAttribute="trailing" id="Q18-LF-P0Y"/>
+                        <constraint firstItem="13" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="Qka-ja-5OK"/>
+                        <constraint firstAttribute="width" constant="244" id="SZP-Lu-NLo"/>
+                        <constraint firstItem="15" firstAttribute="leading" secondItem="13" secondAttribute="trailing" id="c7c-0m-A1E"/>
+                        <constraint firstItem="13" firstAttribute="leading" secondItem="mM1-Zd-Fxj" secondAttribute="leading" id="vrQ-lz-sYD"/>
+                    </constraints>
+                </customView>
+                <button toolTip="Cancel" translatesAutoresizingMaskIntoConstraints="NO" id="24" userLabel="CancelButton">
+                    <rect key="frame" x="8" y="8" width="31" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="wxI-Fk-2B6"/>
+                        <constraint firstAttribute="height" constant="31" id="zgt-Xr-Sbv"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="CircleX" imagePosition="only" alignment="center" alternateImage="CircleX-gray" imageScaling="proportionallyUpOrDown" inset="2" id="25">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                    </buttonCell>
+                    <connections>
+                        <action selector="cancel:" target="-2" id="26"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="mM1-Zd-Fxj" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="0N3-GA-66R"/>
+                <constraint firstItem="GxE-XM-US9" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="0rj-ER-pHv"/>
+                <constraint firstItem="mM1-Zd-Fxj" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="63i-ub-qkB"/>
+                <constraint firstAttribute="bottom" secondItem="GxE-XM-US9" secondAttribute="bottom" id="77I-Xa-F78"/>
+                <constraint firstItem="GxE-XM-US9" firstAttribute="top" secondItem="3" secondAttribute="top" id="jRW-eh-hLi"/>
+                <constraint firstAttribute="trailing" secondItem="GxE-XM-US9" secondAttribute="trailing" id="jw5-sx-VF6"/>
+                <constraint firstItem="24" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="k5Q-8X-DP1"/>
+                <constraint firstItem="24" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="8" id="kbE-rK-3OW"/>
+            </constraints>
+            <point key="canvasLocation" x="131" y="153.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="CircleX" width="44" height="44"/>
+        <image name="CircleX-gray" width="44" height="44"/>
+        <image name="countdown-background" width="1" height="61"/>
+        <image name="countdown-camera_dim" width="61" height="61"/>
+        <image name="countdown-no1_dim" width="61" height="61"/>
+        <image name="countdown-no2_dim" width="61" height="61"/>
+        <image name="countdown-no3_dim" width="61" height="61"/>
+    </resources>
+</document>
