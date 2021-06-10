@@ -27,10 +27,10 @@ class ContentVC: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.translatesAutoresizingMaskIntoConstraints = false
-
+//        self.view.translatesAutoresizingMaskIntoConstraints = false
+        self.cameraVC.view.frame = self.view.bounds
         self.view.addSubview(self.cameraVC.view)
-        self.constrainCurrentVCToEdges()
+//        self.constrainCurrentVCToEdges()
     }
     
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19115.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,18 +18,18 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="3">
-            <rect key="frame" x="0.0" y="0.0" width="504" height="47"/>
+            <rect key="frame" x="0.0" y="0.0" width="339" height="47"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GxE-XM-US9" userLabel="Background">
-                    <rect key="frame" x="0.0" y="0.0" width="504" height="47"/>
+                    <rect key="frame" x="0.0" y="0.0" width="339" height="47"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="47" id="fJB-uL-LlU"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="countdown-background" id="z58-aI-iav"/>
                 </imageView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="mM1-Zd-Fxj" userLabel="CountdownView">
-                    <rect key="frame" x="130" y="0.0" width="244" height="47"/>
+                    <rect key="frame" x="48" y="0.0" width="244" height="47"/>
                     <subviews>
                         <imageView tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="13" userLabel="1ImageView">
                             <rect key="frame" x="0.0" y="1" width="61" height="45"/>
@@ -104,7 +105,7 @@ Gw
                 <constraint firstItem="24" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="k5Q-8X-DP1"/>
                 <constraint firstItem="24" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="8" id="kbE-rK-3OW"/>
             </constraints>
-            <point key="canvasLocation" x="131" y="153.5"/>
+            <point key="canvasLocation" x="32.5" y="153.5"/>
         </customView>
     </objects>
     <resources>
