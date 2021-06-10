@@ -14,16 +14,11 @@ final class AppController {
     var window: NSWindow?
 
     @objc func createNewWindow() {
-        let frameDescriptor = UserDefaults.standard.value(forKey: "CameraWindowFrame") as? String
-
         let window = NSWindow(contentViewController: self.contentVC)
         window.title = NSLocalizedString("Camera", comment: "")
         window.tabbingMode = .disallowed
-
-        if let frameDescriptor = frameDescriptor {
-            window.setFrame(from: frameDescriptor)
-        }
-
+        window.setFrameAutosaveName("CameraWindowFrame")
+        window.contentMinSize = CGSize(width: 379, height: 278)
         window.makeKeyAndOrderFront(nil)
         self.window = window
 
