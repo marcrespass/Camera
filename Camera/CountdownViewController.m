@@ -53,13 +53,6 @@ NSInteger kMaxSeconds = 3;
     return @"CountdownViewController";
 }
 
-//- (void)awakeFromNib;
-//{
-//    NSImage *background = [NSImage imageNamed:@"countdown-background"];
-//    background.size =  NSMakeSize(self.view.bounds.size.width, self.view.bounds.size.height);
-//    [(DBBackgroundView *)self.view setBackgroundImage:background];
-//}
-
 - (void)resetCountdown;
 {
     self.imageViewCamera.image = [NSImage imageNamed:@"countdown-camera_dim"];
@@ -162,7 +155,7 @@ NSInteger kMaxSeconds = 3;
         return;
     }
 
-    endTimeCount++;
+    endTimeCount += 1;
 
     if(endTimeCount > kMaxSeconds)
     {
@@ -171,7 +164,6 @@ NSInteger kMaxSeconds = 3;
     }
 
     self.countdownAlertTime += 1;
-
     [self.audioAlertPlayer playAtTime:self.countdownAlertTime];
 }
 

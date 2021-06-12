@@ -6,39 +6,28 @@
 #define MERLog(fmt, ...) NSLog(@"%s " fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
 
 @interface CameraViewController ()
-@property (nonatomic, weak) IBOutlet NSView *cameraDisplayView;
-@property (nonatomic, weak) IBOutlet NSView *cameraControlView;
-
-#pragma mark Recording
-@property (nonatomic, readwrite, strong) AVCaptureSession *avCaptureSession;
-@property (nonatomic, readwrite, strong) NSData *snapshotData;
-@property (nonatomic, readonly, assign) BOOL hasRecordingDevice;
-
-#pragma mark Device Selection
-@property (nonatomic, readwrite, strong) NSArray *videoDevices;
-@property (nonatomic, readwrite, weak) AVCaptureDevice *selectedVideoDevice; // derived
-
-
-@property (nonatomic, readwrite, weak) IBOutlet NSButton *cancelButton;
+@property (nonatomic, readwrite, weak) IBOutlet NSView *cameraDisplayView;
+@property (nonatomic, readwrite, weak) IBOutlet NSView *cameraControlView;
 @property (nonatomic, readwrite, weak) IBOutlet NSButton *takePictureButton;
 
+@property (nonatomic, readwrite, strong) NSArray *videoDevices;
 @property (nonatomic, readwrite, strong) NSArray *observers;
-
+@property (nonatomic, readwrite, strong) NSData *snapshotData;
+@property (nonatomic, readwrite, strong) AVCaptureSession *avCaptureSession;
+@property (nonatomic, readwrite, weak) AVCaptureDevice *selectedVideoDevice; // derived
 @property (nonatomic, readwrite, strong) AVCaptureDeviceInput *captureDeviceInput;
+@property (nonatomic, readwrite, strong) CountdownViewController *countdownViewController;
+@property (nonatomic, readonly, assign) BOOL hasRecordingDevice;
+@property (nonatomic, readwrite, assign) BOOL takingPicture;
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @property (nonatomic, readwrite, strong) AVCaptureStillImageOutput *stillImageOutput;
 #pragma clang diagnostic pop
 
-@property (nonatomic, assign) BOOL takingPicture;
-
-@property (nonatomic, readwrite, strong) CountdownViewController *countdownViewController;
-
 @end
 
 @implementation CameraViewController
-
-@synthesize countdownViewController = countdownViewController_;
 
 #pragma mark - KVC/KVO
 + (NSSet *)keyPathsForValuesAffectingHasRecordingDevice
@@ -105,18 +94,18 @@
             [self presentError:[[note userInfo] objectForKey:AVCaptureSessionErrorKey]];
         });
     }];
-    id didStartRunningObserver = [notificationCenter addObserverForName:AVCaptureSessionDidStartRunningNotification
-                                                                 object:self.avCaptureSession
-                                                                  queue:[NSOperationQueue mainQueue]
-                                                             usingBlock:^(NSNotification *note) {
-        MERLog(@"did start running");
-    }];
-    id didStopRunningObserver = [notificationCenter addObserverForName:AVCaptureSessionDidStopRunningNotification
-                                                                object:self.avCaptureSession
-                                                                 queue:[NSOperationQueue mainQueue]
-                                                            usingBlock:^(NSNotification *note) {
-        MERLog(@"did stop running");
-    }];
+//    id didStartRunningObserver = [notificationCenter addObserverForName:AVCaptureSessionDidStartRunningNotification
+//                                                                 object:self.avCaptureSession
+//                                                                  queue:[NSOperationQueue mainQueue]
+//                                                             usingBlock:^(NSNotification *note) {
+//        MERLog(@"did start running");
+//    }];
+//    id didStopRunningObserver = [notificationCenter addObserverForName:AVCaptureSessionDidStopRunningNotification
+//                                                                object:self.avCaptureSession
+//                                                                 queue:[NSOperationQueue mainQueue]
+//                                                            usingBlock:^(NSNotification *note) {
+//        MERLog(@"did stop running");
+//    }];
     id deviceWasConnectedObserver = [notificationCenter addObserverForName:AVCaptureDeviceWasConnectedNotification
                                                                     object:nil
                                                                      queue:[NSOperationQueue mainQueue]
@@ -129,7 +118,7 @@
                                                                    usingBlock:^(NSNotification *note) {
         [self refreshDevices];
     }];
-    self.observers = [[NSArray alloc] initWithObjects:runtimeErrorObserver, didStartRunningObserver, didStopRunningObserver, deviceWasConnectedObserver, deviceWasDisconnectedObserver, nil];
+    self.observers = [[NSArray alloc] initWithObjects:runtimeErrorObserver, deviceWasConnectedObserver, deviceWasDisconnectedObserver, nil];
 
     // Setup output
 #pragma clang diagnostic push
@@ -182,9 +171,7 @@
     self.countdownViewController = [[CountdownViewController alloc] init];
     self.countdownViewController.delegate = self;
 
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-        [self setupAVCaptureSession];
-    });
+    [self setupAVCaptureSession];
 }
 
 #pragma mark - Device selection
@@ -210,86 +197,45 @@
 #pragma clang diagnostic pop
 
 #pragma mark - Camera Helpers
-- (void)savePicture;
-{
-    NSError *error = nil;
-
-    NSURL *url = [NSURL fileURLWithPathComponents:[NSArray arrayWithObjects:NSTemporaryDirectory(), @"photo.jpg", nil]];
-    if(![self.snapshotData writeToURL:url options:NSDataWritingAtomic error:&error])
-        [NSApp presentError:error];
-    else
-        MERLog(@"Picture written to:\n%@", url);
-}
-
 - (void)flashScreen;
 {
-    // Capture the main display
-    //    if (CGDisplayCapture( kCGDirectMainDisplay ) != kCGErrorSuccess)
-    //    {
-    //        MERLogError(@"Couldn't capture the main display!" );
-    //        return;
-    //    }
-
+#ifndef DEBUG
     int windowLevel = CGShieldingWindowLevel();
-
-    NSRect screenRect = [[NSScreen mainScreen] frame];
-
+    NSRect screenRect = NSScreen.mainScreen.frame;
     NSWindow *window = [[NSWindow alloc] initWithContentRect:screenRect
                                                    styleMask:NSWindowStyleMaskBorderless
                                                      backing:NSBackingStoreBuffered
                                                        defer:NO
                                                       screen:[NSScreen mainScreen]];
-    //    [window setReleasedWhenClosed:YES];
-
-    [window setLevel:windowLevel];
-
-    [window setBackgroundColor:NSColor.whiteColor];
+    window.level = windowLevel;
+    window.backgroundColor = NSColor.whiteColor;
     [window makeKeyAndOrderFront:nil];
-
-    [[window animator] setAlphaValue:0.0];
-
-    //    [window close];
-    //    if (CGDisplayRelease( kCGDirectMainDisplay ) != kCGErrorSuccess)
-    //    {
-    //        NSLog( @"Couldn't release the display(s)!" );
-    //        // Note: if you display an error dialog here, make sure you set
-    //        // its window level to the same one as the shield window level,
-    //        // or the user won't see anything.
-    //    }
+    [window.animator setAlphaValue:0.0];
+#endif
 }
 
 #pragma mark - Actions
-- (IBAction)cancel:(id)sender;
-{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-    [NSApp sendAction:@selector(dismissCameraView) to:nil from:self];
-#pragma clang diagnostic pop
-}
-
 - (IBAction)captureImage:(id)sender;
 {
-    NSView *countdownView = self.countdownViewController.view;
-    [countdownView setFrame:[self.cameraControlView frame]];
-
-    [self.cameraControlView setHidden:YES];
-    [self.view addSubview:countdownView positioned:NSWindowAbove relativeTo:nil];
-
     self.takingPicture = YES;
+
+    NSView *countdownView = self.countdownViewController.view;
+    countdownView.frame = self.cameraControlView.frame;
+    self.cameraControlView.hidden = YES;
+    [self.view addSubview:countdownView positioned:NSWindowAbove relativeTo:nil];
 
     [self.countdownViewController beginCountdown];
 }
 
 #pragma mark - Image Capture
-- (void)captureAndSaveImage;
+- (AVCaptureConnection *)captureConnection;
 {
     AVCaptureConnection *videoConnection = nil;
-
     for (AVCaptureConnection *connection in self.stillImageOutput.connections)
     {
-        for (AVCaptureInputPort *port in [connection inputPorts])
+        for (AVCaptureInputPort *port in connection.inputPorts)
         {
-            if ([[port mediaType] isEqual:AVMediaTypeVideo] )
+            if ([port.mediaType isEqual:AVMediaTypeVideo] )
             {
                 videoConnection = connection;
                 break;
@@ -301,34 +247,45 @@
         }
     }
 
-    if(!videoConnection)
-        return;
+    return videoConnection;
+}
 
-#ifndef DEBUG
+- (void)captureAndSaveImage;
+{
+    AVCaptureConnection *videoConnection = [self captureConnection];
+    if(!videoConnection)
+    {
+        return;
+    }
+
     [self flashScreen];
-#endif
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection
                                                        completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error)
      {
-        if (imageSampleBuffer != NULL)
-        {
-            self.snapshotData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
-            NSString *filename = NSUUID.UUID.UUIDString;
-            NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
-            NSURL *url = [NSURL fileURLWithPath:path];
-            NSError *writeError = nil;
-            if(![self.snapshotData writeToURL:url options:0 error:&writeError])
+        self.snapshotData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            self.takingPicture = NO;
+            if (imageSampleBuffer != NULL)
             {
-                MERLog(@"%@", writeError);
-                [NSApp presentError:writeError];
+                NSString *filename = NSUUID.UUID.UUIDString;
+                NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                NSError *writeError = nil;
+                if(![self.snapshotData writeToURL:url options:0 error:&writeError])
+                {
+                    MERLog(@"%@", writeError);
+                    [NSApp presentError:writeError];
+                }
+                else
+                {
+                    [NSWorkspace.sharedWorkspace openURL:url];
+                }
+                [self.view.window makeFirstResponder:self.view];
             }
-            else
-            {
-                [NSWorkspace.sharedWorkspace openURL:url];
-            }
-        }
+        });
     }];
 #pragma clang diagnostic pop
 }
@@ -345,9 +302,9 @@
 
 - (void)countdownWasCanceled:(CountdownViewController *)countdown;
 {
-    self.takingPicture = NO;
-
     [self.cameraControlView setHidden:NO];
+    self.takingPicture = NO;
+    [self.view.window makeFirstResponder:self.view];
 }
 
 #pragma mark - Accessors
