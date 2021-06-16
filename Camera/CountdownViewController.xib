@@ -3,15 +3,16 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19115.2"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CountdownViewController">
             <connections>
-                <outlet property="imageView1" destination="13" id="Irg-pa-RY8"/>
-                <outlet property="imageView2" destination="15" id="z2z-rl-4fh"/>
-                <outlet property="imageView3" destination="17" id="2Cf-3W-z6e"/>
-                <outlet property="imageViewCamera" destination="11" id="Olo-ov-Ift"/>
+                <outlet property="imageView1" destination="2HX-LG-3c1" id="3re-7V-agV"/>
+                <outlet property="imageView2" destination="Yrz-V3-Dt9" id="D5y-zv-VEV"/>
+                <outlet property="imageView3" destination="ANb-S2-YEk" id="zbk-mx-YzQ"/>
+                <outlet property="imageViewCamera" destination="IFe-jp-7GM" id="NUA-qL-9rt"/>
                 <outlet property="view" destination="3" id="21"/>
             </connections>
         </customObject>
@@ -29,63 +30,104 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="countdown-background" id="z58-aI-iav"/>
                 </imageView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="mM1-Zd-Fxj" userLabel="CountdownView">
-                    <rect key="frame" x="48" y="0.0" width="244" height="47"/>
+                    <rect key="frame" x="77" y="0.0" width="185" height="47"/>
                     <subviews>
-                        <imageView tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="13" userLabel="1ImageView">
-                            <rect key="frame" x="0.0" y="1" width="61" height="45"/>
+                        <button toolTip="Cancel" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2HX-LG-3c1" userLabel="ImageView-1">
+                            <rect key="frame" x="0.0" y="-4" width="47" height="55"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="61" id="9JO-7X-Lum"/>
-                                <constraint firstAttribute="height" constant="45" id="xf7-bp-YZn"/>
+                                <constraint firstAttribute="height" constant="47" id="4Zp-Wf-nfp"/>
+                                <constraint firstAttribute="width" constant="47" id="UG2-N3-5vV"/>
                             </constraints>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="countdown-no1_dim" id="14"/>
-                        </imageView>
-                        <imageView tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="15" userLabel="2ImageView">
-                            <rect key="frame" x="61" y="1" width="61" height="45"/>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="aAT-2V-avh">
+                                <behavior key="behavior" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <imageReference key="image" image="1.square" catalog="system" symbolScale="large"/>
+                                <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                            </buttonCell>
+                            <connections>
+                                <action selector="cancel:" target="-2" id="ZZr-zT-a2w"/>
+                            </connections>
+                        </button>
+                        <button toolTip="Cancel" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yrz-V3-Dt9" userLabel="ImageView-2">
+                            <rect key="frame" x="46" y="-4" width="47" height="55"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="61" id="R0E-wm-FdQ"/>
-                                <constraint firstAttribute="height" constant="45" id="kAX-IA-DFZ"/>
+                                <constraint firstAttribute="height" constant="47" id="ja4-fp-jRI"/>
+                                <constraint firstAttribute="width" constant="47" id="xoF-Ha-JUj"/>
                             </constraints>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="countdown-no2_dim" id="16"/>
-                        </imageView>
-                        <imageView tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="17" userLabel="3ImageView">
-                            <rect key="frame" x="122" y="1" width="61" height="45"/>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="m05-KB-MZk">
+                                <behavior key="behavior" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <imageReference key="image" image="2.square" catalog="system" symbolScale="large"/>
+                                <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                            </buttonCell>
+                            <connections>
+                                <action selector="cancel:" target="-2" id="UGZ-rm-0rw"/>
+                            </connections>
+                        </button>
+                        <button toolTip="Cancel" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-S2-YEk" userLabel="ImageView-3">
+                            <rect key="frame" x="92" y="-4" width="47" height="55"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="61" id="T7G-CS-9ag"/>
-                                <constraint firstAttribute="height" constant="45" id="in7-VO-7rZ"/>
+                                <constraint firstAttribute="width" constant="47" id="OHC-p9-6fB"/>
+                                <constraint firstAttribute="height" constant="47" id="wgS-Oc-fEv"/>
                             </constraints>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="countdown-no3_dim" id="18"/>
-                        </imageView>
-                        <imageView toolTip="Take a photo" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="11" userLabel="CameraImageView">
-                            <rect key="frame" x="183" y="1" width="61" height="45"/>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="8YP-CC-Gdu">
+                                <behavior key="behavior" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <imageReference key="image" image="3.square" catalog="system" symbolScale="large"/>
+                                <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                            </buttonCell>
+                            <connections>
+                                <action selector="cancel:" target="-2" id="hcV-ac-1oF"/>
+                            </connections>
+                        </button>
+                        <button toolTip="Cancel" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IFe-jp-7GM" userLabel="ImageView-camera">
+                            <rect key="frame" x="138" y="-4.5" width="47" height="57"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="61" id="Eke-4P-2qZ"/>
-                                <constraint firstAttribute="height" constant="45" id="aij-Rg-KMK"/>
+                                <constraint firstAttribute="height" constant="47" id="7QY-Sf-p81"/>
+                                <constraint firstAttribute="width" constant="47" id="Dyh-rT-w8W"/>
                             </constraints>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="countdown-camera_dim" id="12"/>
-                        </imageView>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="1Jf-Ii-a1Q">
+                                <behavior key="behavior" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <imageReference key="image" image="camera.circle" catalog="system" symbolScale="large"/>
+                                <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                            </buttonCell>
+                            <connections>
+                                <action selector="cancel:" target="-2" id="g4m-HT-NnO"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="17" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="0rq-Ys-kXa"/>
+                        <constraint firstItem="Yrz-V3-Dt9" firstAttribute="leading" secondItem="2HX-LG-3c1" secondAttribute="trailing" constant="-1" id="9Pt-Ah-ID0"/>
+                        <constraint firstItem="IFe-jp-7GM" firstAttribute="leading" secondItem="ANb-S2-YEk" secondAttribute="trailing" constant="-1" id="ADk-2k-EGk"/>
                         <constraint firstAttribute="height" constant="47" id="D2r-nx-fQL"/>
-                        <constraint firstItem="11" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="GEC-CI-1cR"/>
-                        <constraint firstItem="17" firstAttribute="leading" secondItem="15" secondAttribute="trailing" id="K83-Po-sHg"/>
-                        <constraint firstItem="15" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="Oqc-Jl-z7g"/>
-                        <constraint firstItem="11" firstAttribute="leading" secondItem="17" secondAttribute="trailing" id="Q18-LF-P0Y"/>
-                        <constraint firstItem="13" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="Qka-ja-5OK"/>
-                        <constraint firstAttribute="width" constant="244" id="SZP-Lu-NLo"/>
-                        <constraint firstItem="15" firstAttribute="leading" secondItem="13" secondAttribute="trailing" id="c7c-0m-A1E"/>
-                        <constraint firstItem="13" firstAttribute="leading" secondItem="mM1-Zd-Fxj" secondAttribute="leading" id="vrQ-lz-sYD"/>
+                        <constraint firstItem="2HX-LG-3c1" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="Dee-jw-PIY"/>
+                        <constraint firstItem="IFe-jp-7GM" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="Dwm-2X-2WX"/>
+                        <constraint firstItem="ANb-S2-YEk" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="UYz-q5-JD4"/>
+                        <constraint firstItem="Yrz-V3-Dt9" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="bS7-ad-uaR"/>
+                        <constraint firstAttribute="trailing" secondItem="IFe-jp-7GM" secondAttribute="trailing" id="lHC-wj-D65"/>
+                        <constraint firstItem="ANb-S2-YEk" firstAttribute="leading" secondItem="Yrz-V3-Dt9" secondAttribute="trailing" constant="-1" id="t3V-Rw-wZ7"/>
+                        <constraint firstItem="2HX-LG-3c1" firstAttribute="leading" secondItem="mM1-Zd-Fxj" secondAttribute="leading" id="vhw-VE-chC"/>
                     </constraints>
                 </customView>
-                <button toolTip="Cancel" translatesAutoresizingMaskIntoConstraints="NO" id="24" userLabel="CancelButton">
-                    <rect key="frame" x="8" y="8" width="31" height="31"/>
+                <button toolTip="Cancel" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24" userLabel="CancelButton">
+                    <rect key="frame" x="8" y="3.5" width="31" height="35.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="31" id="wxI-Fk-2B6"/>
                         <constraint firstAttribute="height" constant="31" id="zgt-Xr-Sbv"/>
                     </constraints>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="CircleX" imagePosition="only" alignment="center" alternateImage="CircleX-gray" imageScaling="proportionallyUpOrDown" inset="2" id="25">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" alternateImage="CircleX-gray" imageScaling="proportionallyUpOrDown" inset="2" id="25">
                         <behavior key="behavior" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
+                        <imageReference key="image" image="x.circle" catalog="system" symbolScale="large"/>
                         <string key="keyEquivalent" base64-UTF8="YES">
 Gw
 </string>
@@ -105,16 +147,16 @@ Gw
                 <constraint firstItem="24" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="k5Q-8X-DP1"/>
                 <constraint firstItem="24" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="8" id="kbE-rK-3OW"/>
             </constraints>
-            <point key="canvasLocation" x="32.5" y="153.5"/>
+            <point key="canvasLocation" x="32.5" y="80"/>
         </customView>
     </objects>
     <resources>
-        <image name="CircleX" width="44" height="44"/>
+        <image name="1.square" catalog="system" width="18" height="17"/>
+        <image name="2.square" catalog="system" width="18" height="17"/>
+        <image name="3.square" catalog="system" width="18" height="17"/>
         <image name="CircleX-gray" width="44" height="44"/>
+        <image name="camera.circle" catalog="system" width="19" height="19"/>
         <image name="countdown-background" width="1" height="61"/>
-        <image name="countdown-camera_dim" width="61" height="61"/>
-        <image name="countdown-no1_dim" width="61" height="61"/>
-        <image name="countdown-no2_dim" width="61" height="61"/>
-        <image name="countdown-no3_dim" width="61" height="61"/>
+        <image name="x.circle" catalog="system" width="19" height="19"/>
     </resources>
 </document>

@@ -11,32 +11,31 @@
 NSInteger kMaxSeconds = 3;
 
 @interface CountdownViewController()
-@property (nonatomic, readwrite, weak) IBOutlet NSImageView *imageView1;
-@property (nonatomic, readwrite, weak) IBOutlet NSImageView *imageView2;
-@property (nonatomic, readwrite, weak) IBOutlet NSImageView *imageView3;
-@property (nonatomic, readwrite, weak) IBOutlet NSImageView *imageViewCamera;
+@property (nonatomic, readwrite, weak) IBOutlet NSButton *imageView1;
+@property (nonatomic, readwrite, weak) IBOutlet NSButton *imageView2;
+@property (nonatomic, readwrite, weak) IBOutlet NSButton *imageView3;
+@property (nonatomic, readwrite, weak) IBOutlet NSButton *imageViewCamera;
 
 @property (nonatomic, assign) NSTimeInterval currentTimerInterval;
 @property (nonatomic, assign) NSInteger currentCountdownSeconds;
 @property (nonatomic, assign, getter = isTimerRunning) BOOL timerRunning;
 @property (nonatomic, assign) NSTimeInterval countdownAlertTime;
+@property (nonatomic, assign) NSTimeInterval countdownStartTime;
+@property (nonatomic, assign) NSTimeInterval countdownStopTime;
 
 @property (nonatomic, readwrite, strong) AVAudioPlayer *audioAlertPlayer;
+@property (nonatomic, readwrite, strong) NSArray *imageNames;
+@property (nonatomic, readwrite, strong) NSTimer *timer;
 
 @end
 
 @implementation CountdownViewController
-{
-    // IVARS
-    NSTimer *timer_;
-    NSTimeInterval start_;
-    NSTimeInterval stop_;
-}
 
 - (id)init;
 {
     if(self = [super initWithNibName:nil bundle:nil])
     {
+        _imageNames = @[@"1.square", @"2.square", @"3.square", @"camera.circle"];
         return self;
     }
     return nil;
@@ -44,8 +43,8 @@ NSInteger kMaxSeconds = 3;
 
 - (void)dealloc;
 {
-    [timer_ invalidate];
-    timer_ = nil;
+    [_timer invalidate];
+    _timer = nil;
 }
 
 - (NSString *)nibName;
@@ -53,42 +52,47 @@ NSInteger kMaxSeconds = 3;
     return @"CountdownViewController";
 }
 
+- (void)viewDidLoad;
+{
+    [super viewDidLoad];
+    [self resetCountdown];
+}
+
 - (void)resetCountdown;
 {
-    self.imageViewCamera.image = [NSImage imageNamed:@"countdown-camera_dim"];
-    self.imageView1.image = [NSImage imageNamed:@"countdown-no1_dim"];
-    self.imageView2.image = [NSImage imageNamed:@"countdown-no2_dim"];
-    self.imageView3.image = [NSImage imageNamed:@"countdown-no3_dim"];
+    self.imageView1.image = [NSImage imageWithSystemSymbolName:self.imageNames[0] accessibilityDescription:@"1"];
+    self.imageView2.image = [NSImage imageWithSystemSymbolName:self.imageNames[1] accessibilityDescription:@"2"];
+    self.imageView3.image = [NSImage imageWithSystemSymbolName:self.imageNames[2] accessibilityDescription:@"3"];
+    self.imageViewCamera.image = [NSImage imageWithSystemSymbolName:self.imageNames[3] accessibilityDescription:@"take picture"];
 }
 
 - (void)countdown:(NSTimer *)timer;
 {
     NSTimeInterval now = NSDate.timeIntervalSinceReferenceDate;
-    self.currentTimerInterval = now - start_;
+    self.currentTimerInterval = now - self.countdownStartTime;
 
     NSInteger seconds = (NSInteger)self.currentTimerInterval % 60;
 
     if(seconds > self.currentCountdownSeconds && seconds < (kMaxSeconds + 1))
     {
         self.currentCountdownSeconds = seconds;
-
-        NSString *imageName = [NSString stringWithFormat:@"countdown-no%ld", self.currentCountdownSeconds];
+        NSUInteger imageIndex = (NSUInteger)seconds - 1;
+        NSString *imageName = self.imageNames[imageIndex];
+        NSString *fillImageName = [NSString stringWithFormat:@"%@.fill", imageName];
         NSString *propertyName = [NSString stringWithFormat:@"imageView%ld", self.currentCountdownSeconds];
 
-        NSImageView *iv = [self valueForKey:propertyName];
-        [iv setImage:[NSImage imageNamed:imageName]];
+        NSButton *iv = [self valueForKey:propertyName];
+        [iv setImage:[NSImage imageWithSystemSymbolName:fillImageName accessibilityDescription:@"1"]];
     }
 
     if(self.currentTimerInterval >= (kMaxSeconds + 1))
     {
-        self.imageViewCamera.image = [NSImage imageNamed:@"countdown-camera"];
-
         NSURL *beepURL = [NSBundle.mainBundle URLForResource:@"Camera" withExtension:@"wav"];
         self.audioAlertPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:beepURL error:nil];
         [self.audioAlertPlayer play];
 
-        [timer_ invalidate];
-        timer_ = nil;
+        [self.timer invalidate];
+        self.timer = nil;
 
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.delegate countdownDidEnd:self];
@@ -120,13 +124,13 @@ NSInteger kMaxSeconds = 3;
 
     self.timerRunning = YES;
 
-    start_ = [NSDate timeIntervalSinceReferenceDate];
-    stop_ = start_ + kMaxSeconds;
+    self.countdownStartTime = [NSDate timeIntervalSinceReferenceDate];
+    self.countdownStopTime = self.countdownStartTime + kMaxSeconds;
     self.currentCountdownSeconds = 0;
 
     // Invalidate just in case someone triggers this method twice with no intervening stopStopwatch: call.
-    [timer_ invalidate];
-    timer_ = [NSTimer scheduledTimerWithTimeInterval:0.1
+    [self.timer invalidate];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1
                                               target:self
                                             selector:@selector(countdown:)
                                             userInfo:NULL
@@ -139,8 +143,8 @@ NSInteger kMaxSeconds = 3;
     self.timerRunning = NO;
     [self.audioAlertPlayer stop];
 
-    [timer_ invalidate];
-    timer_ = nil;
+    [self.timer invalidate];
+    self.timer = nil;
     [self.view removeFromSuperview];
     [self.delegate countdownWasCanceled:self];
 }

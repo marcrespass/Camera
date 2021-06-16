@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19115.2"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,11 +30,12 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button toolTip="Take picture" verticalHuggingPriority="750" fixedFrame="YES" tag="2112" translatesAutoresizingMaskIntoConstraints="NO" id="51" userLabel="takePictureButton">
-                            <rect key="frame" x="302" y="4" width="37" height="39"/>
+                            <rect key="frame" x="302" y="2" width="37" height="43"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Camera" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="52">
+                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="52">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
+                                <imageReference key="image" image="camera.circle.fill" catalog="system" symbolScale="default"/>
                             </buttonCell>
                             <connections>
                                 <action selector="captureImage:" target="-2" id="58"/>
@@ -81,6 +83,6 @@
         </customView>
     </objects>
     <resources>
-        <image name="Camera" width="55" height="55"/>
+        <image name="camera.circle.fill" catalog="system" width="15" height="15"/>
     </resources>
 </document>
