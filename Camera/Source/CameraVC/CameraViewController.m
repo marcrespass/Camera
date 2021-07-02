@@ -127,7 +127,7 @@
         self.capturePhotoOutput = photoOutput;
     }
     self.capturePhotoOutput = photoOutput;
-    
+
     AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     if (videoDevice)
     {
@@ -227,6 +227,7 @@
     self.countdownViewController.view.frame = self.cameraControlView.frame;
     self.cameraControlView.hidden = YES;
     [self.view addSubview:self.countdownViewController.view positioned:NSWindowAbove relativeTo:nil];
+    [self.view.window recalculateKeyViewLoop];
 
     [self.countdownViewController beginCountdown];
 }
@@ -271,6 +272,7 @@
 {
     [self captureAndSaveImage];
     [countdown.view removeFromSuperview];
+    [self.view.window recalculateKeyViewLoop];
 
     [self.cameraControlView setHidden:NO];
 }
