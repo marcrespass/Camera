@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19115.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19115.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,12 +78,12 @@
                     </constraints>
                 </customView>
                 <button toolTip="Cancel" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24" userLabel="CancelButton">
-                    <rect key="frame" x="8" y="3.5" width="31" height="35.5"/>
+                    <rect key="frame" x="8" y="3.5" width="31" height="41"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="31" id="wxI-Fk-2B6"/>
                         <constraint firstAttribute="height" constant="31" id="zgt-Xr-Sbv"/>
                     </constraints>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" alternateImage="CircleX-gray" imageScaling="proportionallyUpOrDown" inset="2" id="25">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="25">
                         <behavior key="behavior" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                         <imageReference key="image" image="x.circle" catalog="system" symbolScale="large"/>
@@ -114,7 +113,6 @@ Gw
         <image name="1.square" catalog="system" width="15" height="14"/>
         <image name="2.square" catalog="system" width="15" height="14"/>
         <image name="3.square" catalog="system" width="15" height="14"/>
-        <image name="CircleX-gray" width="44" height="44"/>
         <image name="camera.circle" catalog="system" width="15" height="15"/>
         <image name="countdown-background" width="1" height="61"/>
         <image name="x.circle" catalog="system" width="19" height="19"/>

@@ -7,9 +7,6 @@
 
 #import "CountdownViewController.h"
 
-@interface CameraViewController : NSViewController <CountdownViewControllerDelegate>
-
-@property (nonatomic, readwrite, strong) AVCapturePhotoOutput *photoOutput;
-@property (nonatomic) dispatch_queue_t sessionQueue;
+@interface CameraViewController : NSViewController <CountdownViewControllerDelegate, AVCapturePhotoCaptureDelegate>
 
 @end

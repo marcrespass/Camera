@@ -3,27 +3,41 @@
 //
 
 #import "CameraViewController.h"
+
 #define MERLog(fmt, ...) NSLog(@"%s " fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
+
+// MER 2021-07-01 Taken from Apple's sample code
+@implementation AVCaptureDeviceDiscoverySession (Utilities)
+
+- (NSUInteger)uniqueDevicePositionsCount
+{
+    NSMutableArray<NSNumber* >* uniqueDevicePositions = [NSMutableArray array];
+
+    for (AVCaptureDevice* device in self.devices) {
+        if (![uniqueDevicePositions containsObject:@(device.position)]) {
+            [uniqueDevicePositions addObject:@(device.position)];
+        }
+    }
+
+    return uniqueDevicePositions.count;
+}
+
+@end
 
 @interface CameraViewController ()
 @property (nonatomic, readwrite, weak) IBOutlet NSView *cameraDisplayView;
 @property (nonatomic, readwrite, weak) IBOutlet NSView *cameraControlView;
 @property (nonatomic, readwrite, weak) IBOutlet NSButton *takePictureButton;
-
-@property (nonatomic, readwrite, strong) NSArray *videoDevices;
-@property (nonatomic, readwrite, strong) NSArray *observers;
-@property (nonatomic, readwrite, strong) NSData *snapshotData;
-@property (nonatomic, readwrite, strong) AVCaptureSession *avCaptureSession;
-@property (nonatomic, readwrite, weak) AVCaptureDevice *selectedVideoDevice; // derived
-@property (nonatomic, readwrite, strong) AVCaptureDeviceInput *captureDeviceInput;
-@property (nonatomic, readwrite, strong) CountdownViewController *countdownViewController;
 @property (nonatomic, readonly, assign) BOOL hasRecordingDevice;
 @property (nonatomic, readwrite, assign) BOOL takingPicture;
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-@property (nonatomic, readwrite, strong) AVCaptureStillImageOutput *stillImageOutput;
-#pragma clang diagnostic pop
+@property (nonatomic, readwrite, strong) AVCaptureDeviceDiscoverySession* videoDeviceDiscoverySession;
+@property (nonatomic, readwrite, strong) AVCaptureDeviceInput *captureDeviceInput;
+@property (nonatomic, readwrite, strong) AVCapturePhotoOutput *capturePhotoOutput;
+@property (nonatomic, readwrite, strong) AVCaptureSession *captureSession;
+@property (nonatomic, readwrite, strong) CountdownViewController *countdownViewController;
+@property (nonatomic, readwrite, strong) NSArray *observers;
+@property (nonatomic, readwrite, strong) NSArray *videoDevices;
+@property (nonatomic, readwrite, strong) dispatch_queue_t sessionQueue;
 
 @end
 
@@ -42,8 +56,6 @@
     {
         // Communicate with the session and other session objects on this queue.
         _sessionQueue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL);
-        _photoOutput = [[AVCapturePhotoOutput alloc] init];
-
         return self;
     }
 
@@ -68,48 +80,29 @@
 
 - (void)setupCameraPreviewLayer;
 {
-    CALayer *viewLayer = self.cameraDisplayView.layer;
-
-    [viewLayer setBackgroundColor:CGColorGetConstantColor(kCGColorBlack)];
+    [self.cameraDisplayView.layer setBackgroundColor:CGColorGetConstantColor(kCGColorBlack)];
 
     // Create the AVCaptureVideoPreviewLayer and add it as a sub layer of previewViewLayer which retains it
-    AVCaptureVideoPreviewLayer *videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.avCaptureSession];
-    videoPreviewLayer.frame = viewLayer.bounds;
+    AVCaptureVideoPreviewLayer *videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
+    videoPreviewLayer.frame = self.cameraDisplayView.layer.bounds;
     videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    [viewLayer addSublayer:videoPreviewLayer];
+    [self.cameraDisplayView.layer addSublayer:videoPreviewLayer];
 
     videoPreviewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
-    viewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
-
-    [self refreshDevices];
+    self.cameraDisplayView.layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
 }
 
-- (void)setupAVCaptureSession;
+- (void)setupObservers;
 {
-    self.avCaptureSession = [[AVCaptureSession alloc] init];
-
-    // Capture Notification Observers
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     id runtimeErrorObserver = [notificationCenter addObserverForName:AVCaptureSessionRuntimeErrorNotification
-                                                              object:self.avCaptureSession
+                                                              object:self.captureSession
                                                                queue:[NSOperationQueue mainQueue]
                                                           usingBlock:^(NSNotification *note) {
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             [self presentError:[[note userInfo] objectForKey:AVCaptureSessionErrorKey]];
         });
     }];
-//    id didStartRunningObserver = [notificationCenter addObserverForName:AVCaptureSessionDidStartRunningNotification
-//                                                                 object:self.avCaptureSession
-//                                                                  queue:[NSOperationQueue mainQueue]
-//                                                             usingBlock:^(NSNotification *note) {
-//        MERLog(@"did start running");
-//    }];
-//    id didStopRunningObserver = [notificationCenter addObserverForName:AVCaptureSessionDidStopRunningNotification
-//                                                                object:self.avCaptureSession
-//                                                                 queue:[NSOperationQueue mainQueue]
-//                                                            usingBlock:^(NSNotification *note) {
-//        MERLog(@"did stop running");
-//    }];
     id deviceWasConnectedObserver = [notificationCenter addObserverForName:AVCaptureDeviceWasConnectedNotification
                                                                     object:nil
                                                                      queue:[NSOperationQueue mainQueue]
@@ -123,17 +116,18 @@
         [self refreshDevices];
     }];
     self.observers = [[NSArray alloc] initWithObjects:runtimeErrorObserver, deviceWasConnectedObserver, deviceWasDisconnectedObserver, nil];
+}
 
-    // Setup output
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    self.stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
-#pragma clang diagnostic pop
-    NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys: AVVideoCodecTypeJPEG, AVVideoCodecKey, nil];
-    [self.stillImageOutput setOutputSettings:outputSettings];
-    [self.avCaptureSession addOutput:self.stillImageOutput];
-
-    // Select devices if any exist starting with a video device
+- (void)setupAVCaptureSession;
+{
+    self.captureSession = [[AVCaptureSession alloc] init];
+    AVCapturePhotoOutput *photoOutput = [[AVCapturePhotoOutput alloc] init];
+    if ([self.captureSession canAddOutput:photoOutput]) {
+        [self.captureSession addOutput:photoOutput];
+        self.capturePhotoOutput = photoOutput;
+    }
+    self.capturePhotoOutput = photoOutput;
+    
     AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     if (videoDevice)
     {
@@ -144,12 +138,14 @@
         [self setSelectedVideoDevice:[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeMuxed]];
     }
 
+    [self setupObservers];
     [self setupCameraPreviewLayer];
+    [self refreshDevices];
 }
 
-- (void)tearDownAVCaptureSession;
+- (void)tearDownAVCaptureSession; // MER 2021-07-02 Never called
 {
-    [self.avCaptureSession stopRunning];
+    [self.captureSession stopRunning];
 
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 
@@ -159,10 +155,9 @@
     }
     self.observers = nil;
 
-    self.avCaptureSession = nil;
+    self.captureSession = nil;
     self.captureDeviceInput = nil;
     self.videoDevices = nil;
-    self.stillImageOutput = nil;
 
     [self.cameraDisplayView.layer setSublayers:nil];
 }
@@ -179,26 +174,27 @@
 }
 
 #pragma mark - Device selection
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (void)refreshDevices
 {
+    MERLog();
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.videoDevices = [[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo] arrayByAddingObjectsFromArray:[AVCaptureDevice devicesWithMediaType:AVMediaTypeMuxed]];
+        NSArray<AVCaptureDeviceType>* deviceTypes = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeExternalUnknown];
+        self.videoDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:deviceTypes mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionUnspecified];
 
-        [self.avCaptureSession beginConfiguration];
+        self.videoDevices = self.videoDeviceDiscoverySession.devices;
 
-        if (![[self videoDevices] containsObject:[self selectedVideoDevice]])
+        [self.captureSession beginConfiguration];
+
+        if(self.videoDeviceDiscoverySession.uniqueDevicePositionsCount <= 0)
         {
             [self setSelectedVideoDevice:nil];
         }
-        [self.avCaptureSession commitConfiguration];
+        [self.captureSession commitConfiguration];
 
         [self.view.window makeFirstResponder:self.takePictureButton];
-        [self.avCaptureSession startRunning];
+        [self.captureSession startRunning];
     });
 }
-#pragma clang diagnostic pop
 
 #pragma mark - Camera Helpers
 - (void)flashScreen;
@@ -221,77 +217,53 @@
 #pragma mark - Actions
 - (IBAction)captureImage:(id)sender;
 {
+    if(!self.captureDeviceInput)
+    {
+        return;
+    }
+
     self.takingPicture = YES;
 
-    NSView *countdownView = self.countdownViewController.view;
-    countdownView.frame = self.cameraControlView.frame;
+    self.countdownViewController.view.frame = self.cameraControlView.frame;
     self.cameraControlView.hidden = YES;
-    [self.view addSubview:countdownView positioned:NSWindowAbove relativeTo:nil];
+    [self.view addSubview:self.countdownViewController.view positioned:NSWindowAbove relativeTo:nil];
 
     [self.countdownViewController beginCountdown];
 }
 
 #pragma mark - Image Capture
-- (AVCaptureConnection *)captureConnection;
-{
-    AVCaptureConnection *videoConnection = nil;
-    for (AVCaptureConnection *connection in self.stillImageOutput.connections)
-    {
-        for (AVCaptureInputPort *port in connection.inputPorts)
-        {
-            if ([port.mediaType isEqual:AVMediaTypeVideo] )
-            {
-                videoConnection = connection;
-                break;
-            }
-        }
-        if(videoConnection)
-        {
-            break;
-        }
-    }
-
-    return videoConnection;
-}
-
 - (void)captureAndSaveImage;
 {
-    AVCaptureConnection *videoConnection = [self captureConnection];
-    if(!videoConnection)
+    [self flashScreen];
+
+    AVCapturePhotoSettings *photoSettings = [AVCapturePhotoSettings photoSettings];
+
+    dispatch_async(self.sessionQueue, ^{
+        [self.capturePhotoOutput capturePhotoWithSettings:photoSettings delegate:self];
+    });
+}
+
+#pragma  mark - AVCapturePhotoCaptureDelegate
+- (void)captureOutput:(AVCapturePhotoOutput*)captureOutput didFinishProcessingPhoto:(AVCapturePhoto*)photo error:(nullable NSError*)error;
+{
+    MERLog();
+
+    NSData *data = [photo fileDataRepresentation];
+    self.takingPicture = NO;
+
+    if(error != nil)
     {
+        [NSApp presentError:error];
         return;
     }
 
-    [self flashScreen];
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection
-                                                       completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error)
-     {
-        self.snapshotData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            self.takingPicture = NO;
-            if (imageSampleBuffer != NULL)
-            {
-                NSString *filename = NSUUID.UUID.UUIDString;
-                NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
-                NSURL *url = [NSURL fileURLWithPath:path];
-                NSError *writeError = nil;
-                if(![self.snapshotData writeToURL:url options:0 error:&writeError])
-                {
-                    MERLog(@"%@", writeError);
-                    [NSApp presentError:writeError];
-                }
-                else
-                {
-                    [NSWorkspace.sharedWorkspace openURL:url];
-                }
-                [self.view.window makeFirstResponder:self.view];
-            }
-        });
-    }];
-#pragma clang diagnostic pop
+    NSError *writeError = nil;
+    NSString *filePath = [[NSTemporaryDirectory() stringByAppendingPathComponent:NSUUID.UUID.UUIDString] stringByAppendingPathExtension:@".jpg"];
+    NSURL *url = [NSURL fileURLWithPath:filePath];
+    if([data writeToURL:url options:0 error:&writeError])
+    {
+        [NSWorkspace.sharedWorkspace openURL:url];
+    }
 }
 
 #pragma mark - CountdownViewControllerDelegate
@@ -299,7 +271,6 @@
 {
     [self captureAndSaveImage];
     [countdown.view removeFromSuperview];
-    self.takingPicture = NO;
 
     [self.cameraControlView setHidden:NO];
 }
@@ -319,28 +290,24 @@
 
 - (AVCaptureDevice *)selectedVideoDevice
 {
-    return [self.captureDeviceInput device];
+    return self.captureDeviceInput.device;
 }
 
 - (void)setSelectedVideoDevice:(AVCaptureDevice *)selectedVideoDevice
 {
-    [self.avCaptureSession beginConfiguration];
+    [self.captureSession beginConfiguration];
 
-    if(self.captureDeviceInput)
+    if(self.captureDeviceInput) // Remove the old device input from the session
     {
-        // Remove the old device input from the session
-        [self.avCaptureSession removeInput:self.captureDeviceInput];
+        [self.captureSession removeInput:self.captureDeviceInput];
         self.captureDeviceInput = nil;
     }
 
-    if (selectedVideoDevice)
+    if(selectedVideoDevice)
     {
         NSError *error = nil;
-
-        // Create a device input for the device and add it to the session
-        AVCaptureDeviceInput *newVideoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:selectedVideoDevice error:&error];
-
-        if (newVideoDeviceInput == nil)
+        AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:selectedVideoDevice error:&error];
+        if(videoDeviceInput == nil)
         {
             dispatch_async(dispatch_get_main_queue(), ^(void) {
                 [self presentError:error];
@@ -348,23 +315,24 @@
         }
         else
         {
-            if (![selectedVideoDevice supportsAVCaptureSessionPreset:[self.avCaptureSession sessionPreset]])
-                [self.avCaptureSession setSessionPreset:AVCaptureSessionPresetHigh];
-
-            [self.avCaptureSession addInput:newVideoDeviceInput];
-            self.captureDeviceInput = newVideoDeviceInput;
+            if(![selectedVideoDevice supportsAVCaptureSessionPreset:self.captureSession.sessionPreset])
+            {
+                self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
+            }
+            [self.captureSession addInput:videoDeviceInput];
+            self.captureDeviceInput = videoDeviceInput;
         }
     }
 
-    [self.avCaptureSession commitConfiguration];
+    [self.captureSession commitConfiguration];
 }
 
-#pragma mark - Validation
+#pragma mark - NSUserInterfaceValidations
 - (BOOL)validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>)anItem;
 {
     if([anItem action] == @selector(captureImage:))
     {
-        return (self.hasRecordingDevice && self.takingPicture == NO);
+        return (self.hasRecordingDevice && !self.takingPicture);
     }
 
     return YES;

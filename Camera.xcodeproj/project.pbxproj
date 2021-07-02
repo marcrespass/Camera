@@ -23,7 +23,6 @@
 		D3EC97B42671B1D300414666 /* CountdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC97B22671B1D300414666 /* CountdownViewController.m */; };
 		D3EC97B52671B1D300414666 /* CountdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EC97B32671B1D300414666 /* CountdownViewController.xib */; };
 		D3EC97B82671B27100414666 /* Countdown.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3EC97B72671B27100414666 /* Countdown.xcassets */; };
-		D3FF460E268F639200CEF6CB /* CameraViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF460D268F639200CEF6CB /* CameraViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +67,6 @@
 		D3EC97B32671B1D300414666 /* CountdownViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountdownViewController.xib; sourceTree = "<group>"; };
 		D3EC97B62671B1E900414666 /* CountdownViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountdownViewControllerDelegate.h; sourceTree = "<group>"; };
 		D3EC97B72671B27100414666 /* Countdown.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Countdown.xcassets; sourceTree = "<group>"; };
-		D3FF460D268F639200CEF6CB /* CameraViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +138,7 @@
 		D3EC8C5E24CDD4DF00A69248 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				D3EC8C7324CDD67600A69248 /* Camera-Bridging-Header.h */,
 				D3FF4612268F66C100CEF6CB /* Source */,
 				D3EC97B72671B27100414666 /* Countdown.xcassets */,
 				D3EC8C6624CDD4E200A69248 /* Info.plist */,
@@ -181,7 +180,6 @@
 			children = (
 				D3EC97AE2671B11700414666 /* CameraViewController.h */,
 				D3EC97AF2671B11700414666 /* CameraViewController.m */,
-				D3FF460D268F639200CEF6CB /* CameraViewController+Extensions.swift */,
 				D3BB1B50252638920092D58F /* CameraViewController.xib */,
 			);
 			path = CameraVC;
@@ -193,7 +191,6 @@
 				D3FF4610268F668F00CEF6CB /* Application */,
 				D3FF4611268F66A200CEF6CB /* CameraVC */,
 				D3FF460F268F668400CEF6CB /* Countdown */,
-				D3EC8C7324CDD67600A69248 /* Camera-Bridging-Header.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -324,7 +321,6 @@
 				D3EC97B02671B11700414666 /* CameraViewController.m in Sources */,
 				D3EC97B42671B1D300414666 /* CountdownViewController.m in Sources */,
 				D3EC8C7024CDD54700A69248 /* ContentVC.swift in Sources */,
-				D3FF460E268F639200CEF6CB /* CameraViewController+Extensions.swift in Sources */,
 				D3EC8C6E24CDD53C00A69248 /* AppController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
