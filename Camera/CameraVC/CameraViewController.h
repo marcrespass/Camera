@@ -9,4 +9,7 @@
 
 @interface CameraViewController : NSViewController <CountdownViewControllerDelegate>
 
+@property (nonatomic, readwrite, strong) AVCapturePhotoOutput *photoOutput;
+@property (nonatomic) dispatch_queue_t sessionQueue;
+
 @end

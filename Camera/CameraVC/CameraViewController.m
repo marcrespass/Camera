@@ -40,6 +40,10 @@
 {
     if(self = [super initWithNibName:nil bundle:nil])
     {
+        // Communicate with the session and other session objects on this queue.
+        _sessionQueue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL);
+        _photoOutput = [[AVCapturePhotoOutput alloc] init];
+
         return self;
     }
 
