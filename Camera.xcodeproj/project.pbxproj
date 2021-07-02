@@ -140,13 +140,10 @@
 		D3EC8C5E24CDD4DF00A69248 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				D3FF4610268F668F00CEF6CB /* Application */,
-				D3FF4611268F66A200CEF6CB /* CameraVC */,
-				D3FF460F268F668400CEF6CB /* Countdown */,
+				D3FF4612268F66C100CEF6CB /* Source */,
 				D3EC97B72671B27100414666 /* Countdown.xcassets */,
 				D3EC8C6624CDD4E200A69248 /* Info.plist */,
 				D3EC8C6724CDD4E200A69248 /* Camera.entitlements */,
-				D3EC8C7324CDD67600A69248 /* Camera-Bridging-Header.h */,
 				D3721F5A2675483800C30D32 /* Audio */,
 				D335924326753E37002D779B /* Credits.rtf */,
 				D3BB1B5825263B010092D58F /* Localizable.strings */,
@@ -188,6 +185,17 @@
 				D3BB1B50252638920092D58F /* CameraViewController.xib */,
 			);
 			path = CameraVC;
+			sourceTree = "<group>";
+		};
+		D3FF4612268F66C100CEF6CB /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D3FF4610268F668F00CEF6CB /* Application */,
+				D3FF4611268F66A200CEF6CB /* CameraVC */,
+				D3FF460F268F668400CEF6CB /* Countdown */,
+				D3EC8C7324CDD67600A69248 /* Camera-Bridging-Header.h */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
