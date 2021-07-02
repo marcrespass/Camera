@@ -36,13 +36,7 @@
 		D3721F5B2675483800C30D32 /* Beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Beep.wav; sourceTree = "<group>"; };
 		D3721F5D2675483800C30D32 /* Camera.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Camera.wav; sourceTree = "<group>"; };
 		D3A5A0CA24CE28000011668C /* App-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Release.xcconfig"; sourceTree = "<group>"; };
-		D3A5A0CB24CE28000011668C /* Framework-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Framework-Debug.xcconfig"; sourceTree = "<group>"; };
-		D3A5A0CC24CE28000011668C /* Tests-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Tests-Debug.xcconfig"; sourceTree = "<group>"; };
-		D3A5A0CD24CE28000011668C /* Tests-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Tests-Release.xcconfig"; sourceTree = "<group>"; };
-		D3A5A0CE24CE28000011668C /* Tests-Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Tests-Shared.xcconfig"; sourceTree = "<group>"; };
-		D3A5A0CF24CE28000011668C /* Framework-Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Framework-Shared.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0D024CE28000011668C /* 2Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = 2Common.xcconfig; sourceTree = "<group>"; };
-		D3A5A0D124CE28000011668C /* Framework-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Framework-Release.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0D224CE28000011668C /* App-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Debug.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0D324CE28000011668C /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; };
 		D3A5A0D424CE28000011668C /* App-Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Shared.xcconfig"; sourceTree = "<group>"; };
@@ -106,12 +100,6 @@
 				D3A5A0D224CE28000011668C /* App-Debug.xcconfig */,
 				D3A5A0CA24CE28000011668C /* App-Release.xcconfig */,
 				D3A5A0D424CE28000011668C /* App-Shared.xcconfig */,
-				D3A5A0CB24CE28000011668C /* Framework-Debug.xcconfig */,
-				D3A5A0D124CE28000011668C /* Framework-Release.xcconfig */,
-				D3A5A0CF24CE28000011668C /* Framework-Shared.xcconfig */,
-				D3A5A0CC24CE28000011668C /* Tests-Debug.xcconfig */,
-				D3A5A0CD24CE28000011668C /* Tests-Release.xcconfig */,
-				D3A5A0CE24CE28000011668C /* Tests-Shared.xcconfig */,
 			);
 			path = XCConfig;
 			sourceTree = "<group>";

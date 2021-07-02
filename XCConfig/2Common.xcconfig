@@ -20,8 +20,7 @@ INFOPLIST_FILE = $(PRODUCT_NAME)/Info.plist
 
 COMBINE_HIDPI_IMAGES = YES
 
-SWIFT_VERSION = 5
-// FRAMEWORK_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/Frameworks
+SWIFT_VERSION = 5.0
 
 // Code Signing Identity
 CODE_SIGN_IDENTITY = Mac Developer
@@ -32,5 +31,12 @@ CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES
 
 ALWAYS_SEARCH_USER_PATHS = NO
 
+MARKETING_VERSION = 1.0.1
+
 // Update this for the current year
 COPYRIGHT_YEAR = 2020-2021
+// Set this value for NSHumanReadableCopyright
+//     <key>NSHumanReadableCopyright</key>
+//     <string>$(COPYRIGHT_STRING)</string>
+COPYRIGHT_STRING = Copyright © $(COPYRIGHT_YEAR) ILIOS Inc. All rights reserved.
+GET_INFO_STRING = $(MARKETING_VERSION) $(COPYRIGHT_STRING)

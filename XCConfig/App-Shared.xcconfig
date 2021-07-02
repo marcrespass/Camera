@@ -7,11 +7,12 @@
 
 #include "2Common.xcconfig"
 
-MARKETING_VERSION = 1.0
-
 ENABLE_HARDENED_RUNTIME = YES
 
+CODE_SIGN_ENTITLEMENTS = $(PRODUCT_NAME)/$(PRODUCT_NAME).entitlements
+
 ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
+ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor
 
 PROVISIONING_PROFILE_SPECIFIER =
 
@@ -19,14 +20,8 @@ LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks
 
 PRODUCT_BUNDLE_IDENTIFIER = $(PRODUCT_BUNDLE_PREFIX).$(PRODUCT_NAME)
 
-// Set this value for NSHumanReadableCopyright
-//     <key>NSHumanReadableCopyright</key>
-//     <string>$(COPYRIGHT_STRING)</string>
-COPYRIGHT_STRING = Copyright © $(COPYRIGHT_YEAR) ILIOS Inc. All rights reserved.
-GET_INFO_STRING = $(MARKETING_VERSION) $(CFBundleVersion) $(COPYRIGHT_STRING)
-
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 
-SWIFT_OBJC_BRIDGING_HEADER = $(PRODUCT_NAME)/$(PRODUCT_NAME)-Bridging-Header.h
+SWIFT_OBJC_BRIDGING_HEADER = $(PROJECT_DIR)/$(TARGET_NAME)/$(TARGET_NAME)-Bridging-Header.h
 
-CODE_SIGN_ENTITLEMENTS = $(PRODUCT_NAME)/$(PRODUCT_NAME).entitlements
+CAMERA_PRIVACY_NOTICE = Roaster wants to use your camera to take pictures and add them to the Roaster photo library. The camera will never be used unless you activate it.

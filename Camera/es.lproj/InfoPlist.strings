@@ -2,3 +2,4 @@
 
 CFBundleDisplayName = "Cámara";
 CFBundleName = "Cámara";
+NSCameraUsageDescription = "¡Cámara quiere usar tu cámara para sacar las fotoas!";
