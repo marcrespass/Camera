@@ -11,10 +11,10 @@
 NSInteger kMaxSeconds = 3;
 
 @interface CountdownViewController()
-@property (nonatomic, readwrite, weak) IBOutlet NSButton *imageView1;
-@property (nonatomic, readwrite, weak) IBOutlet NSButton *imageView2;
-@property (nonatomic, readwrite, weak) IBOutlet NSButton *imageView3;
-@property (nonatomic, readwrite, weak) IBOutlet NSButton *imageViewCamera;
+@property (nonatomic, readwrite, weak) IBOutlet NSImageView *imageView1;
+@property (nonatomic, readwrite, weak) IBOutlet NSImageView *imageView2;
+@property (nonatomic, readwrite, weak) IBOutlet NSImageView *imageView3;
+@property (nonatomic, readwrite, weak) IBOutlet NSImageView *imageView4;
 
 @property (nonatomic, assign) NSTimeInterval currentTimerInterval;
 @property (nonatomic, assign) NSInteger currentCountdownSeconds;
@@ -63,7 +63,7 @@ NSInteger kMaxSeconds = 3;
     self.imageView1.image = [NSImage imageWithSystemSymbolName:self.imageNames[0] accessibilityDescription:@"1"];
     self.imageView2.image = [NSImage imageWithSystemSymbolName:self.imageNames[1] accessibilityDescription:@"2"];
     self.imageView3.image = [NSImage imageWithSystemSymbolName:self.imageNames[2] accessibilityDescription:@"3"];
-    self.imageViewCamera.image = [NSImage imageWithSystemSymbolName:self.imageNames[3] accessibilityDescription:@"take picture"];
+    self.imageView4.image = [NSImage imageWithSystemSymbolName:self.imageNames[3] accessibilityDescription:@"take picture"];
 }
 
 - (void)countdown:(NSTimer *)timer;
@@ -81,8 +81,8 @@ NSInteger kMaxSeconds = 3;
         NSString *fillImageName = [NSString stringWithFormat:@"%@.fill", imageName];
         NSString *propertyName = [NSString stringWithFormat:@"imageView%ld", self.currentCountdownSeconds];
 
-        NSButton *iv = [self valueForKey:propertyName];
-        [iv setImage:[NSImage imageWithSystemSymbolName:fillImageName accessibilityDescription:@"1"]];
+        NSImageView *iv = [self valueForKey:propertyName];
+        iv.image = [NSImage imageWithSystemSymbolName:fillImageName accessibilityDescription:@"count"];
     }
 
     if(self.currentTimerInterval >= (kMaxSeconds + 1))

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19115.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19115.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19115.3"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CountdownViewController">
             <connections>
-                <outlet property="imageView1" destination="2HX-LG-3c1" id="3re-7V-agV"/>
-                <outlet property="imageView2" destination="Yrz-V3-Dt9" id="D5y-zv-VEV"/>
-                <outlet property="imageView3" destination="ANb-S2-YEk" id="zbk-mx-YzQ"/>
-                <outlet property="imageViewCamera" destination="IFe-jp-7GM" id="NUA-qL-9rt"/>
+                <outlet property="imageView1" destination="fsX-dX-ZU8" id="vkZ-4x-gqJ"/>
+                <outlet property="imageView2" destination="eZg-03-6cu" id="OaI-7s-1o2"/>
+                <outlet property="imageView3" destination="oHP-Zq-604" id="DPA-wM-PD2"/>
+                <outlet property="imageView4" destination="zIb-iG-YPx" id="n3d-oJ-xhA"/>
                 <outlet property="view" destination="3" id="21"/>
             </connections>
         </customObject>
@@ -30,92 +30,52 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="countdown-background" id="z58-aI-iav"/>
                 </imageView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="mM1-Zd-Fxj" userLabel="CountdownView">
-                    <rect key="frame" x="77" y="0.0" width="185" height="47"/>
+                    <rect key="frame" x="76" y="0.0" width="188" height="47"/>
                     <subviews>
-                        <button toolTip="Cancel" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2HX-LG-3c1" userLabel="ImageView-1">
-                            <rect key="frame" x="0.0" y="-4" width="47" height="55"/>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fsX-dX-ZU8" userLabel="imageView1">
+                            <rect key="frame" x="0.0" y="-0.5" width="47" height="52"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="47" id="4Zp-Wf-nfp"/>
-                                <constraint firstAttribute="width" constant="47" id="UG2-N3-5vV"/>
+                                <constraint firstAttribute="height" constant="47" id="0vq-Sk-l1y"/>
+                                <constraint firstAttribute="width" constant="47" id="g3S-HU-sdk"/>
                             </constraints>
-                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="aAT-2V-avh">
-                                <behavior key="behavior" lightByContents="YES"/>
-                                <font key="font" metaFont="system"/>
-                                <imageReference key="image" image="1.square" catalog="system" symbolScale="large"/>
-                                <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                            </buttonCell>
-                            <connections>
-                                <action selector="cancel:" target="-2" id="ZZr-zT-a2w"/>
-                            </connections>
-                        </button>
-                        <button toolTip="Cancel" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yrz-V3-Dt9" userLabel="ImageView-2">
-                            <rect key="frame" x="46" y="-4" width="47" height="55"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="1.square" catalog="system" id="okE-Xx-sfJ"/>
+                        </imageView>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eZg-03-6cu" userLabel="imageView2">
+                            <rect key="frame" x="47" y="-0.5" width="47" height="52"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="47" id="ja4-fp-jRI"/>
-                                <constraint firstAttribute="width" constant="47" id="xoF-Ha-JUj"/>
+                                <constraint firstAttribute="width" constant="47" id="ENm-GB-ac0"/>
+                                <constraint firstAttribute="height" constant="47" id="Tfz-ig-yoP"/>
                             </constraints>
-                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="m05-KB-MZk">
-                                <behavior key="behavior" lightByContents="YES"/>
-                                <font key="font" metaFont="system"/>
-                                <imageReference key="image" image="2.square" catalog="system" symbolScale="large"/>
-                                <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                            </buttonCell>
-                            <connections>
-                                <action selector="cancel:" target="-2" id="UGZ-rm-0rw"/>
-                            </connections>
-                        </button>
-                        <button toolTip="Cancel" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-S2-YEk" userLabel="ImageView-3">
-                            <rect key="frame" x="92" y="-4" width="47" height="55"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="2.square" catalog="system" id="ta0-oV-m9Y"/>
+                        </imageView>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oHP-Zq-604" userLabel="imageView3">
+                            <rect key="frame" x="94" y="-0.5" width="47" height="52"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="47" id="OHC-p9-6fB"/>
-                                <constraint firstAttribute="height" constant="47" id="wgS-Oc-fEv"/>
+                                <constraint firstAttribute="width" constant="47" id="NWr-50-Fj2"/>
+                                <constraint firstAttribute="height" constant="47" id="vvb-eB-9xQ"/>
                             </constraints>
-                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="8YP-CC-Gdu">
-                                <behavior key="behavior" lightByContents="YES"/>
-                                <font key="font" metaFont="system"/>
-                                <imageReference key="image" image="3.square" catalog="system" symbolScale="large"/>
-                                <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                            </buttonCell>
-                            <connections>
-                                <action selector="cancel:" target="-2" id="hcV-ac-1oF"/>
-                            </connections>
-                        </button>
-                        <button toolTip="Cancel" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IFe-jp-7GM" userLabel="ImageView-camera">
-                            <rect key="frame" x="138" y="-4.5" width="47" height="57"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="3.square" catalog="system" id="wZN-i0-XSd"/>
+                        </imageView>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zIb-iG-YPx" userLabel="imageView4">
+                            <rect key="frame" x="141" y="-1" width="47" height="53"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="47" id="7QY-Sf-p81"/>
-                                <constraint firstAttribute="width" constant="47" id="Dyh-rT-w8W"/>
+                                <constraint firstAttribute="height" constant="47" id="8Mo-aC-r0z"/>
+                                <constraint firstAttribute="width" constant="47" id="BVk-O4-tCK"/>
                             </constraints>
-                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="1Jf-Ii-a1Q">
-                                <behavior key="behavior" lightByContents="YES"/>
-                                <font key="font" metaFont="system"/>
-                                <imageReference key="image" image="camera.circle" catalog="system" symbolScale="large"/>
-                                <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                            </buttonCell>
-                            <connections>
-                                <action selector="cancel:" target="-2" id="g4m-HT-NnO"/>
-                            </connections>
-                        </button>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="camera.circle" catalog="system" id="sxb-lD-jPy"/>
+                        </imageView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="Yrz-V3-Dt9" firstAttribute="leading" secondItem="2HX-LG-3c1" secondAttribute="trailing" constant="-1" id="9Pt-Ah-ID0"/>
-                        <constraint firstItem="IFe-jp-7GM" firstAttribute="leading" secondItem="ANb-S2-YEk" secondAttribute="trailing" constant="-1" id="ADk-2k-EGk"/>
+                        <constraint firstItem="oHP-Zq-604" firstAttribute="centerY" secondItem="eZg-03-6cu" secondAttribute="centerY" id="636-Tl-Dpf"/>
+                        <constraint firstItem="eZg-03-6cu" firstAttribute="leading" secondItem="fsX-dX-ZU8" secondAttribute="trailing" id="6yf-7l-xT8"/>
+                        <constraint firstItem="fsX-dX-ZU8" firstAttribute="leading" secondItem="mM1-Zd-Fxj" secondAttribute="leading" id="Ab2-bd-Dak"/>
                         <constraint firstAttribute="height" constant="47" id="D2r-nx-fQL"/>
-                        <constraint firstItem="2HX-LG-3c1" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="Dee-jw-PIY"/>
-                        <constraint firstItem="IFe-jp-7GM" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="Dwm-2X-2WX"/>
-                        <constraint firstItem="ANb-S2-YEk" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="UYz-q5-JD4"/>
-                        <constraint firstItem="Yrz-V3-Dt9" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" id="bS7-ad-uaR"/>
-                        <constraint firstAttribute="trailing" secondItem="IFe-jp-7GM" secondAttribute="trailing" id="lHC-wj-D65"/>
-                        <constraint firstItem="ANb-S2-YEk" firstAttribute="leading" secondItem="Yrz-V3-Dt9" secondAttribute="trailing" constant="-1" id="t3V-Rw-wZ7"/>
-                        <constraint firstItem="2HX-LG-3c1" firstAttribute="leading" secondItem="mM1-Zd-Fxj" secondAttribute="leading" id="vhw-VE-chC"/>
+                        <constraint firstItem="oHP-Zq-604" firstAttribute="trailing" secondItem="zIb-iG-YPx" secondAttribute="leading" id="DMb-mp-66B"/>
+                        <constraint firstItem="eZg-03-6cu" firstAttribute="centerY" secondItem="fsX-dX-ZU8" secondAttribute="centerY" id="Lga-rY-8Qo"/>
+                        <constraint firstItem="fsX-dX-ZU8" firstAttribute="centerY" secondItem="mM1-Zd-Fxj" secondAttribute="centerY" constant="-2" id="a7D-Vn-PP1"/>
+                        <constraint firstItem="oHP-Zq-604" firstAttribute="leading" secondItem="eZg-03-6cu" secondAttribute="trailing" id="hBb-lB-J9J"/>
+                        <constraint firstAttribute="trailing" secondItem="zIb-iG-YPx" secondAttribute="trailing" id="oNP-HM-bXj"/>
+                        <constraint firstItem="zIb-iG-YPx" firstAttribute="centerY" secondItem="oHP-Zq-604" secondAttribute="centerY" id="wW0-OD-0FZ"/>
                     </constraints>
                 </customView>
                 <button toolTip="Cancel" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24" userLabel="CancelButton">
@@ -151,11 +111,11 @@ Gw
         </customView>
     </objects>
     <resources>
-        <image name="1.square" catalog="system" width="18" height="17"/>
-        <image name="2.square" catalog="system" width="18" height="17"/>
-        <image name="3.square" catalog="system" width="18" height="17"/>
+        <image name="1.square" catalog="system" width="15" height="14"/>
+        <image name="2.square" catalog="system" width="15" height="14"/>
+        <image name="3.square" catalog="system" width="15" height="14"/>
         <image name="CircleX-gray" width="44" height="44"/>
-        <image name="camera.circle" catalog="system" width="19" height="19"/>
+        <image name="camera.circle" catalog="system" width="15" height="15"/>
         <image name="countdown-background" width="1" height="61"/>
         <image name="x.circle" catalog="system" width="19" height="19"/>
     </resources>
