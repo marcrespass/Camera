@@ -8,7 +8,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CountdownViewController">
             <connections>
-                <outlet property="cancelButton" destination="24" id="NJs-5a-oga"/>
                 <outlet property="imageView1" destination="fsX-dX-ZU8" id="vkZ-4x-gqJ"/>
                 <outlet property="imageView2" destination="eZg-03-6cu" id="OaI-7s-1o2"/>
                 <outlet property="imageView3" destination="oHP-Zq-604" id="DPA-wM-PD2"/>
