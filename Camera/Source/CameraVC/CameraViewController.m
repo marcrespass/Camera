@@ -242,12 +242,15 @@
     AVCapturePhotoSettings *photoSettings = [AVCapturePhotoSettings photoSettings];
 
     dispatch_async(self.sessionQueue, ^{
+        MERLog(@"%@", self.capturePhotoOutput.connections);
+        AVCaptureConnection *connection = self.capturePhotoOutput.connections.firstObject;
+        connection.videoMirrored = NO;
         [self.capturePhotoOutput capturePhotoWithSettings:photoSettings delegate:self];
     });
 }
 
 #pragma  mark - AVCapturePhotoCaptureDelegate
-- (void)captureOutput:(AVCapturePhotoOutput*)captureOutput didFinishProcessingPhoto:(AVCapturePhoto*)photo error:(nullable NSError*)error;
+- (void)captureOutput:(AVCapturePhotoOutput *)captureOutput didFinishProcessingPhoto:(AVCapturePhoto*)photo error:(nullable NSError*)error;
 {
     MERLog();
 
@@ -325,6 +328,15 @@
             }
             [self.captureSession addInput:videoDeviceInput];
             self.captureDeviceInput = videoDeviceInput;
+
+            for(AVCaptureConnection *connection in self.captureSession.connections)
+            {
+                connection.automaticallyAdjustsVideoMirroring = NO;
+                if(connection.supportsVideoMirroring)
+                {
+                    connection.videoMirrored = YES;
+                }
+            }
         }
     }
 

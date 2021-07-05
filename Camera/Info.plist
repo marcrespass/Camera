@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>62</string>
+	<string>63</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSHasLocalizedDisplayName</key>
@@ -31,7 +31,7 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSCameraUsageDescription</key>
-    <string>$(CAMERA_PRIVACY_NOTICE)</string>
+	<string>$(CAMERA_PRIVACY_NOTICE)</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>$(COPYRIGHT_STRING)</string>
 	<key>NSMainNibFile</key>

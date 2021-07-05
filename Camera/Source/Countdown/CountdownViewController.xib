@@ -18,21 +18,21 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="3">
-            <rect key="frame" x="0.0" y="0.0" width="339" height="47"/>
+            <rect key="frame" x="0.0" y="0.0" width="339" height="48"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GxE-XM-US9" userLabel="Background">
-                    <rect key="frame" x="0.0" y="0.0" width="339" height="47"/>
+                    <rect key="frame" x="0.0" y="0.0" width="339" height="48"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="47" id="fJB-uL-LlU"/>
+                        <constraint firstAttribute="height" constant="48" id="fJB-uL-LlU"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="countdown-background" id="z58-aI-iav"/>
                 </imageView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="mM1-Zd-Fxj" userLabel="CountdownView">
-                    <rect key="frame" x="86" y="0.0" width="168" height="47"/>
+                    <rect key="frame" x="86" y="1" width="168" height="47"/>
                     <subviews>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fsX-dX-ZU8" userLabel="imageView1">
-                            <rect key="frame" x="0.0" y="0.0" width="42" height="48"/>
+                            <rect key="frame" x="0.0" y="-1" width="42" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="0vq-Sk-l1y"/>
                                 <constraint firstAttribute="width" constant="42" id="g3S-HU-sdk"/>
@@ -42,19 +42,19 @@
                             </imageCell>
                         </imageView>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eZg-03-6cu" userLabel="imageView2">
-                            <rect key="frame" x="42" y="0.0" width="42" height="48"/>
+                            <rect key="frame" x="42" y="-1" width="42" height="48"/>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="ta0-oV-m9Y">
                                 <imageReference key="image" image="2.square" catalog="system" symbolScale="large"/>
                             </imageCell>
                         </imageView>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oHP-Zq-604" userLabel="imageView3">
-                            <rect key="frame" x="84" y="0.0" width="42" height="48"/>
+                            <rect key="frame" x="84" y="-1" width="42" height="48"/>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="wZN-i0-XSd">
                                 <imageReference key="image" image="3.square" catalog="system" symbolScale="large"/>
                             </imageCell>
                         </imageView>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zIb-iG-YPx" userLabel="imageView4">
-                            <rect key="frame" x="126" y="-0.5" width="42" height="50"/>
+                            <rect key="frame" x="126" y="-1.5" width="42" height="50"/>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="sxb-lD-jPy">
                                 <imageReference key="image" image="camera.circle" catalog="system" symbolScale="large"/>
                             </imageCell>
