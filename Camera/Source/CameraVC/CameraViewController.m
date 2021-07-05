@@ -70,7 +70,7 @@
 - (void)dealloc;
 {
     MERLog();
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter *notificationCenter = NSNotificationCenter.defaultCenter;
 
     for(id observer in _observers)
     {
@@ -78,9 +78,10 @@
     }
 }
 
+#pragma mark - Setup
 - (void)setupCameraPreviewLayer;
 {
-    [self.cameraDisplayView.layer setBackgroundColor:CGColorGetConstantColor(kCGColorBlack)];
+    self.cameraDisplayView.layer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
 
     // Create the AVCaptureVideoPreviewLayer and add it as a sub layer of previewViewLayer which retains it
     AVCaptureVideoPreviewLayer *videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
@@ -94,7 +95,7 @@
 
 - (void)setupObservers;
 {
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter *notificationCenter = NSNotificationCenter.defaultCenter;
     id runtimeErrorObserver = [notificationCenter addObserverForName:AVCaptureSessionRuntimeErrorNotification
                                                               object:self.captureSession
                                                                queue:[NSOperationQueue mainQueue]
@@ -147,8 +148,7 @@
 {
     [self.captureSession stopRunning];
 
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-
+    NSNotificationCenter *notificationCenter = NSNotificationCenter.defaultCenter;
     for(id observer in self.observers)
     {
         [notificationCenter removeObserver:observer];
@@ -179,7 +179,9 @@
     MERLog();
     dispatch_async(dispatch_get_main_queue(), ^{
         NSArray<AVCaptureDeviceType>* deviceTypes = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeExternalUnknown];
-        self.videoDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:deviceTypes mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionUnspecified];
+        self.videoDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:deviceTypes
+                                                                                                  mediaType:AVMediaTypeVideo
+                                                                                                   position:AVCaptureDevicePositionUnspecified];
 
         self.videoDevices = self.videoDeviceDiscoverySession.devices;
 
