@@ -38,17 +38,30 @@ import AppKit
     func rotatedImage(fromData data: Data) -> NSImage? {
         guard let cgImageSource = CGImageSourceCreateWithData(data as CFData, nil),
               let cgImage = CGImageSourceCreateImageAtIndex(cgImageSource, 0, nil),
-              let mirrored = cgImage.rotating(to: .leftMirrored) else { return nil }
+              let mirrored = cgImage.rotating(to: .upMirrored) else { return nil }
         let image = NSImage(cgImage: mirrored, size: NSSize.zero)
         return image
     }
 }
 
+struct ImageProperties {
+    var degreesToRotate: Double
+    var swapWidthHeight: Bool
+    var mirrored: Bool
+
+    init(degreesToRotate: Double = 0.0, swapWidthHeight: Bool = false, mirrored: Bool = false) {
+        self.degreesToRotate = degreesToRotate
+        self.swapWidthHeight = swapWidthHeight
+        self.mirrored = mirrored
+    }
+}
+
+// MER 2021-07-16
+// Many thanks for this extention to CGImage
 // https://stackoverflow.com/a/68027419
+// it produces a cyclomatic warning so I extracted the switch statement to return the ImageProperties struct from above
 extension CGImage {
     func rotating(to orientation: CGImagePropertyOrientation) -> CGImage? {
-        var orientedImage: CGImage?
-
         let originalWidth = self.width
         let originalHeight = self.height
         let bitsPerComponent = self.bitsPerComponent
@@ -58,52 +71,14 @@ extension CGImage {
             return nil
         }
 
-        var degreesToRotate: Double
-        var swapWidthHeight: Bool
-        var mirrored: Bool
+        let imageProperties = self.imageProperties(for: orientation)
 
-        switch orientation {
-            case .up:
-                degreesToRotate = 0.0
-                swapWidthHeight = false
-                mirrored = false
-            case .upMirrored:
-                degreesToRotate = 0.0
-                swapWidthHeight = false
-                mirrored = true
-            case .right:
-                degreesToRotate = -90.0
-                swapWidthHeight = true
-                mirrored = false
-            case .rightMirrored:
-                degreesToRotate = -90.0
-                swapWidthHeight = true
-                mirrored = true
-            case .down:
-                degreesToRotate = 180.0
-                swapWidthHeight = false
-                mirrored = false
-            case .downMirrored:
-                degreesToRotate = 180.0
-                swapWidthHeight = false
-                mirrored = true
-            case .left:
-                degreesToRotate = 90.0
-                swapWidthHeight = true
-                mirrored = false
-            case .leftMirrored:
-                degreesToRotate = 90.0
-                swapWidthHeight = true
-                mirrored = true
-        }
-
-//        degreesToRotate -= 90.0 // MER 2021-07-16 image comes out well but not rotated all the way and changing degreesToRotate ends up with big black bars on top and bottom
-        let radians = degreesToRotate * Double.pi / 180.0
+        let radians = imageProperties.degreesToRotate * Double.pi / 180.0
 
         var width: Int
         var height: Int
 
-        if swapWidthHeight {
+        if imageProperties.swapWidthHeight {
             width = originalHeight
             height = originalWidth
         } else {
@@ -119,13 +94,13 @@ extension CGImage {
 
         contextRef?.translateBy(x: CGFloat(width) / 2.0, y: CGFloat(height) / 2.0)
 
-        if mirrored {
+        if imageProperties.mirrored {
             contextRef?.scaleBy(x: -1.0, y: 1.0)
         }
 
         contextRef?.rotate(by: CGFloat(radians))
 
-        if swapWidthHeight {
+        if imageProperties.swapWidthHeight {
             contextRef?.translateBy(x: -CGFloat(height) / 2.0, y: -CGFloat(width) / 2.0)
         } else {
             contextRef?.translateBy(x: -CGFloat(width) / 2.0, y: -CGFloat(height) / 2.0)
@@ -134,8 +109,40 @@ extension CGImage {
         contextRef?.draw(self, in: CGRect(x: 0.0, y: 0.0,
                                           width: CGFloat(originalWidth), height: CGFloat(originalHeight)))
 
-        orientedImage = contextRef?.makeImage()
-
+        let orientedImage = contextRef?.makeImage()
         return orientedImage
+    }
+
+    func imageProperties(for orientation: CGImagePropertyOrientation) -> ImageProperties {
+        var degreesToRotate = 0.0
+        var swapWidthHeight = false
+        var mirrored = false
+
+        switch orientation {
+            case .up:
+                break
+            case .upMirrored:
+                mirrored = true
+            case .right:
+                degreesToRotate = -90.0
+                swapWidthHeight = true
+            case .rightMirrored:
+                degreesToRotate = -90.0
+                swapWidthHeight = true
+                mirrored = true
+            case .down:
+                degreesToRotate = 180.0
+            case .downMirrored:
+                degreesToRotate = 180.0
+                mirrored = true
+            case .left:
+                degreesToRotate = 90.0
+                swapWidthHeight = true
+            case .leftMirrored:
+                degreesToRotate = 90.0
+                swapWidthHeight = true
+                mirrored = true
+        }
+        return ImageProperties(degreesToRotate: degreesToRotate, swapWidthHeight: swapWidthHeight, mirrored: mirrored)
     }
 }
