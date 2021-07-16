@@ -105,8 +105,17 @@
     AVCaptureVideoPreviewLayer *videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
     videoPreviewLayer.frame = self.cameraDisplayView.layer.bounds;
     videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    [self.cameraDisplayView.layer addSublayer:videoPreviewLayer];
 
+    // Mirror the connection for the video preview layer
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        // MER 2021-07-16 videoPreviewLayer.connection is set automatically but not right away so dispatch_async
+        if (videoPreviewLayer.connection.supportsVideoMirroring) {
+            videoPreviewLayer.connection.automaticallyAdjustsVideoMirroring = NO;
+            videoPreviewLayer.connection.videoMirrored = YES;
+        }
+    });
+
+    [self.cameraDisplayView.layer addSublayer:videoPreviewLayer];
     videoPreviewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
     self.cameraDisplayView.layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
 }
