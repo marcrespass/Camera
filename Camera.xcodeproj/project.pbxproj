@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D335924126753E37002D779B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D335924326753E37002D779B /* Credits.rtf */; };
+		D34E0BF3269371E100628825 /* CameraViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E0BF2269371E100628825 /* CameraViewController+Extensions.swift */; };
 		D3545B42252680BF00E8432D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3545B44252680BF00E8432D /* InfoPlist.strings */; };
 		D3721F5E2675483800C30D32 /* Beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = D3721F5B2675483800C30D32 /* Beep.wav */; };
 		D3721F602675483800C30D32 /* Camera.wav in Resources */ = {isa = PBXBuildFile; fileRef = D3721F5D2675483800C30D32 /* Camera.wav */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		D335924226753E37002D779B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
 		D335924426753E3B002D779B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D34E0BF2269371E100628825 /* CameraViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Extensions.swift"; sourceTree = "<group>"; };
 		D3545B312526790E00E8432D /* build-script */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "build-script"; sourceTree = "<group>"; };
 		D3545B322526790E00E8432D /* swiftlint-command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "swiftlint-command"; sourceTree = "<group>"; };
 		D3545B392526798500E8432D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				D3EC97AE2671B11700414666 /* CameraViewController.h */,
 				D3EC97AF2671B11700414666 /* CameraViewController.m */,
+				D34E0BF2269371E100628825 /* CameraViewController+Extensions.swift */,
 				D3BB1B50252638920092D58F /* CameraViewController.xib */,
 			);
 			path = CameraVC;
@@ -308,6 +311,7 @@
 				D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */,
 				D3EC97B02671B11700414666 /* CameraViewController.m in Sources */,
 				D3EC97B42671B1D300414666 /* CountdownViewController.m in Sources */,
+				D34E0BF3269371E100628825 /* CameraViewController+Extensions.swift in Sources */,
 				D3EC8C7024CDD54700A69248 /* ContentVC.swift in Sources */,
 				D3EC8C6E24CDD53C00A69248 /* AppController.swift in Sources */,
 			);
