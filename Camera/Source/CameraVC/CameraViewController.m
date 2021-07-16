@@ -258,9 +258,7 @@
     AVCapturePhotoSettings *photoSettings = [AVCapturePhotoSettings photoSettings];
 
     dispatch_async(self.sessionQueue, ^{
-        MERLog(@"%@", self.capturePhotoOutput.connections);
-        AVCaptureConnection *connection = self.capturePhotoOutput.connections.firstObject;
-        connection.videoMirrored = NO;
+//        [self.capturePhotoOutput.connections.firstObject setVideoMirrored:NO];
         [self.capturePhotoOutput capturePhotoWithSettings:photoSettings delegate:self];
     });
 }
