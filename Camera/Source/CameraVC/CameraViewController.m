@@ -267,26 +267,27 @@
 - (void)captureOutput:(AVCapturePhotoOutput *)captureOutput didFinishProcessingPhoto:(AVCapturePhoto*)photo error:(nullable NSError*)error;
 {
     MERLog();
-
-    NSData *data = [photo fileDataRepresentation];
-    // CGImageSource - left mirrored orientation
-    if(data == nil)
-    {
-        NSError *dataError = [NSError errorWithDomain:@"Camera" code:2112 userInfo:@{NSLocalizedDescriptionKey : @"fileDataRepresentation is nil"}];
-        [NSApp presentError:dataError];
-    }
-    self.takingPicture = NO;
-
     if(error != nil)
     {
         [NSApp presentError:error];
         return;
     }
 
+    NSData *photoData = [photo fileDataRepresentation];
+    if(photoData == nil)
+    {
+        NSError *dataError = [NSError errorWithDomain:@"Camera" code:2112 userInfo:@{NSLocalizedDescriptionKey : @"fileDataRepresentation is nil"}];
+        [NSApp presentError:dataError];
+        return;
+    }
+
+    NSImage *image = [self rotatedImageFromData:photoData];
+    self.takingPicture = NO;
+
     NSError *writeError = nil;
-    NSString *filePath = [[NSTemporaryDirectory() stringByAppendingPathComponent:NSUUID.UUID.UUIDString] stringByAppendingPathExtension:@".jpg"];
+    NSString *filePath = [[NSTemporaryDirectory() stringByAppendingPathComponent:NSUUID.UUID.UUIDString] stringByAppendingPathExtension:@"jpg"];
     NSURL *url = [NSURL fileURLWithPath:filePath];
-    if([data writeToURL:url options:0 error:&writeError])
+    if([image.TIFFRepresentation writeToURL:url options:0 error:&writeError])
     {
         [NSWorkspace.sharedWorkspace openURL:url];
     }
