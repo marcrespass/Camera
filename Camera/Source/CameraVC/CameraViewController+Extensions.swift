@@ -34,6 +34,4 @@ import AppKit
 
         return cgImage
     }
-
-    
 }
