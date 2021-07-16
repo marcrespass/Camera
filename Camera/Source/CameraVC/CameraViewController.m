@@ -339,15 +339,6 @@
             }
             [self.captureSession addInput:videoDeviceInput];
             self.captureDeviceInput = videoDeviceInput;
-
-            for(AVCaptureConnection *connection in self.captureSession.connections)
-            {
-                connection.automaticallyAdjustsVideoMirroring = NO;
-                if(connection.supportsVideoMirroring)
-                {
-                    connection.videoMirrored = YES;
-                }
-            }
         }
     }
 
