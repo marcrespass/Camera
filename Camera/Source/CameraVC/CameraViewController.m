@@ -94,36 +94,9 @@
     self.cameraDisplayView.layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
 }
 
-- (void)setupObservers;
-{
-    NSNotificationCenter *notificationCenter = NSNotificationCenter.defaultCenter;
-    id runtimeErrorObserver = [notificationCenter addObserverForName:AVCaptureSessionRuntimeErrorNotification
-                                                              object:self.captureSession
-                                                               queue:[NSOperationQueue mainQueue]
-                                                          usingBlock:^(NSNotification *note) {
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            [self presentError:[[note userInfo] objectForKey:AVCaptureSessionErrorKey]];
-        });
-    }];
-    id deviceWasConnectedObserver = [notificationCenter addObserverForName:AVCaptureDeviceWasConnectedNotification
-                                                                    object:nil
-                                                                     queue:[NSOperationQueue mainQueue]
-                                                                usingBlock:^(NSNotification *note) {
-        [self refreshDevices];
-    }];
-    id deviceWasDisconnectedObserver = [notificationCenter addObserverForName:AVCaptureDeviceWasDisconnectedNotification
-                                                                       object:nil
-                                                                        queue:[NSOperationQueue mainQueue]
-                                                                   usingBlock:^(NSNotification *note) {
-        [self refreshDevices];
-    }];
-    self.observers = [[NSArray alloc] initWithObjects:runtimeErrorObserver, deviceWasConnectedObserver, deviceWasDisconnectedObserver, nil];
-}
-
 - (void)setupAVCaptureSession;
 {
     self.captureSession = [[AVCaptureSession alloc] init];
-    [self setupObservers];
     [self refreshDevices];
     [self setupCameraPreviewLayer];
 
@@ -165,6 +138,33 @@
     self.countdownViewController.delegate = self;
 
     [self setupAVCaptureSession];
+    [self setupObservers];
+}
+
+- (void)setupObservers;
+{
+    NSNotificationCenter *notificationCenter = NSNotificationCenter.defaultCenter;
+    id runtimeErrorObserver = [notificationCenter addObserverForName:AVCaptureSessionRuntimeErrorNotification
+                                                              object:self.captureSession
+                                                               queue:[NSOperationQueue mainQueue]
+                                                          usingBlock:^(NSNotification *note) {
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            [self presentError:[[note userInfo] objectForKey:AVCaptureSessionErrorKey]];
+        });
+    }];
+    id deviceWasConnectedObserver = [notificationCenter addObserverForName:AVCaptureDeviceWasConnectedNotification
+                                                                    object:nil
+                                                                     queue:[NSOperationQueue mainQueue]
+                                                                usingBlock:^(NSNotification *note) {
+        [self refreshDevices];
+    }];
+    id deviceWasDisconnectedObserver = [notificationCenter addObserverForName:AVCaptureDeviceWasDisconnectedNotification
+                                                                       object:nil
+                                                                        queue:[NSOperationQueue mainQueue]
+                                                                   usingBlock:^(NSNotification *note) {
+        [self refreshDevices];
+    }];
+    self.observers = [[NSArray alloc] initWithObjects:runtimeErrorObserver, deviceWasConnectedObserver, deviceWasDisconnectedObserver, nil];
 }
 
 #pragma mark - Device selection
