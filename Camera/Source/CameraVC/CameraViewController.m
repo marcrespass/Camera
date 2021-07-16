@@ -91,7 +91,6 @@
     AVCapturePhotoOutput *photoOutput = [[AVCapturePhotoOutput alloc] init];
     if ([self.captureSession canAddOutput:photoOutput]) {
         [self.captureSession addOutput:photoOutput];
-        photoOutput.connections.firstObject.videoMirrored = YES;
         self.capturePhotoOutput = photoOutput;
     }
     self.capturePhotoOutput = photoOutput;
