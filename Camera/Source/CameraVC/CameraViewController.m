@@ -3,6 +3,7 @@
 //
 
 #import "CameraViewController.h"
+#import "Camera-Swift.h"
 
 #define MERLog(fmt, ...) NSLog(@"%s " fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
 
@@ -122,12 +123,6 @@
 - (void)setupAVCaptureSession;
 {
     self.captureSession = [[AVCaptureSession alloc] init];
-    AVCapturePhotoOutput *photoOutput = [[AVCapturePhotoOutput alloc] init];
-    if ([self.captureSession canAddOutput:photoOutput]) {
-        [self.captureSession addOutput:photoOutput];
-        self.capturePhotoOutput = photoOutput;
-    }
-    self.capturePhotoOutput = photoOutput;
 
     AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     if (videoDevice)
@@ -138,6 +133,14 @@
     {
         [self setSelectedVideoDevice:[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeMuxed]];
     }
+
+    AVCapturePhotoOutput *photoOutput = [[AVCapturePhotoOutput alloc] init];
+    if ([self.captureSession canAddOutput:photoOutput]) {
+        [self.captureSession addOutput:photoOutput];
+        photoOutput.connections.firstObject.videoMirrored = YES;
+        self.capturePhotoOutput = photoOutput;
+    }
+    self.capturePhotoOutput = photoOutput;
 
     [self setupObservers];
     [self setupCameraPreviewLayer];
@@ -255,6 +258,7 @@
     MERLog();
 
     NSData *data = [photo fileDataRepresentation];
+    // CGImageSource - left mirrored orientation
     self.takingPicture = NO;
 
     if(error != nil)
