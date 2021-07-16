@@ -254,12 +254,8 @@
 - (void)captureAndSaveImage;
 {
     [self flashScreen];
-
-    AVCapturePhotoSettings *photoSettings = [AVCapturePhotoSettings photoSettings];
-
     dispatch_async(self.sessionQueue, ^{
-//        [self.capturePhotoOutput.connections.firstObject setVideoMirrored:NO];
-        [self.capturePhotoOutput capturePhotoWithSettings:photoSettings delegate:self];
+        [self.capturePhotoOutput capturePhotoWithSettings:[AVCapturePhotoSettings photoSettings] delegate:self];
     });
 }
 
@@ -267,6 +263,8 @@
 - (void)captureOutput:(AVCapturePhotoOutput *)captureOutput didFinishProcessingPhoto:(AVCapturePhoto*)photo error:(nullable NSError*)error;
 {
     MERLog();
+    self.takingPicture = NO;
+
     if(error != nil)
     {
         [NSApp presentError:error];
@@ -282,7 +280,6 @@
     }
 
     NSImage *image = [self rotatedImageFromData:photoData];
-    self.takingPicture = NO;
 
     NSError *writeError = nil;
     NSString *filePath = [[NSTemporaryDirectory() stringByAppendingPathComponent:NSUUID.UUID.UUIDString] stringByAppendingPathExtension:@"jpg"];
@@ -290,6 +287,10 @@
     if([image.TIFFRepresentation writeToURL:url options:0 error:&writeError])
     {
         [NSWorkspace.sharedWorkspace openURL:url];
+    }
+    if(writeError != nil)
+    {
+        [NSApp presentError:writeError];
     }
 }
 
