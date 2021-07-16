@@ -259,6 +259,11 @@
 
     NSData *data = [photo fileDataRepresentation];
     // CGImageSource - left mirrored orientation
+    if(data == nil)
+    {
+        NSError *dataError = [NSError errorWithDomain:@"Camera" code:2112 userInfo:@{NSLocalizedDescriptionKey : @"fileDataRepresentation is nil"}];
+        [NSApp presentError:dataError];
+    }
     self.takingPicture = NO;
 
     if(error != nil)
