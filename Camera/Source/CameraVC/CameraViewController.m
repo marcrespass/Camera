@@ -229,12 +229,16 @@
 
     self.takingPicture = YES;
 
+#ifdef DEBUG
+    [self captureAndSaveImage];
+#else
     self.countdownViewController.view.frame = self.cameraControlView.frame;
     self.cameraControlView.hidden = YES;
     [self.view addSubview:self.countdownViewController.view positioned:NSWindowAbove relativeTo:nil];
     [self.view.window recalculateKeyViewLoop];
 
     [self.countdownViewController beginCountdown];
+#endif
 }
 
 #pragma mark - Image Capture
