@@ -80,20 +80,6 @@
 }
 
 #pragma mark - Setup
-- (void)setupCameraPreviewLayer;
-{
-    self.cameraDisplayView.layer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
-
-    // Create the AVCaptureVideoPreviewLayer and add it as a sub layer of previewViewLayer which retains it
-    AVCaptureVideoPreviewLayer *videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
-    videoPreviewLayer.frame = self.cameraDisplayView.layer.bounds;
-    videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    [self.cameraDisplayView.layer addSublayer:videoPreviewLayer];
-
-    videoPreviewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
-    self.cameraDisplayView.layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
-}
-
 - (void)setupAVCaptureSession;
 {
     self.captureSession = [[AVCaptureSession alloc] init];
@@ -109,6 +95,20 @@
         self.capturePhotoOutput = photoOutput;
     }
     self.capturePhotoOutput = photoOutput;
+}
+
+- (void)setupCameraPreviewLayer;
+{
+    self.cameraDisplayView.layer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
+
+    // Create the AVCaptureVideoPreviewLayer and add it as a sub layer of previewViewLayer which retains it
+    AVCaptureVideoPreviewLayer *videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
+    videoPreviewLayer.frame = self.cameraDisplayView.layer.bounds;
+    videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+    [self.cameraDisplayView.layer addSublayer:videoPreviewLayer];
+
+    videoPreviewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
+    self.cameraDisplayView.layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
 }
 
 - (void)tearDownAVCaptureSession; // MER 2021-07-02 Never called
