@@ -11,11 +11,11 @@ private let myNibName = "ContentVC"
 
 class ContentVC: NSViewController {
     lazy var cameraVC: CameraViewController = {
-        let it = CameraViewController()
-        self.addChild(it)
-        return it
+        let cvc = CameraViewController()
+        self.addChild(cvc)
+        return cvc
     }()
-    
+
     override var nibName: NSNib.Name? { NSNib.Name(myNibName) }
 
     init() {
@@ -27,12 +27,10 @@ class ContentVC: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.translatesAutoresizingMaskIntoConstraints = false
         self.cameraVC.view.frame = self.view.bounds
         self.view.addSubview(self.cameraVC.view)
-//        self.constrainCurrentVCToEdges()
     }
-    
+
 }
 
 extension ContentVC {
