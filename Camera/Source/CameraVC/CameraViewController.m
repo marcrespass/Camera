@@ -123,16 +123,11 @@
 - (void)setupAVCaptureSession;
 {
     self.captureSession = [[AVCaptureSession alloc] init];
+    [self setupObservers];
+    [self refreshDevices];
+    [self setupCameraPreviewLayer];
 
-    AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    if (videoDevice)
-    {
-        [self setSelectedVideoDevice:videoDevice];
-    }
-    else
-    {
-        [self setSelectedVideoDevice:[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeMuxed]];
-    }
+    [self setSelectedVideoDevice:self.videoDevices.firstObject];
 
     AVCapturePhotoOutput *photoOutput = [[AVCapturePhotoOutput alloc] init];
     if ([self.captureSession canAddOutput:photoOutput]) {
@@ -141,10 +136,6 @@
         self.capturePhotoOutput = photoOutput;
     }
     self.capturePhotoOutput = photoOutput;
-
-    [self setupObservers];
-    [self setupCameraPreviewLayer];
-    [self refreshDevices];
 }
 
 - (void)tearDownAVCaptureSession; // MER 2021-07-02 Never called
