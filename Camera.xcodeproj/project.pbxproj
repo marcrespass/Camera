@@ -361,12 +361,14 @@
 /* Begin XCBuildConfiguration section */
 		D3EC8C6824CDD4E200A69248 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3A5A0D024CE28000011668C /* 2Common.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		D3EC8C6924CDD4E200A69248 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3A5A0D024CE28000011668C /* 2Common.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
