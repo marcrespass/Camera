@@ -38,7 +38,7 @@
 		D3721F5B2675483800C30D32 /* Beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Beep.wav; sourceTree = "<group>"; };
 		D3721F5D2675483800C30D32 /* Camera.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Camera.wav; sourceTree = "<group>"; };
 		D3A5A0CA24CE28000011668C /* App-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Release.xcconfig"; sourceTree = "<group>"; };
-		D3A5A0D024CE28000011668C /* 2Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = 2Common.xcconfig; sourceTree = "<group>"; };
+		D3A5A0D024CE28000011668C /* 2Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = 2Project.xcconfig; sourceTree = "<group>"; };
 		D3A5A0D224CE28000011668C /* App-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Debug.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0D324CE28000011668C /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; };
 		D3A5A0D424CE28000011668C /* App-Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Shared.xcconfig"; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				D3A5A0D324CE28000011668C /* 1XcodeWarnings.xcconfig */,
-				D3A5A0D024CE28000011668C /* 2Common.xcconfig */,
+				D3A5A0D024CE28000011668C /* 2Project.xcconfig */,
 				D3A5A0D224CE28000011668C /* App-Debug.xcconfig */,
 				D3A5A0CA24CE28000011668C /* App-Release.xcconfig */,
 				D3A5A0D424CE28000011668C /* App-Shared.xcconfig */,
@@ -361,14 +361,14 @@
 /* Begin XCBuildConfiguration section */
 		D3EC8C6824CDD4E200A69248 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3A5A0D024CE28000011668C /* 2Common.xcconfig */;
+			baseConfigurationReference = D3A5A0D024CE28000011668C /* 2Project.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		D3EC8C6924CDD4E200A69248 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3A5A0D024CE28000011668C /* 2Common.xcconfig */;
+			baseConfigurationReference = D3A5A0D024CE28000011668C /* 2Project.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
