@@ -94,6 +94,18 @@
         self.capturePhotoOutput = photoOutput;
     }
     self.capturePhotoOutput = photoOutput;
+
+    // MER 2021-07-16 self.capturePhotoOutput will now have one connection
+    // find that connection and set videoMirrored = YES
+//    for(AVCaptureConnection *connection in self.capturePhotoOutput.connections) {
+//        if (connection.output == photoOutput) {
+//            connection.automaticallyAdjustsVideoMirroring = NO;
+//            if(connection.supportsVideoMirroring) {
+//                connection.videoMirrored = YES;
+//            }
+//        }
+//    }
+//
 }
 
 - (void)setupCameraPreviewLayer;
