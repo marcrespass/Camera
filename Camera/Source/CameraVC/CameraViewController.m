@@ -180,7 +180,7 @@
 - (void)refreshDevices
 {
     MERLog();
-    dispatch_async(dispatch_get_main_queue(), ^{
+//    dispatch_async(dispatch_get_main_queue(), ^{
         NSArray<AVCaptureDeviceType>* deviceTypes = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeExternalUnknown];
         self.videoDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:deviceTypes
                                                                                                   mediaType:AVMediaTypeVideo
@@ -198,7 +198,7 @@
 
         [self.view.window makeFirstResponder:self.takePictureButton];
         [self.captureSession startRunning];
-    });
+//    });
 }
 
 #pragma mark - Camera Helpers
