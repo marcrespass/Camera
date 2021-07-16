@@ -171,25 +171,23 @@
 - (void)refreshDevices
 {
     MERLog();
-//    dispatch_async(dispatch_get_main_queue(), ^{
-        NSArray<AVCaptureDeviceType>* deviceTypes = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeExternalUnknown];
-        self.videoDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:deviceTypes
-                                                                                                  mediaType:AVMediaTypeVideo
-                                                                                                   position:AVCaptureDevicePositionUnspecified];
+    NSArray<AVCaptureDeviceType>* deviceTypes = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeExternalUnknown];
+    self.videoDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:deviceTypes
+                                                                                              mediaType:AVMediaTypeVideo
+                                                                                               position:AVCaptureDevicePositionUnspecified];
 
-        self.videoDevices = self.videoDeviceDiscoverySession.devices;
+    self.videoDevices = self.videoDeviceDiscoverySession.devices;
 
-        [self.captureSession beginConfiguration];
+    [self.captureSession beginConfiguration];
 
-        if(self.videoDeviceDiscoverySession.uniqueDevicePositionsCount <= 0)
-        {
-            [self setSelectedVideoDevice:nil];
-        }
-        [self.captureSession commitConfiguration];
+    if(self.videoDeviceDiscoverySession.uniqueDevicePositionsCount <= 0)
+    {
+        [self setSelectedVideoDevice:nil];
+    }
+    [self.captureSession commitConfiguration];
 
-        [self.view.window makeFirstResponder:self.takePictureButton];
-        [self.captureSession startRunning];
-//    });
+    [self.view.window makeFirstResponder:self.takePictureButton];
+    [self.captureSession startRunning];
 }
 
 #pragma mark - Camera Helpers
