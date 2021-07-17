@@ -10,21 +10,24 @@ private extension Selector {
 
 final class AppController {
 
-    let contentVC = ContentVC()
+    let contentVC = CameraViewController()
     var window: NSWindow?
 
     @objc func createNewWindow() {
         let window = NSWindow(contentViewController: self.contentVC)
         window.title = NSLocalizedString("Camera", comment: "")
         window.tabbingMode = .disallowed
-        window.setFrameAutosaveName("CameraWindowFrame")
-        window.contentMinSize = CGSize(width: 379, height: 278)
+        window.setFrameAutosaveName("CameraWindowFrame2")
+        window.contentMinSize = self.contentVC.view.bounds.size // CGSize(width: 379, height: 296) //
         window.makeKeyAndOrderFront(nil)
         self.window = window
 
         NotificationCenter.default.addObserver(self, selector: .appWindowWillClose,
                                                name: NSWindow.willCloseNotification,
                                                object: window)
+        DispatchQueue.main.async {
+            self.contentVC.setupAVCaptureSession()
+        }
     }
 }
 
