@@ -9,4 +9,6 @@
 
 @interface CameraViewController : NSViewController <CountdownViewControllerDelegate, AVCapturePhotoCaptureDelegate>
 
+- (void)setupAVCaptureSession;
+
 @end

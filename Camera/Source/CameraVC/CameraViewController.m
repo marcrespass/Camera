@@ -105,7 +105,7 @@
 //            }
 //        }
 //    }
-//
+    [self setupObservers];
 }
 
 - (void)setupCameraPreviewLayer;
@@ -156,9 +156,6 @@
 
     self.countdownViewController = [[CountdownViewController alloc] init];
     self.countdownViewController.delegate = self;
-
-    [self setupAVCaptureSession];
-    [self setupObservers];
 }
 
 - (void)setupObservers;
