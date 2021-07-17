@@ -18,7 +18,7 @@ final class AppController {
         window.title = NSLocalizedString("Camera", comment: "")
         window.tabbingMode = .disallowed
         window.setFrameAutosaveName("CameraWindowFrame2")
-        window.contentMinSize = self.contentVC.view.bounds.size // CGSize(width: 379, height: 296) //
+        window.contentMinSize = CGSize(width: 379, height: 290)
         window.makeKeyAndOrderFront(nil)
         self.window = window
 
@@ -26,7 +26,7 @@ final class AppController {
                                                name: NSWindow.willCloseNotification,
                                                object: window)
         DispatchQueue.main.async {
-            self.contentVC.setupAVCaptureSession()
+            self.contentVC.initialSetup()
         }
     }
 }
