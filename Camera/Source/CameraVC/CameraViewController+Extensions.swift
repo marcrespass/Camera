@@ -91,35 +91,23 @@ extension CGImage {
     }
 
     func imageProperties(for orientation: CGImagePropertyOrientation) -> ImageProperties {
-        var degreesToRotate = 0.0
-        var swapWidthHeight = false
-        var mirrored = false
-
         switch orientation {
             case .up:
-                break
+                return ImageProperties()
             case .upMirrored:
-                mirrored = true
+                return ImageProperties(mirrored: true)
             case .right:
-                degreesToRotate = -90.0
-                swapWidthHeight = true
+                return ImageProperties(degreesToRotate: -90.0, swapWidthHeight: true)
             case .rightMirrored:
-                degreesToRotate = -90.0
-                swapWidthHeight = true
-                mirrored = true
+                return ImageProperties(degreesToRotate: -90.0, swapWidthHeight: true, mirrored: true)
             case .down:
-                degreesToRotate = 180.0
+                return ImageProperties(degreesToRotate: 180.0)
             case .downMirrored:
-                degreesToRotate = 180.0
-                mirrored = true
+                return ImageProperties(degreesToRotate: 180.0, mirrored: true)
             case .left:
-                degreesToRotate = 90.0
-                swapWidthHeight = true
+                return ImageProperties(degreesToRotate: 90.0, swapWidthHeight: true)
             case .leftMirrored:
-                degreesToRotate = 90.0
-                swapWidthHeight = true
-                mirrored = true
+                return ImageProperties(degreesToRotate: 90.0, swapWidthHeight: true, mirrored: true)
         }
-        return ImageProperties(degreesToRotate: degreesToRotate, swapWidthHeight: swapWidthHeight, mirrored: mirrored)
     }
 }
