@@ -39,29 +39,18 @@ struct ImageProperties {
 // it produces a cyclomatic warning so I extracted the switch statement to return the ImageProperties struct from above
 extension CGImage {
     func rotating(to orientation: CGImagePropertyOrientation) -> CGImage? {
+        guard let colorSpace = self.colorSpace else { return nil }
+
         let originalWidth = self.width
         let originalHeight = self.height
         let bitsPerComponent = self.bitsPerComponent
         let bitmapInfo = self.bitmapInfo
-
-        guard let colorSpace = self.colorSpace else {
-            return nil
-        }
-
         let imageProperties = self.imageProperties(for: orientation)
 
         let radians = imageProperties.degreesToRotate * Double.pi / 180.0
 
-        var width: Int
-        var height: Int
-
-        if imageProperties.swapWidthHeight {
-            width = originalHeight
-            height = originalWidth
-        } else {
-            width = originalWidth
-            height = originalHeight
-        }
+        let width = imageProperties.swapWidthHeight ? originalHeight : originalWidth
+        let height = imageProperties.swapWidthHeight ? originalWidth : originalHeight
 
         let bytesPerRow = (width * bitsPerPixel) / 8
 
