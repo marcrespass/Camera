@@ -43,26 +43,21 @@ extension CGImage {
 
         let originalWidth = self.width
         let originalHeight = self.height
-        let bitsPerComponent = self.bitsPerComponent
-        let bitmapInfo = self.bitmapInfo
+
         let imageProperties = self.imageProperties(for: orientation)
-
         let radians = imageProperties.degreesToRotate * Double.pi / 180.0
-
         let width = imageProperties.swapWidthHeight ? originalHeight : originalWidth
         let height = imageProperties.swapWidthHeight ? originalWidth : originalHeight
 
         let bytesPerRow = (width * bitsPerPixel) / 8
 
         let contextRef = CGContext(data: nil, width: width, height: height,
-                                   bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow,
-                                   space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
+                                   bitsPerComponent: self.bitsPerComponent, bytesPerRow: bytesPerRow,
+                                   space: colorSpace, bitmapInfo: self.bitmapInfo.rawValue)
 
         contextRef?.translateBy(x: CGFloat(width) / 2.0, y: CGFloat(height) / 2.0)
 
-        if imageProperties.mirrored {
-            contextRef?.scaleBy(x: -1.0, y: 1.0)
-        }
+        if imageProperties.mirrored { contextRef?.scaleBy(x: -1.0, y: 1.0) }
 
         contextRef?.rotate(by: CGFloat(radians))
 
