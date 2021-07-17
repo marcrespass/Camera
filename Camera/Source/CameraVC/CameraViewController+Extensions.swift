@@ -9,38 +9,15 @@
 import AppKit
 
 @objc extension CameraViewController {
-    func rotateImage(data: Data, angle: CGFloat, flipVertical: CGFloat, flipHorizontal: CGFloat) -> CGImage? {
-        let ciImage = CIImage(data: data)
-
-        let filter = CIFilter(name: "CIAffineTransform")
-        filter?.setValue(ciImage, forKey: kCIInputImageKey)
-        filter?.setDefaults()
-
-        let newAngle = angle * CGFloat(-1)
-
-        var transform = CATransform3DIdentity
-        transform = CATransform3DRotate(transform, CGFloat(newAngle), 0, 0, 1)
-        transform = CATransform3DRotate(transform, CGFloat(Double(flipVertical) * .pi), 0, 1, 0)
-        transform = CATransform3DRotate(transform, CGFloat(Double(flipHorizontal) * .pi), 1, 0, 0)
-
-        let affineTransform = CATransform3DGetAffineTransform(transform)
-
-        filter?.setValue(NSValue(nonretainedObject: affineTransform), forKey: "inputTransform")
-
-        let contex = CIContext(options: [CIContextOption.useSoftwareRenderer: true])
-
-        let outputImage = filter?.outputImage
-        let cgImage = contex.createCGImage(outputImage!, from: (outputImage?.extent)!)
-
-        return cgImage
-    }
-
-    func rotatedImage(fromData data: Data) -> NSImage? {
+    func image(fromData data: Data, mirrored: Bool) -> NSImage? {
         guard let cgImageSource = CGImageSourceCreateWithData(data as CFData, nil),
-              let cgImage = CGImageSourceCreateImageAtIndex(cgImageSource, 0, nil),
-              let mirrored = cgImage.rotating(to: .upMirrored) else { return nil }
-        let image = NSImage(cgImage: mirrored, size: NSSize.zero)
-        return image
+              let cgImage = CGImageSourceCreateImageAtIndex(cgImageSource, 0, nil) else { return nil }
+
+        if mirrored, let mirroredImage = cgImage.rotating(to: .upMirrored) {
+            return NSImage(cgImage: mirroredImage, size: NSSize.zero)
+        } else {
+            return NSImage(cgImage: cgImage, size: NSSize.zero)
+        }
     }
 }
 
