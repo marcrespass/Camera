@@ -35,6 +35,7 @@
 @property (nonatomic, readwrite, strong) AVCaptureDeviceInput *captureDeviceInput;
 @property (nonatomic, readwrite, strong) AVCapturePhotoOutput *capturePhotoOutput;
 @property (nonatomic, readwrite, strong) AVCaptureSession *captureSession;
+@property (nonatomic, readwrite, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @property (nonatomic, readwrite, strong) CountdownViewController *countdownViewController;
 @property (nonatomic, readwrite, strong) NSArray *observers;
 @property (nonatomic, readwrite, strong) NSArray *videoDevices;
@@ -80,7 +81,7 @@
 }
 
 #pragma mark - Setup
-- (void)setupAVCaptureSession;
+- (void)initialSetup;
 {
     self.captureSession = [[AVCaptureSession alloc] init];
     [self refreshDevices];
@@ -113,22 +114,24 @@
     self.cameraDisplayView.layer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
 
     // Create the AVCaptureVideoPreviewLayer and add it as a sub layer of previewViewLayer which retains it
-    AVCaptureVideoPreviewLayer *videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
-    videoPreviewLayer.frame = self.cameraDisplayView.layer.bounds;
-    videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+    AVCaptureVideoPreviewLayer *vpLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
+    vpLayer.frame = self.cameraDisplayView.layer.bounds;
+    vpLayer.videoGravity = AVLayerVideoGravityResizeAspect;
 
     // Mirror the connection for the video preview layer
     dispatch_async(dispatch_get_main_queue(), ^(void) {
         // MER 2021-07-16 videoPreviewLayer.connection is set automatically but not right away so dispatch_async
-        if (videoPreviewLayer.connection.supportsVideoMirroring) {
-            videoPreviewLayer.connection.automaticallyAdjustsVideoMirroring = NO;
-            videoPreviewLayer.connection.videoMirrored = YES;
+        BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
+        if (vpLayer.connection.supportsVideoMirroring) {
+            vpLayer.connection.automaticallyAdjustsVideoMirroring = NO;
+            vpLayer.connection.videoMirrored = mirrored;
         }
     });
 
-    [self.cameraDisplayView.layer addSublayer:videoPreviewLayer];
-    videoPreviewLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
+    [self.cameraDisplayView.layer addSublayer:vpLayer];
+    vpLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
     self.cameraDisplayView.layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
+    self.videoPreviewLayer = vpLayer;
 }
 
 - (void)tearDownAVCaptureSession; // MER 2021-07-02 Never called
@@ -247,6 +250,13 @@
 #endif
 }
 
+- (IBAction)toggleMirrorPreview:(id)sender;
+{
+    BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
+    self.videoPreviewLayer.connection.automaticallyAdjustsVideoMirroring = NO;
+    self.videoPreviewLayer.connection.videoMirrored = mirrored;
+}
+
 #pragma mark - Image Capture
 - (void)captureAndSaveImage;
 {
@@ -276,7 +286,8 @@
         return;
     }
 
-    NSImage *image = [self rotatedImageFromData:photoData];
+    BOOL mirror = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorSavedImage"];
+    NSImage *image = [self imageFromData:photoData mirrored:mirror];
 
     NSError *writeError = nil;
     NSString *filePath = [[NSTemporaryDirectory() stringByAppendingPathComponent:NSUUID.UUID.UUIDString] stringByAppendingPathExtension:@"jpg"];
@@ -346,6 +357,9 @@
                 self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
             }
             [self.captureSession addInput:videoDeviceInput];
+            BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
+            self.videoPreviewLayer.connection.automaticallyAdjustsVideoMirroring = NO;
+            self.videoPreviewLayer.connection.videoMirrored = mirrored;
             self.captureDeviceInput = videoDeviceInput;
         }
     }
