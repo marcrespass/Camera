@@ -21,18 +21,6 @@ import AppKit
     }
 }
 
-struct ImageProperties {
-    var degreesToRotate: Double
-    var swapWidthHeight: Bool
-    var mirrored: Bool
-
-    init(degreesToRotate: Double = 0.0, swapWidthHeight: Bool = false, mirrored: Bool = false) {
-        self.degreesToRotate = degreesToRotate
-        self.swapWidthHeight = swapWidthHeight
-        self.mirrored = mirrored
-    }
-}
-
 // MER 2021-07-16
 // Many thanks for this extention to CGImage
 // https://stackoverflow.com/a/68027419
@@ -93,5 +81,17 @@ extension CGImage {
             case .leftMirrored:
                 return ImageProperties(degreesToRotate: 90.0, swapWidthHeight: true, mirrored: true)
         }
+    }
+}
+
+struct ImageProperties {
+    var degreesToRotate: Double
+    var swapWidthHeight: Bool
+    var mirrored: Bool
+
+    init(degreesToRotate: Double = 0.0, swapWidthHeight: Bool = false, mirrored: Bool = false) {
+        self.degreesToRotate = degreesToRotate
+        self.swapWidthHeight = swapWidthHeight
+        self.mirrored = mirrored
     }
 }
