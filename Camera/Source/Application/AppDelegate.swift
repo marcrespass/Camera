@@ -9,9 +9,7 @@ import Cocoa
 
 @NSApplicationMain
 final class AppDelegate: NSObject {
-    
     let appController = AppController()
-    
 }
 
 extension AppDelegate: NSApplicationDelegate {

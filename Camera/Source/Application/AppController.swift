@@ -9,7 +9,7 @@ private extension Selector {
 }
 
 final class AppController {
-
+    static let minSize = CGSize(width: 379, height: 290)
     let contentVC = CameraViewController()
     var window: NSWindow?
 
@@ -17,12 +17,13 @@ final class AppController {
         let window = NSWindow(contentViewController: self.contentVC)
         window.title = NSLocalizedString("Camera", comment: "")
         window.tabbingMode = .disallowed
-        window.setFrameAutosaveName("CameraWindowFrame2")
-        window.contentMinSize = CGSize(width: 379, height: 290)
+        window.setFrameAutosaveName("CameraWindowFrame")
+        window.contentMinSize = AppController.minSize
         window.makeKeyAndOrderFront(nil)
         self.window = window
 
-        NotificationCenter.default.addObserver(self, selector: .appWindowWillClose,
+        NotificationCenter.default.addObserver(self,
+                                               selector: .appWindowWillClose,
                                                name: NSWindow.willCloseNotification,
                                                object: window)
         DispatchQueue.main.async {
