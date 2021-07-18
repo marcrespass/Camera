@@ -7,25 +7,8 @@
 
 #define MERLog(fmt, ...) NSLog(@"%s " fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
 
-// MER 2021-07-01 Taken from Apple's sample code
-@implementation AVCaptureDeviceDiscoverySession (Utilities)
-
-- (NSUInteger)uniqueDevicePositionsCount
-{
-    NSMutableArray<NSNumber* >* uniqueDevicePositions = [NSMutableArray array];
-
-    for (AVCaptureDevice* device in self.devices) {
-        if (![uniqueDevicePositions containsObject:@(device.position)]) {
-            [uniqueDevicePositions addObject:@(device.position)];
-        }
-    }
-
-    return uniqueDevicePositions.count;
-}
-
-@end
-
 @interface CameraViewController ()
+
 @property (nonatomic, readwrite, weak) IBOutlet NSView *cameraDisplayView;
 @property (nonatomic, readwrite, weak) IBOutlet NSView *cameraControlView;
 @property (nonatomic, readwrite, weak) IBOutlet NSButton *takePictureButton;
@@ -200,7 +183,7 @@
 
     [self.captureSession beginConfiguration];
 
-    if(self.videoDeviceDiscoverySession.uniqueDevicePositionsCount <= 0)
+    if(self.videoDeviceDiscoverySession.devices <= 0)
     {
         [self setSelectedVideoDevice:nil];
     }
