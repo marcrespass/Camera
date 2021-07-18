@@ -24,11 +24,9 @@ import AppKit
 // MER 2021-07-16
 // Many thanks for this extention to CGImage
 // https://stackoverflow.com/a/68027419
-// it produces a cyclomatic warning so I extracted the switch statement to return the ImageProperties struct from above
+// it produces a cyclomatic warning so I extracted the switch statement to return the ImageProperties struct
 extension CGImage {
     func rotating(to orientation: CGImagePropertyOrientation) -> CGImage? {
-        guard let colorSpace = self.colorSpace else { return nil }
-
         let originalWidth = self.width
         let originalHeight = self.height
 
@@ -39,26 +37,36 @@ extension CGImage {
 
         let bytesPerRow = (width * bitsPerPixel) / 8
 
-        let contextRef = CGContext(data: nil, width: width, height: height,
-                                   bitsPerComponent: self.bitsPerComponent, bytesPerRow: bytesPerRow,
-                                   space: colorSpace, bitmapInfo: self.bitmapInfo.rawValue)
-
-        contextRef?.translateBy(x: CGFloat(width) / 2.0, y: CGFloat(height) / 2.0)
-
-        if imageProperties.mirrored { contextRef?.scaleBy(x: -1.0, y: 1.0) }
-
-        contextRef?.rotate(by: CGFloat(radians))
-
-        if imageProperties.swapWidthHeight {
-            contextRef?.translateBy(x: -CGFloat(height) / 2.0, y: -CGFloat(width) / 2.0)
-        } else {
-            contextRef?.translateBy(x: -CGFloat(width) / 2.0, y: -CGFloat(height) / 2.0)
+        guard let colorSpace = self.colorSpace,
+              let contextRef = CGContext(data: nil,
+                                         width: width,
+                                         height: height,
+                                         bitsPerComponent: self.bitsPerComponent,
+                                         bytesPerRow: bytesPerRow,
+                                         space: colorSpace,
+                                         bitmapInfo: self.bitmapInfo.rawValue) else {
+            print("ERROR: CGContext is nil!")
+            return nil
         }
 
-        contextRef?.draw(self, in: CGRect(x: 0.0, y: 0.0,
-                                          width: CGFloat(originalWidth), height: CGFloat(originalHeight)))
+        contextRef.translateBy(x: CGFloat(width) / 2.0, y: CGFloat(height) / 2.0)
 
-        let orientedImage = contextRef?.makeImage()
+        if imageProperties.mirrored { contextRef.scaleBy(x: -1.0, y: 1.0) }
+
+        contextRef.rotate(by: CGFloat(radians))
+
+        if imageProperties.swapWidthHeight {
+            contextRef.translateBy(x: -CGFloat(height) / 2.0, y: -CGFloat(width) / 2.0)
+        } else {
+            contextRef.translateBy(x: -CGFloat(width) / 2.0, y: -CGFloat(height) / 2.0)
+        }
+
+        let rect = CGRect(x: 0.0,
+                          y: 0.0,
+                          width: CGFloat(originalWidth),
+                          height: CGFloat(originalHeight))
+        contextRef.draw(self, in: rect)
+        let orientedImage = contextRef.makeImage()
         return orientedImage
     }
 
