@@ -18,10 +18,8 @@ NSInteger kMaxSeconds = 3;
 
 @property (nonatomic, assign) NSTimeInterval currentTimerInterval;
 @property (nonatomic, assign) NSInteger currentCountdownSeconds;
-@property (nonatomic, assign, getter = isTimerRunning) BOOL timerRunning;
 @property (nonatomic, assign) NSTimeInterval countdownAlertTime;
 @property (nonatomic, assign) NSTimeInterval countdownStartTime;
-@property (nonatomic, assign) NSTimeInterval countdownStopTime;
 
 @property (nonatomic, readwrite, strong) AVAudioPlayer *audioAlertPlayer;
 @property (nonatomic, readwrite, strong) NSArray *imageNames;
@@ -122,10 +120,7 @@ NSInteger kMaxSeconds = 3;
     [self setupEndAlert];
     [self resetCountdown];
 
-    self.timerRunning = YES;
-
     self.countdownStartTime = [NSDate timeIntervalSinceReferenceDate];
-    self.countdownStopTime = self.countdownStartTime + kMaxSeconds;
     self.currentCountdownSeconds = 0;
 
     // Invalidate just in case someone triggers this method twice with no intervening stopStopwatch: call.
@@ -140,7 +135,6 @@ NSInteger kMaxSeconds = 3;
 #pragma mark Actions
 - (IBAction)cancel:(id)sender;
 {
-    self.timerRunning = NO;
     [self.audioAlertPlayer stop];
 
     [self.timer invalidate];

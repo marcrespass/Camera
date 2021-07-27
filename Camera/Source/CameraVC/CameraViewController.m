@@ -117,24 +117,6 @@
     self.videoPreviewLayer = vpLayer;
 }
 
-- (void)tearDownAVCaptureSession; // MER 2021-07-02 Never called
-{
-    [self.captureSession stopRunning];
-
-    NSNotificationCenter *notificationCenter = NSNotificationCenter.defaultCenter;
-    for(id observer in self.observers)
-    {
-        [notificationCenter removeObserver:observer];
-    }
-    self.observers = nil;
-
-    self.captureSession = nil;
-    self.captureDeviceInput = nil;
-    self.videoDevices = nil;
-
-    [self.cameraDisplayView.layer setSublayers:nil];
-}
-
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
@@ -221,7 +203,7 @@
 
     self.takingPicture = YES;
 
-#ifdef DEBUG
+#ifdef DEBUG_
     [self captureAndSaveImage];
 #else
     self.countdownViewController.view.frame = self.cameraControlView.frame;
