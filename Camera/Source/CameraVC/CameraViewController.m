@@ -252,6 +252,12 @@
         return;
     }
 
+    BOOL ocr = [NSUserDefaults.standardUserDefaults boolForKey:@"OCR"];
+    if(ocr)
+    {
+        [self recognizeTextFromData:photoData];
+    }
+
     BOOL mirror = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorSavedImage"];
     NSImage *image = [self imageFromData:photoData mirrored:mirror];
 
