@@ -22,7 +22,7 @@ import AppKit
 }
 
 // MER 2021-07-16
-// Many thanks for this extention to CGImage
+// Many thanks for this extension to CGImage
 // https://stackoverflow.com/a/68027419
 // it produces a cyclomatic warning so I extracted the switch statement to return the ImageProperties struct
 extension CGImage {
