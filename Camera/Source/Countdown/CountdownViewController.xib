@@ -40,24 +40,28 @@
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="okE-Xx-sfJ">
                                 <imageReference key="image" image="1.square" catalog="system" symbolScale="large"/>
                             </imageCell>
+                            <color key="contentTintColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eZg-03-6cu" userLabel="imageView2">
                             <rect key="frame" x="42" y="0.0" width="42" height="48"/>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="ta0-oV-m9Y">
                                 <imageReference key="image" image="2.square" catalog="system" symbolScale="large"/>
                             </imageCell>
+                            <color key="contentTintColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oHP-Zq-604" userLabel="imageView3">
                             <rect key="frame" x="84" y="0.0" width="42" height="48"/>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="wZN-i0-XSd">
                                 <imageReference key="image" image="3.square" catalog="system" symbolScale="large"/>
                             </imageCell>
+                            <color key="contentTintColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zIb-iG-YPx" userLabel="imageView4">
                             <rect key="frame" x="126" y="-0.5" width="42" height="50"/>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="sxb-lD-jPy">
                                 <imageReference key="image" image="camera.circle" catalog="system" symbolScale="large"/>
                             </imageCell>
+                            <color key="contentTintColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
                     </subviews>
                     <constraints>
@@ -93,6 +97,7 @@
 Gw
 </string>
                     </buttonCell>
+                    <color key="contentTintColor" white="0.89853555119170581" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <action selector="cancel:" target="-2" id="26"/>
                     </connections>
