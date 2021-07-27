@@ -20,17 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="379" height="290"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <customView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14" userLabel="cameraDisplayView">
+                <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14" userLabel="cameraDisplayView">
                     <rect key="frame" x="20" y="79" width="339" height="191"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="191" id="2u8-BT-bbU"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="339" id="mew-fw-04C"/>
+                    </constraints>
                 </customView>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53" userLabel="cameraControlView">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="53" userLabel="cameraControlView">
                     <rect key="frame" x="20" y="20" width="339" height="59"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <popUpButton horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="45" userLabel="devicePopup">
-                            <rect key="frame" x="0.0" y="23" width="294" height="25"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <popUpButton verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="45" userLabel="devicePopup">
+                            <rect key="frame" x="-3" y="23" width="309" height="25"/>
                             <popUpButtonCell key="cell" type="push" title="Select camera" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingMiddle" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="48" id="46" userLabel="Camera menu">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="menu"/>
@@ -55,9 +56,8 @@
                                 </binding>
                             </connections>
                         </popUpButton>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="beE-KO-vuQ" userLabel="MirrorPreviewCheck">
-                            <rect key="frame" x="1" y="-1" width="114" height="18"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="beE-KO-vuQ" userLabel="MirrorPreviewCheck">
+                            <rect key="frame" x="-2" y="-1" width="114" height="18"/>
                             <buttonCell key="cell" type="check" title="Mirror preview" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="h4O-sl-CRb">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -67,9 +67,8 @@
                                 <binding destination="fCn-l6-k2E" name="value" keyPath="values.MirrorPreview" id="6VL-Be-t6P"/>
                             </connections>
                         </button>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yMN-vK-qaR" userLabel="MirrorSavedImageCheck">
-                            <rect key="frame" x="121" y="-1" width="142" height="18"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yMN-vK-qaR" userLabel="MirrorSavedImageCheck">
+                            <rect key="frame" x="118" y="-1" width="142" height="18"/>
                             <buttonCell key="cell" type="check" title="Mirror saved image" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cUk-3M-cQI">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -78,9 +77,8 @@
                                 <binding destination="fCn-l6-k2E" name="value" keyPath="values.MirrorSavedImage" id="tvN-Ci-sS1"/>
                             </connections>
                         </button>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XAk-50-me3" userLabel="OCRCheck">
-                            <rect key="frame" x="279" y="-1" width="54" height="18"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <button toolTip="Optical Character Recognition" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XAk-50-me3" userLabel="OCRCheck">
+                            <rect key="frame" x="285" y="-1" width="54" height="18"/>
                             <buttonCell key="cell" type="check" title="OCR" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="puC-6F-p8r">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -89,9 +87,12 @@
                                 <binding destination="fCn-l6-k2E" name="value" keyPath="values.OCR" id="bQ9-B1-nTL"/>
                             </connections>
                         </button>
-                        <button toolTip="Take picture" verticalHuggingPriority="750" fixedFrame="YES" tag="2112" translatesAutoresizingMaskIntoConstraints="NO" id="51" userLabel="takePictureButton">
-                            <rect key="frame" x="301" y="24" width="32" height="25"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <button toolTip="Take picture" verticalHuggingPriority="750" tag="2112" translatesAutoresizingMaskIntoConstraints="NO" id="51" userLabel="takePictureButton">
+                            <rect key="frame" x="310" y="24" width="29" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="hYh-Da-FZ0"/>
+                                <constraint firstAttribute="width" constant="29" id="zBg-dF-BWh"/>
+                            </constraints>
                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="52">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -113,8 +114,32 @@ DQ
                             </connections>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="51" firstAttribute="leading" secondItem="45" secondAttribute="trailing" constant="8" symbolic="YES" id="081-oA-wwa"/>
+                        <constraint firstItem="51" firstAttribute="centerY" secondItem="45" secondAttribute="centerY" id="53l-XF-cao"/>
+                        <constraint firstItem="yMN-vK-qaR" firstAttribute="firstBaseline" secondItem="beE-KO-vuQ" secondAttribute="firstBaseline" id="8ky-df-bTD"/>
+                        <constraint firstItem="XAk-50-me3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yMN-vK-qaR" secondAttribute="trailing" constant="8" symbolic="YES" id="Ihy-AI-ehc"/>
+                        <constraint firstItem="beE-KO-vuQ" firstAttribute="leading" secondItem="45" secondAttribute="leading" id="KFh-i7-uUh"/>
+                        <constraint firstItem="yMN-vK-qaR" firstAttribute="leading" secondItem="beE-KO-vuQ" secondAttribute="trailing" constant="8" symbolic="YES" id="QFN-ev-r9C"/>
+                        <constraint firstItem="beE-KO-vuQ" firstAttribute="top" secondItem="45" secondAttribute="bottom" constant="11" id="SP4-De-Tmn"/>
+                        <constraint firstItem="51" firstAttribute="top" secondItem="53" secondAttribute="top" constant="10" id="czl-Fn-FP0"/>
+                        <constraint firstAttribute="trailing" secondItem="XAk-50-me3" secondAttribute="trailing" id="d2d-rm-7Md"/>
+                        <constraint firstItem="XAk-50-me3" firstAttribute="firstBaseline" secondItem="yMN-vK-qaR" secondAttribute="firstBaseline" id="gmq-Zx-Tqv"/>
+                        <constraint firstItem="45" firstAttribute="leading" secondItem="53" secondAttribute="leading" id="kOr-hf-b83"/>
+                        <constraint firstAttribute="height" constant="59" id="sc5-nn-w4p"/>
+                        <constraint firstAttribute="trailing" secondItem="51" secondAttribute="trailing" id="tqU-Im-4e0"/>
+                    </constraints>
                 </customView>
             </subviews>
+            <constraints>
+                <constraint firstItem="53" firstAttribute="leading" secondItem="73" secondAttribute="leading" constant="20" symbolic="YES" id="Gn8-dg-1zG"/>
+                <constraint firstItem="53" firstAttribute="top" secondItem="14" secondAttribute="bottom" id="H5x-fA-rKJ"/>
+                <constraint firstAttribute="trailing" secondItem="53" secondAttribute="trailing" constant="20" symbolic="YES" id="OHp-vx-iOQ"/>
+                <constraint firstAttribute="bottom" secondItem="53" secondAttribute="bottom" constant="20" symbolic="YES" id="X2c-1o-QhC"/>
+                <constraint firstItem="14" firstAttribute="leading" secondItem="73" secondAttribute="leading" constant="20" symbolic="YES" id="cCL-mj-7qa"/>
+                <constraint firstAttribute="trailing" secondItem="14" secondAttribute="trailing" constant="20" symbolic="YES" id="hKG-K7-UBd"/>
+                <constraint firstItem="14" firstAttribute="top" secondItem="73" secondAttribute="top" constant="20" symbolic="YES" id="qjI-RX-EJ6"/>
+            </constraints>
             <point key="canvasLocation" x="-725.5" y="-37"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="fCn-l6-k2E"/>
