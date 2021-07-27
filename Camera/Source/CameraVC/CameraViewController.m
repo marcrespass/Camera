@@ -79,16 +79,17 @@
     }
     self.capturePhotoOutput = photoOutput;
 
-    // MER 2021-07-16 self.capturePhotoOutput will now have one connection
-    // find that connection and set videoMirrored = YES
-//    for(AVCaptureConnection *connection in self.capturePhotoOutput.connections) {
-//        if (connection.output == photoOutput) {
-//            connection.automaticallyAdjustsVideoMirroring = NO;
-//            if(connection.supportsVideoMirroring) {
-//                connection.videoMirrored = YES;
+//     MER 2021-07-16 self.capturePhotoOutput will now have one connection
+//     find that connection and set videoMirrored = YES
+//      2021-07-25 AVCapturePhotoOutput cannot mirror its connection on M1 so rotate the image manually
+//        for(AVCaptureConnection *connection in self.capturePhotoOutput.connections) {
+//            if (connection.output == photoOutput) {
+//                connection.automaticallyAdjustsVideoMirroring = NO;
+//                if(connection.supportsVideoMirroring) {
+//                    connection.videoMirrored = YES;
+//                }
 //            }
 //        }
-//    }
     [self setupObservers];
 }
 
@@ -134,7 +135,7 @@
                                                                queue:[NSOperationQueue mainQueue]
                                                           usingBlock:^(NSNotification *note) {
         dispatch_async(dispatch_get_main_queue(), ^(void) {
-            [self presentError:[[note userInfo] objectForKey:AVCaptureSessionErrorKey]];
+            [self presentError:note.userInfo[AVCaptureSessionErrorKey]];
         });
     }];
     id deviceWasConnectedObserver = [notificationCenter addObserverForName:AVCaptureDeviceWasConnectedNotification
@@ -149,7 +150,7 @@
                                                                    usingBlock:^(NSNotification *note) {
         [self refreshDevices];
     }];
-    self.observers = [[NSArray alloc] initWithObjects:runtimeErrorObserver, deviceWasConnectedObserver, deviceWasDisconnectedObserver, nil];
+    self.observers = @[runtimeErrorObserver, deviceWasConnectedObserver, deviceWasDisconnectedObserver];
 }
 
 #pragma mark - Device selection
@@ -165,7 +166,7 @@
 
     [self.captureSession beginConfiguration];
 
-    if(self.videoDeviceDiscoverySession.devices <= 0)
+    if(self.videoDeviceDiscoverySession.devices.count <= 0)
     {
         [self setSelectedVideoDevice:nil];
     }
