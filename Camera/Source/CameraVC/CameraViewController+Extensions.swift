@@ -52,7 +52,16 @@ extension CameraViewController {
         let recognizedStrings = observations.compactMap { observation in
             observation.topCandidates(1).first?.string // Return the string of the top VNRecognizedText instance.
         }
-        recognizedStrings.forEach { print($0) }
+        self.pasteResults(recognizedStrings)
+    }
+
+    public func pasteResults(_ results: [String]) {
+        let pasteBoard = NSPasteboard.general
+        pasteBoard.clearContents()
+        if pasteBoard.writeObjects(results as [NSString]) == false {
+            print("failed to write objects to pasteboard")
+            results.forEach { print($0) }
+        }
     }
 }
 
