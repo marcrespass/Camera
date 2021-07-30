@@ -3,6 +3,7 @@
 //
 
 #import "CameraViewController.h"
+#import "NSAlert+ILIOSAdditions.h"
 #import "Camera-Swift.h"
 
 #define MERLog(fmt, ...) NSLog(@"%s " fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
@@ -233,6 +234,23 @@
 }
 
 #pragma  mark - AVCapturePhotoCaptureDelegate
+- (void)saveDataToImage:(NSData *)photoData {
+    BOOL mirror = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorSavedImage"];
+    NSImage *image = [photoData nsImageMirroring:mirror];
+
+    NSError *writeError = nil;
+    NSString *filePath = [[NSTemporaryDirectory() stringByAppendingPathComponent:NSUUID.UUID.UUIDString] stringByAppendingPathExtension:@"jpg"];
+    NSURL *url = [NSURL fileURLWithPath:filePath];
+    if([image.TIFFRepresentation writeToURL:url options:0 error:&writeError])
+    {
+        [NSWorkspace.sharedWorkspace openURL:url];
+    }
+    if(writeError != nil)
+    {
+        [NSApp presentError:writeError];
+    }
+}
+
 - (void)captureOutput:(AVCapturePhotoOutput *)captureOutput didFinishProcessingPhoto:(AVCapturePhoto*)photo error:(nullable NSError*)error;
 {
     MERLog();
@@ -252,25 +270,19 @@
         return;
     }
 
+    [self saveDataToImage:photoData];
     BOOL ocr = [NSUserDefaults.standardUserDefaults boolForKey:@"OCR"];
     if(ocr)
     {
-        [self recognizeTextFromData:photoData];
-    }
-
-    BOOL mirror = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorSavedImage"];
-    NSImage *image = [self imageFromData:photoData mirrored:mirror];
-
-    NSError *writeError = nil;
-    NSString *filePath = [[NSTemporaryDirectory() stringByAppendingPathComponent:NSUUID.UUID.UUIDString] stringByAppendingPathExtension:@"jpg"];
-    NSURL *url = [NSURL fileURLWithPath:filePath];
-    if([image.TIFFRepresentation writeToURL:url options:0 error:&writeError])
-    {
-        [NSWorkspace.sharedWorkspace openURL:url];
-    }
-    if(writeError != nil)
-    {
-        [NSApp presentError:writeError];
+        [photoData recognizeTextWithCompletionHandler:^(NSArray<NSString *> *strings, NSError *ocrError) {
+            if(ocrError != nil)
+            {
+                [NSApp presentError:ocrError];
+                return;
+            }
+            NSString *concat = [strings componentsJoinedByString:@" "];
+            [[NSAlert.new ilios_alertWithTitle:@"Recognized text" message:concat] runModal];
+        }];
     }
 }
 
