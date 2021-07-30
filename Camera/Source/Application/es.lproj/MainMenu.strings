@@ -1,6 +1,6 @@
 
 /* Class = "NSMenu"; title = "Speech"; ObjectID = "1L3-k3-uW0"; */
-"1L3-k3-uW0.title" = "Speech";
+"1L3-k3-uW0.title" = "Habla";
 
 /* Class = "NSMenuItem"; title = "Camera"; ObjectID = "1Xt-HY-uBw"; */
 "1Xt-HY-uBw.title" = "Cámara";
@@ -15,7 +15,7 @@
 "4sb-4s-VLi.title" = "Salir de Cámara";
 
 /* Class = "NSMenuItem"; title = "Speech"; ObjectID = "58r-pj-egh"; */
-"58r-pj-egh.title" = "Speech";
+"58r-pj-egh.title" = "Habla";
 
 /* Class = "NSMenuItem"; title = "About Camera"; ObjectID = "5kV-Vb-QxS"; */
 "5kV-Vb-QxS.title" = "Acerca de Cámara";
@@ -33,25 +33,25 @@
 "F2S-fz-NVQ.title" = "Ayuda";
 
 /* Class = "NSMenuItem"; title = "View"; ObjectID = "H8h-7b-M4v"; */
-"H8h-7b-M4v.title" = "View";
+"H8h-7b-M4v.title" = "Visualización";
 
 /* Class = "NSMenu"; title = "View"; ObjectID = "HyV-fh-RgO"; */
-"HyV-fh-RgO.title" = "View";
+"HyV-fh-RgO.title" = "Visualización";
 
 /* Class = "NSMenuItem"; title = "Mirror Preview"; ObjectID = "KVI-Jy-5hJ"; */
 "KVI-Jy-5hJ.title" = "Reflejar la vista previa";
 
 /* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
-"Kd2-mp-pUS.title" = "Show All";
+"Kd2-mp-pUS.title" = "Mostrar todo";
 
 /* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
 "LE2-aR-0XJ.title" = "Traer todo al frente";
 
 /* Class = "NSMenuItem"; title = "Paste"; ObjectID = "LTz-qc-f9V"; */
-"LTz-qc-f9V.title" = "Paste";
+"LTz-qc-f9V.title" = "Pegar";
 
 /* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
-"NMo-om-nkz.title" = "Services";
+"NMo-om-nkz.title" = "Servicios";
 
 /* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
 "OY7-WF-poV.title" = "Minimizar";
@@ -78,13 +78,13 @@
 "Was-JA-tGl.title" = "Sacar una foto";
 
 /* Class = "NSMenuItem"; title = "Stop Speaking"; ObjectID = "WiS-kR-pbv"; */
-"WiS-kR-pbv.title" = "Stop Speaking";
+"WiS-kR-pbv.title" = "Detener locución";
 
 /* Class = "NSMenuItem"; title = "Select All"; ObjectID = "ZtA-Pz-nj3"; */
-"ZtA-Pz-nj3.title" = "Select All";
+"ZtA-Pz-nj3.title" = "Seleccionar todo";
 
 /* Class = "NSMenuItem"; title = "Cut"; ObjectID = "a7W-fI-F5M"; */
-"a7W-fI-F5M.title" = "Cut";
+"a7W-fI-F5M.title" = "Cortar";
 
 /* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
 "aUF-d1-5bR.title" = "Ventana";
@@ -96,25 +96,25 @@
 "dMs-cI-mzQ.title" = "Archivo";
 
 /* Class = "NSMenuItem"; title = "Start Speaking"; ObjectID = "h8E-Rx-Irf"; */
-"h8E-Rx-Irf.title" = "Start Speaking";
+"h8E-Rx-Irf.title" = "Iniciar locución";
 
 /* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
 "hz9-B4-Xy5.title" = "Servicios";
 
 /* Class = "NSMenuItem"; title = "Redo"; ObjectID = "k8m-eK-f3u"; */
-"k8m-eK-f3u.title" = "Redo";
+"k8m-eK-f3u.title" = "Rehacer";
 
 /* Class = "NSMenuItem"; title = "Copy"; ObjectID = "qaI-jg-rCg"; */
-"qaI-jg-rCg.title" = "Copy";
+"qaI-jg-rCg.title" = "Copiar";
 
 /* Class = "NSMenuItem"; title = "Delete"; ObjectID = "s0N-Kq-35g"; */
 "s0N-Kq-35g.title" = "Delete";
 
 /* Class = "NSMenuItem"; title = "Edit"; ObjectID = "t0r-i0-TT1"; */
-"t0r-i0-TT1.title" = "Edit";
+"t0r-i0-TT1.title" = "Editión";
 
 /* Class = "NSMenu"; title = "Edit"; ObjectID = "uNS-XO-HgS"; */
-"uNS-XO-HgS.title" = "Edit";
+"uNS-XO-HgS.title" = "Editión";
 
 /* Class = "NSMenu"; title = "Camera"; ObjectID = "uQy-DD-JDr"; */
 "uQy-DD-JDr.title" = "Cámara";
