@@ -6,7 +6,7 @@
 "1Xt-HY-uBw.title" = "Cámara";
 
 /* Class = "NSMenuItem"; title = "Mirror Saved Image"; ObjectID = "3ea-i8-w3d"; */
-"3ea-i8-w3d.title" = "Mirror Saved Image";
+"3ea-i8-w3d.title" = "Reflejar la imagen guardada";
 
 /* Class = "NSMenuItem"; title = "Enter Full Screen"; ObjectID = "4J7-dP-txa"; */
 "4J7-dP-txa.title" = "Ver en pantalla completa";
@@ -66,7 +66,7 @@
 "JMe-iC-9jm.title" = "Text Replacement";
 
 /* Class = "NSMenuItem"; title = "Mirror Preview"; ObjectID = "KVI-Jy-5hJ"; */
-"KVI-Jy-5hJ.title" = "Mirror Preview";
+"KVI-Jy-5hJ.title" = "Reflejar la vista previa";
 
 /* Class = "NSMenu"; title = "Substitutions"; ObjectID = "KcL-tz-rNE"; */
 "KcL-tz-rNE.title" = "Substitutions";
@@ -99,13 +99,13 @@
 "Olw-nP-bQN.title" = "Hide Cámara";
 
 /* Class = "NSMenu"; title = "Camera"; ObjectID = "Qg8-Hf-jUy"; */
-"Qg8-Hf-jUy.title" = "Camera";
+"Qg8-Hf-jUy.title" = "Cámara";
 
 /* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
 "R4o-n2-Eq4.title" = "Maximizar";
 
 /* Class = "NSMenuItem"; title = "Camera"; ObjectID = "RUO-6K-xd8"; */
-"RUO-6K-xd8.title" = "Camera";
+"RUO-6K-xd8.title" = "Cámara";
 
 /* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
 "Td7-aD-5lo.title" = "Ventana";
@@ -213,4 +213,4 @@
 "wpr-3q-Mcd.title" = "Ayuda";
 
 /* Class = "NSMenuItem"; title = "Recognize Text in Image"; ObjectID = "wpr-fR-Ztc"; */
-"wpr-fR-Ztc.title" = "Recognize Text in Image";
+"wpr-fR-Ztc.title" = "Reconocer texto en la imagen";

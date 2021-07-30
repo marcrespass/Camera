@@ -12,7 +12,7 @@
 "7Ut-fm-MHY.ibShadowedIsNilPlaceholder" = "Ningúna cámara seleccionada";
 
 /* Class = "NSButton"; ibShadowedToolTip = "Optical Character Recognition"; ObjectID = "XAk-50-me3"; */
-"XAk-50-me3.ibShadowedToolTip" = "Reconocimiento óptico de caracteres";
+"XAk-50-me3.ibShadowedToolTip" = "Reconocer texto en la imagen (ROC)";
 
 /* Class = "NSButtonCell"; title = "Mirror saved image"; ObjectID = "cUk-3M-cQI"; */
 "cUk-3M-cQI.title" = "Reflejar la imagen guardada";
