@@ -158,12 +158,22 @@
                         <items>
                             <menuItem title="Mirror Preview" id="KVI-Jy-5hJ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="toggleMirrorPreview:" target="-1" id="yBD-ek-gDd"/>
+                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.MirrorPreview" id="OYb-VH-Big"/>
+                                </connections>
                             </menuItem>
                             <menuItem title="Mirror Saved Image" id="3ea-i8-w3d">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.MirrorSavedImage" id="aJs-4n-4sX"/>
+                                </connections>
                             </menuItem>
                             <menuItem title="Recognize Text in Image" id="wpr-fR-Ztc">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.OCR" id="wDk-Yv-tAv"/>
+                                </connections>
                             </menuItem>
                         </items>
                     </menu>
@@ -198,7 +208,8 @@
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ"/>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="139" y="154"/>
+            <point key="canvasLocation" x="-100" y="-54"/>
         </menu>
+        <userDefaultsController representsSharedInstance="YES" id="9NV-cB-0To"/>
     </objects>
 </document>

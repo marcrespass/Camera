@@ -64,7 +64,7 @@
                             </buttonCell>
                             <connections>
                                 <action selector="toggleMirrorPreview:" target="-2" id="xRR-WN-toF"/>
-                                <binding destination="fCn-l6-k2E" name="value" keyPath="values.MirrorPreview" id="6VL-Be-t6P"/>
+                                <binding destination="fCn-l6-k2E" name="value" keyPath="values.MirrorPreview" id="rcA-iv-EvN"/>
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yMN-vK-qaR" userLabel="MirrorSavedImageCheck">
@@ -74,7 +74,7 @@
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
-                                <binding destination="fCn-l6-k2E" name="value" keyPath="values.MirrorSavedImage" id="tvN-Ci-sS1"/>
+                                <binding destination="fCn-l6-k2E" name="value" keyPath="values.MirrorSavedImage" id="X5L-uH-PrZ"/>
                             </connections>
                         </button>
                         <button toolTip="Recognize text in image (OCR)" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XAk-50-me3" userLabel="OCRCheck">
@@ -84,7 +84,7 @@
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
-                                <binding destination="fCn-l6-k2E" name="value" keyPath="values.OCR" id="bQ9-B1-nTL"/>
+                                <binding destination="fCn-l6-k2E" name="value" keyPath="values.OCR" id="8RB-XS-mXU"/>
                             </connections>
                         </button>
                         <button toolTip="Take picture" verticalHuggingPriority="750" tag="2112" translatesAutoresizingMaskIntoConstraints="NO" id="51" userLabel="takePictureButton">
