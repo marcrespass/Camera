@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="CameraViewController">
+        <customObject id="-2" userLabel="File's Owner" customClass="CameraVC">
             <connections>
                 <outlet property="cameraControlView" destination="53" id="70"/>
                 <outlet property="cameraDisplayView" destination="14" id="69"/>

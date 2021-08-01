@@ -2,13 +2,13 @@
 //  Copyright 2011 ILIOS Inc. All rights reserved.
 //
 
-#import "CameraViewController.h"
+#import "CameraVC.h"
 #import "NSAlert+ILIOSAdditions.h"
 #import "Camera-Swift.h"
 
 #define MERLog(fmt, ...) NSLog(@"%s " fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
 
-@interface CameraViewController ()
+@interface CameraVC ()
 
 @property (nonatomic, readwrite, weak) IBOutlet NSView *cameraDisplayView;
 @property (nonatomic, readwrite, weak) IBOutlet NSView *cameraControlView;
@@ -28,7 +28,7 @@
 
 @end
 
-@implementation CameraViewController
+@implementation CameraVC
 
 #pragma mark - KVC/KVO
 + (NSSet *)keyPathsForValuesAffectingHasRecordingDevice
@@ -51,7 +51,7 @@
 
 - (NSString *)nibName;
 {
-    return @"CameraViewController";
+    return @"CameraVC";
 }
 
 - (void)dealloc;

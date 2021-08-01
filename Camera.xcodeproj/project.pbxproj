@@ -15,13 +15,13 @@
 		D3545B42252680BF00E8432D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3545B44252680BF00E8432D /* InfoPlist.strings */; };
 		D3721F5E2675483800C30D32 /* Beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = D3721F5B2675483800C30D32 /* Beep.wav */; };
 		D3721F602675483800C30D32 /* Camera.wav in Resources */ = {isa = PBXBuildFile; fileRef = D3721F5D2675483800C30D32 /* Camera.wav */; };
-		D3BB1B4E252638920092D58F /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BB1B50252638920092D58F /* CameraViewController.xib */; };
+		D3BB1B4E252638920092D58F /* CameraVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BB1B50252638920092D58F /* CameraVC.xib */; };
 		D3BB1B5925263B010092D58F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3BB1B5825263B010092D58F /* Localizable.strings */; };
 		D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */; };
 		D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C6124CDD4E200A69248 /* Assets.xcassets */; };
 		D3EC8C6524CDD4E200A69248 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C6324CDD4E200A69248 /* MainMenu.xib */; };
 		D3EC8C6E24CDD53C00A69248 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C6D24CDD53C00A69248 /* AppController.swift */; };
-		D3EC97B02671B11700414666 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC97AF2671B11700414666 /* CameraViewController.m */; };
+		D3EC97B02671B11700414666 /* CameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC97AF2671B11700414666 /* CameraVC.m */; };
 		D3EC97B42671B1D300414666 /* CountdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC97B22671B1D300414666 /* CountdownViewController.m */; };
 		D3EC97B52671B1D300414666 /* CountdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EC97B32671B1D300414666 /* CountdownViewController.xib */; };
 		D3EC97B82671B27100414666 /* Countdown.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3EC97B72671B27100414666 /* Countdown.xcassets */; };
@@ -43,13 +43,13 @@
 		D3545B45252680C000E8432D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D3721F5B2675483800C30D32 /* Beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Beep.wav; sourceTree = "<group>"; };
 		D3721F5D2675483800C30D32 /* Camera.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Camera.wav; sourceTree = "<group>"; };
-		D38894F126B0B2D600910E57 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/CameraViewController.strings; sourceTree = "<group>"; };
+		D38894F126B0B2D600910E57 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/CameraVC.strings; sourceTree = "<group>"; };
 		D3A5A0CA24CE28000011668C /* App-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Release.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0D024CE28000011668C /* 2Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = 2Project.xcconfig; sourceTree = "<group>"; };
 		D3A5A0D224CE28000011668C /* App-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Debug.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0D324CE28000011668C /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; };
 		D3A5A0D424CE28000011668C /* App-Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Shared.xcconfig"; sourceTree = "<group>"; };
-		D3BB1B4F252638920092D58F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CameraViewController.xib; sourceTree = "<group>"; };
+		D3BB1B4F252638920092D58F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CameraVC.xib; sourceTree = "<group>"; };
 		D3BB1B5825263B010092D58F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		D3EC8C5C24CDD4DF00A69248 /* Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,8 +59,8 @@
 		D3EC8C6724CDD4E200A69248 /* Camera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Camera.entitlements; sourceTree = "<group>"; };
 		D3EC8C6D24CDD53C00A69248 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		D3EC8C7324CDD67600A69248 /* Camera-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Camera-Bridging-Header.h"; sourceTree = "<group>"; };
-		D3EC97AE2671B11700414666 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
-		D3EC97AF2671B11700414666 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
+		D3EC97AE2671B11700414666 /* CameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraVC.h; sourceTree = "<group>"; };
+		D3EC97AF2671B11700414666 /* CameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraVC.m; sourceTree = "<group>"; wrapsLines = 0; };
 		D3EC97B12671B1D300414666 /* CountdownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownViewController.h; sourceTree = "<group>"; };
 		D3EC97B22671B1D300414666 /* CountdownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownViewController.m; sourceTree = "<group>"; };
 		D3EC97B32671B1D300414666 /* CountdownViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountdownViewController.xib; sourceTree = "<group>"; };
@@ -169,9 +169,9 @@
 		D3FF4611268F66A200CEF6CB /* CameraVC */ = {
 			isa = PBXGroup;
 			children = (
-				D3EC97AE2671B11700414666 /* CameraViewController.h */,
-				D3EC97AF2671B11700414666 /* CameraViewController.m */,
-				D3BB1B50252638920092D58F /* CameraViewController.xib */,
+				D3EC97AE2671B11700414666 /* CameraVC.h */,
+				D3EC97AF2671B11700414666 /* CameraVC.m */,
+				D3BB1B50252638920092D58F /* CameraVC.xib */,
 			);
 			path = CameraVC;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 				D3BB1B5925263B010092D58F /* Localizable.strings in Resources */,
 				D3545B42252680BF00E8432D /* InfoPlist.strings in Resources */,
 				D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */,
-				D3BB1B4E252638920092D58F /* CameraViewController.xib in Resources */,
+				D3BB1B4E252638920092D58F /* CameraVC.xib in Resources */,
 				D3EC97B52671B1D300414666 /* CountdownViewController.xib in Resources */,
 				D3EC97B82671B27100414666 /* Countdown.xcassets in Resources */,
 				D3721F5E2675483800C30D32 /* Beep.wav in Resources */,
@@ -313,7 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */,
-				D3EC97B02671B11700414666 /* CameraViewController.m in Sources */,
+				D3EC97B02671B11700414666 /* CameraVC.m in Sources */,
 				D3EC97B42671B1D300414666 /* CountdownViewController.m in Sources */,
 				D32AF47426B195A900A4F47A /* NSData+Extensions.swift in Sources */,
 				D34E0BF3269371E100628825 /* CGImage+Extensions.swift in Sources */,
@@ -344,13 +344,13 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		D3BB1B50252638920092D58F /* CameraViewController.xib */ = {
+		D3BB1B50252638920092D58F /* CameraVC.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D3BB1B4F252638920092D58F /* Base */,
 				D38894F126B0B2D600910E57 /* es */,
 			);
-			name = CameraViewController.xib;
+			name = CameraVC.xib;
 			sourceTree = "<group>";
 		};
 		D3EC8C6324CDD4E200A69248 /* MainMenu.xib */ = {

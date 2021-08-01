@@ -1,5 +1,4 @@
 //
-//  CameraViewController+Extensions.swift
 //  Camera
 //
 //  Created by Marc Respass on 7/5/21.

@@ -10,7 +10,7 @@ private extension Selector {
 
 final class AppController {
     static let minSize = CGSize(width: 379, height: 290)
-    let contentVC = CameraViewController()
+    let contentVC = CameraVC()
     var window: NSWindow?
 
     @objc func createNewWindow() {
@@ -26,9 +26,6 @@ final class AppController {
                                                selector: .appWindowWillClose,
                                                name: NSWindow.willCloseNotification,
                                                object: window)
-//        DispatchQueue.main.async {
-//            self.contentVC.initialSetup()
-//        }
     }
 }
 
