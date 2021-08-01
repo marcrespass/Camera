@@ -26,9 +26,9 @@ final class AppController {
                                                selector: .appWindowWillClose,
                                                name: NSWindow.willCloseNotification,
                                                object: window)
-        DispatchQueue.main.async {
-            self.contentVC.initialSetup()
-        }
+//        DispatchQueue.main.async {
+//            self.contentVC.initialSetup()
+//        }
     }
 }
 

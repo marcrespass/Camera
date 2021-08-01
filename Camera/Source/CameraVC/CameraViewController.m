@@ -15,6 +15,7 @@
 @property (nonatomic, readwrite, weak) IBOutlet NSButton *takePictureButton;
 @property (nonatomic, readonly, assign) BOOL hasRecordingDevice;
 @property (nonatomic, readwrite, assign) BOOL takingPicture;
+@property (nonatomic, readwrite, assign) BOOL videoConfigured;
 @property (nonatomic, readwrite, strong) AVCaptureDeviceDiscoverySession* videoDeviceDiscoverySession;
 @property (nonatomic, readwrite, strong) AVCaptureDeviceInput *captureDeviceInput;
 @property (nonatomic, readwrite, strong) AVCapturePhotoOutput *capturePhotoOutput;
@@ -92,6 +93,7 @@
     //            }
     //        }
     [self setupObservers];
+    self.videoConfigured = YES;
 }
 
 - (void)setupCameraPreviewLayer;
@@ -126,6 +128,11 @@
 
     self.countdownViewController = [[CountdownViewController alloc] init];
     self.countdownViewController.delegate = self;
+
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        [self initialSetup];
+    });
+
 }
 
 - (void)setupObservers;

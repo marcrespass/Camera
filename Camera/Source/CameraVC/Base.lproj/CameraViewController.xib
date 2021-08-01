@@ -22,9 +22,36 @@
             <subviews>
                 <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14" userLabel="cameraDisplayView">
                     <rect key="frame" x="20" y="79" width="339" height="191"/>
+                    <subviews>
+                        <progressIndicator maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="7dR-nw-KkY">
+                            <rect key="frame" x="154" y="80" width="32" height="32"/>
+                            <connections>
+                                <binding destination="-2" name="animate" keyPath="self.videoConfigured" id="CZ6-gU-fOV">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                    </dictionary>
+                                </binding>
+                            </connections>
+                        </progressIndicator>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BYQ-9y-Cns">
+                            <rect key="frame" x="94" y="56" width="151" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Searching for cameras…" id="2z1-4a-m1V">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="hidden" keyPath="self.videoConfigured" id="BIE-zx-h5D"/>
+                            </connections>
+                        </textField>
+                    </subviews>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="191" id="2u8-BT-bbU"/>
+                        <constraint firstItem="7dR-nw-KkY" firstAttribute="centerY" secondItem="14" secondAttribute="centerY" id="Gga-JI-Zfa"/>
+                        <constraint firstItem="7dR-nw-KkY" firstAttribute="centerX" secondItem="14" secondAttribute="centerX" id="PYg-b6-f05"/>
+                        <constraint firstItem="BYQ-9y-Cns" firstAttribute="centerX" secondItem="14" secondAttribute="centerX" id="j7s-6D-6iI"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="339" id="mew-fw-04C"/>
+                        <constraint firstItem="BYQ-9y-Cns" firstAttribute="top" secondItem="7dR-nw-KkY" secondAttribute="bottom" constant="8" symbolic="YES" id="wes-h0-h5i"/>
                     </constraints>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="53" userLabel="cameraControlView">
@@ -42,6 +69,7 @@
                                 </menu>
                             </popUpButtonCell>
                             <connections>
+                                <binding destination="-2" name="enabled" keyPath="self.videoConfigured" id="KsL-XT-La6"/>
                                 <binding destination="-2" name="selectedObject" keyPath="selectedVideoDevice" previousBinding="7Ut-fm-MHY" id="FBz-EA-4Yu"/>
                                 <binding destination="-2" name="content" keyPath="videoDevices" id="59">
                                     <dictionary key="options">
