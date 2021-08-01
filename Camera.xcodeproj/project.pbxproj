@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D31CE93426B4449800E78398 /* NSError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31CE93326B4449800E78398 /* NSError+Extensions.swift */; };
 		D31CE93726B4452E00E78398 /* NSAlert+ILIOSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CE93626B4452E00E78398 /* NSAlert+ILIOSAdditions.m */; };
-		D32AF47426B195A900A4F47A /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AF47326B195A900A4F47A /* Data+Extensions.swift */; };
+		D32AF47426B195A900A4F47A /* NSData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AF47326B195A900A4F47A /* NSData+Extensions.swift */; };
 		D335924126753E37002D779B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D335924326753E37002D779B /* Credits.rtf */; };
 		D34E0BF3269371E100628825 /* CGImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E0BF2269371E100628825 /* CGImage+Extensions.swift */; };
 		D3545B42252680BF00E8432D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3545B44252680BF00E8432D /* InfoPlist.strings */; };
@@ -32,7 +32,7 @@
 		D31CE93526B4452E00E78398 /* NSAlert+ILIOSAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+ILIOSAdditions.h"; sourceTree = "<group>"; };
 		D31CE93626B4452E00E78398 /* NSAlert+ILIOSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+ILIOSAdditions.m"; sourceTree = "<group>"; };
 		D31CE93B26B449F800E78398 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		D32AF47326B195A900A4F47A /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
+		D32AF47326B195A900A4F47A /* NSData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSData+Extensions.swift"; sourceTree = "<group>"; };
 		D335924226753E37002D779B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
 		D335924426753E3B002D779B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
 		D34E0BF2269371E100628825 /* CGImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Extensions.swift"; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 				D3FF4611268F66A200CEF6CB /* CameraVC */,
 				D3FF460F268F668400CEF6CB /* Countdown */,
 				D34E0BF2269371E100628825 /* CGImage+Extensions.swift */,
-				D32AF47326B195A900A4F47A /* Data+Extensions.swift */,
+				D32AF47326B195A900A4F47A /* NSData+Extensions.swift */,
 				D31CE93326B4449800E78398 /* NSError+Extensions.swift */,
 				D31CE93526B4452E00E78398 /* NSAlert+ILIOSAdditions.h */,
 				D31CE93626B4452E00E78398 /* NSAlert+ILIOSAdditions.m */,
@@ -315,7 +315,7 @@
 				D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */,
 				D3EC97B02671B11700414666 /* CameraViewController.m in Sources */,
 				D3EC97B42671B1D300414666 /* CountdownViewController.m in Sources */,
-				D32AF47426B195A900A4F47A /* Data+Extensions.swift in Sources */,
+				D32AF47426B195A900A4F47A /* NSData+Extensions.swift in Sources */,
 				D34E0BF3269371E100628825 /* CGImage+Extensions.swift in Sources */,
 				D31CE93426B4449800E78398 /* NSError+Extensions.swift in Sources */,
 				D31CE93726B4452E00E78398 /* NSAlert+ILIOSAdditions.m in Sources */,
