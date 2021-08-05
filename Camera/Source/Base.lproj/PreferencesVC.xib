@@ -17,8 +17,8 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0s4-Ga-4gg">
-                    <rect key="frame" x="18" y="168" width="230" height="31"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Camera preferences" id="phS-em-wSu">
+                    <rect key="frame" x="18" y="168" width="137" height="31"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Preferences" id="phS-em-wSu">
                         <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
