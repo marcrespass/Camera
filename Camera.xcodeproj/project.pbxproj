@@ -109,6 +109,18 @@
 			path = XCConfig;
 			sourceTree = "<group>";
 		};
+		D3A9A8EB26BC63D90006948D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D34E0BF2269371E100628825 /* CGImage+Extensions.swift */,
+				D32AF47326B195A900A4F47A /* NSData+Extensions.swift */,
+				D31CE93326B4449800E78398 /* NSError+Extensions.swift */,
+				D31CE93526B4452E00E78398 /* NSAlert+ILIOSAdditions.h */,
+				D31CE93626B4452E00E78398 /* NSAlert+ILIOSAdditions.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D3EC8C5324CDD4DF00A69248 = {
 			isa = PBXGroup;
 			children = (
@@ -182,11 +194,7 @@
 				D3FF4610268F668F00CEF6CB /* Application */,
 				D3FF4611268F66A200CEF6CB /* CameraVC */,
 				D3FF460F268F668400CEF6CB /* Countdown */,
-				D34E0BF2269371E100628825 /* CGImage+Extensions.swift */,
-				D32AF47326B195A900A4F47A /* NSData+Extensions.swift */,
-				D31CE93326B4449800E78398 /* NSError+Extensions.swift */,
-				D31CE93526B4452E00E78398 /* NSAlert+ILIOSAdditions.h */,
-				D31CE93626B4452E00E78398 /* NSAlert+ILIOSAdditions.m */,
+				D3A9A8EB26BC63D90006948D /* Extensions */,
 			);
 			path = Source;
 			sourceTree = "<group>";
