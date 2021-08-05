@@ -11,8 +11,8 @@
 @interface CameraVC ()
 
 @property (nonatomic, readwrite, weak) IBOutlet NSView *cameraDisplayView;
-@property (nonatomic, readwrite, weak) IBOutlet NSView *cameraControlView;
 @property (nonatomic, readwrite, weak) IBOutlet NSButton *takePictureButton;
+@property (nonatomic, readwrite, weak) IBOutlet NSButton *preferencesButton;
 @property (nonatomic, readonly, assign) BOOL hasRecordingDevice;
 @property (nonatomic, readwrite, assign) BOOL takingPicture;
 @property (nonatomic, readwrite, assign) BOOL videoConfigured;
@@ -159,6 +159,8 @@
         [self refreshDevices];
     }];
     self.observers = @[runtimeErrorObserver, deviceWasConnectedObserver, deviceWasDisconnectedObserver];
+
+    [notificationCenter addObserver:self selector:@selector(toggleMirrorPreview:) name:NSUserDefaultsDidChangeNotification object:NSUserDefaults.standardUserDefaults];
 }
 
 #pragma mark - Device selection
@@ -184,10 +186,22 @@
     [self.captureSession startRunning];
 }
 
+#pragma mark - Notifications
+- (void)toggleMirrorPreview:(NSNotification *)notification;
+{
+    BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
+    self.videoPreviewLayer.connection.automaticallyAdjustsVideoMirroring = NO;
+    self.videoPreviewLayer.connection.videoMirrored = mirrored;
+}
+
 #pragma mark - Camera Helpers
 - (void)flashScreen;
 {
-#ifndef DEBUG
+    BOOL flashScreen = [NSUserDefaults.standardUserDefaults boolForKey:@"FlashScreen"];
+    if(!flashScreen)
+    {
+        return;
+    }
     int windowLevel = CGShieldingWindowLevel();
     NSRect screenRect = NSScreen.mainScreen.frame;
     NSWindow *window = [[NSWindow alloc] initWithContentRect:screenRect
@@ -199,10 +213,19 @@
     window.backgroundColor = NSColor.whiteColor;
     [window makeKeyAndOrderFront:nil];
     [window.animator setAlphaValue:0.0];
-#endif
 }
 
 #pragma mark - Actions
+- (IBAction)showPreferences:(NSButton *)sender;
+{
+    sender.enabled = NO;
+    NSPopover *popover = [[NSPopover alloc] init];
+    popover.contentViewController = [[PreferencesVC alloc] init];
+    popover.behavior = NSPopoverBehaviorTransient;
+    popover.delegate = self;
+    [popover showRelativeToRect:sender.frame ofView:sender preferredEdge:NSRectEdgeMinY];
+}
+
 - (IBAction)captureImage:(id)sender;
 {
     if(!self.captureDeviceInput)
@@ -212,23 +235,28 @@
 
     self.takingPicture = YES;
 
-#ifdef DEBUG_
-    [self captureAndSaveImage];
-#else
-    self.countdownViewController.view.frame = self.cameraControlView.frame;
-    self.cameraControlView.hidden = YES;
-    [self.view addSubview:self.countdownViewController.view positioned:NSWindowAbove relativeTo:nil];
-    [self.view.window recalculateKeyViewLoop];
+    BOOL useCountdown = [NSUserDefaults.standardUserDefaults boolForKey:@"UseCountdown"];
+    if(useCountdown)
+    {
+        self.countdownViewController.view.alphaValue = 0;
+        NSRect frame = self.countdownViewController.view.frame;
+        frame.origin.y = 8.0;
+        frame.origin.x = 20.0;
+        frame.size.width = self.cameraDisplayView.frame.size.width;
+        self.countdownViewController.view.frame = frame;
+        [self.view addSubview:self.countdownViewController.view positioned:NSWindowAbove relativeTo:nil];
+        [self.view.window recalculateKeyViewLoop];
 
-    [self.countdownViewController beginCountdown];
-#endif
-}
-
-- (IBAction)toggleMirrorPreview:(id)sender;
-{
-    BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
-    self.videoPreviewLayer.connection.automaticallyAdjustsVideoMirroring = NO;
-    self.videoPreviewLayer.connection.videoMirrored = mirrored;
+        [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
+            self.countdownViewController.view.alphaValue = 1.0;
+        } completionHandler:^{
+            [self.countdownViewController beginCountdown];
+        }];
+    }
+    else
+    {
+        [self captureAndSaveImage];
+    }
 }
 
 #pragma mark - Image Capture
@@ -288,7 +316,9 @@
                 return;
             }
             NSString *concat = [strings componentsJoinedByString:@" "];
-            [[NSAlert.new ilios_alertWithTitle:@"Recognized text" message:concat] runModal];
+            [[NSAlert.new ilios_alertWithTitle:@"Recognized text" message:concat] beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {
+
+            }];
         }];
     }
 }
@@ -299,15 +329,18 @@
     [self captureAndSaveImage];
     [countdown.view removeFromSuperview];
     [self.view.window recalculateKeyViewLoop];
-
-    [self.cameraControlView setHidden:NO];
 }
 
 - (void)countdownWasCanceled:(CountdownViewController *)countdown;
 {
-    [self.cameraControlView setHidden:NO];
     self.takingPicture = NO;
     [self.view.window makeFirstResponder:self.view];
+}
+
+#pragma mark - NSPopoverDelegate
+- (void)popoverDidClose:(NSNotification *)notification;
+{
+    self.preferencesButton.enabled = YES;
 }
 
 #pragma mark - Accessors
