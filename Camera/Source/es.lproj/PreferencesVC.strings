@@ -1,0 +1,21 @@
+
+/* Class = "NSButtonCell"; title = "Show 3 second countdown"; ObjectID = "0X7-9X-PKy"; */
+"0X7-9X-PKy.title" = "Mostrar la cuenta atrás de 3 segundos";
+
+/* Class = "NSButtonCell"; title = "Mirror preview"; ObjectID = "0YC-Sn-9E4"; */
+"0YC-Sn-9E4.title" = "Reflejar la vista previa";
+
+/* Class = "NSButtonCell"; title = "Recognize text in images"; ObjectID = "7Z5-bq-jdv"; */
+"7Z5-bq-jdv.title" = "Reconocer texto en las fotos";
+
+/* Class = "NSButtonCell"; title = "Mirror saved image"; ObjectID = "DCl-KR-abm"; */
+"DCl-KR-abm.title" = "Reflejar la imagen guardada";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Recognize text in image (OCR)"; ObjectID = "Ip9-wR-kGA"; */
+"Ip9-wR-kGA.ibShadowedToolTip" = "Reconocer texto en la imagen (ROC)";
+
+/* Class = "NSButtonCell"; title = "Flash screen before picture"; ObjectID = "fzy-HO-ccd"; */
+"fzy-HO-ccd.title" = "Flashear la pantalla antes de sacar la foto";
+
+/* Class = "NSTextFieldCell"; title = "Camera preferences"; ObjectID = "phS-em-wSu"; */
+"phS-em-wSu.title" = "Preferencias de Cámara";

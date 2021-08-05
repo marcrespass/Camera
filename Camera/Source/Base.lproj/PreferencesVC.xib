@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0s4-Ga-4gg">
-                    <rect key="frame" x="18" y="168" width="232" height="31"/>
+                    <rect key="frame" x="18" y="168" width="230" height="31"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Camera preferences" id="phS-em-wSu">
                         <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -54,7 +54,7 @@
                         <binding destination="5tG-f4-WRR" name="value" keyPath="values.OCR" id="m8T-Uv-Nkd"/>
                     </connections>
                 </button>
-                <button toolTip="Recognize text in image (OCR)" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pcN-8K-9Uf" userLabel="UseCountdown">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pcN-8K-9Uf" userLabel="UseCountdown">
                     <rect key="frame" x="18" y="47" width="190" height="18"/>
                     <buttonCell key="cell" type="check" title="Show 3 second countdown" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0X7-9X-PKy">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -64,8 +64,8 @@
                         <binding destination="5tG-f4-WRR" name="value" keyPath="values.UseCountdown" id="LRj-Xz-DtR"/>
                     </connections>
                 </button>
-                <button toolTip="Recognize text in image (OCR)" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-bF-c2e" userLabel="FlashScreen">
-                    <rect key="frame" x="18" y="19" width="192" height="18"/>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-bF-c2e" userLabel="FlashScreen">
+                    <rect key="frame" x="18" y="19" width="230" height="18"/>
                     <buttonCell key="cell" type="check" title="Flash screen before picture" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fzy-HO-ccd">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -77,18 +77,23 @@
             </subviews>
             <constraints>
                 <constraint firstItem="dQD-eC-FPn" firstAttribute="leading" secondItem="Rxe-5O-Pzc" secondAttribute="leading" id="0Eh-Tc-rQb"/>
-                <constraint firstAttribute="trailing" secondItem="0s4-Ga-4gg" secondAttribute="trailing" constant="20" symbolic="YES" id="1Me-ag-v6N"/>
                 <constraint firstItem="Ip9-wR-kGA" firstAttribute="leading" secondItem="dQD-eC-FPn" secondAttribute="leading" id="68K-Ed-CQU"/>
+                <constraint firstItem="0s4-Ga-4gg" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="97z-fu-Hvf"/>
                 <constraint firstItem="pcN-8K-9Uf" firstAttribute="leading" secondItem="Ip9-wR-kGA" secondAttribute="leading" id="DDZ-XT-xkS"/>
                 <constraint firstItem="n4h-bF-c2e" firstAttribute="leading" secondItem="pcN-8K-9Uf" secondAttribute="leading" id="F9Y-cw-imS"/>
                 <constraint firstItem="Rxe-5O-Pzc" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="H5W-8B-3uh"/>
                 <constraint firstItem="Ip9-wR-kGA" firstAttribute="top" secondItem="dQD-eC-FPn" secondAttribute="bottom" constant="12" id="NH1-IE-rnB"/>
                 <constraint firstItem="n4h-bF-c2e" firstAttribute="top" secondItem="pcN-8K-9Uf" secondAttribute="bottom" constant="12" id="Q2H-pt-1Y1"/>
                 <constraint firstItem="pcN-8K-9Uf" firstAttribute="top" secondItem="Ip9-wR-kGA" secondAttribute="bottom" constant="12" id="QMv-yN-b09"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pcN-8K-9Uf" secondAttribute="trailing" constant="20" symbolic="YES" id="YaN-Pr-rN8"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ip9-wR-kGA" secondAttribute="trailing" constant="20" symbolic="YES" id="bew-oF-S0n"/>
+                <constraint firstAttribute="trailing" secondItem="n4h-bF-c2e" secondAttribute="trailing" constant="20" symbolic="YES" id="dtN-hZ-45H"/>
                 <constraint firstItem="Rxe-5O-Pzc" firstAttribute="top" secondItem="0s4-Ga-4gg" secondAttribute="bottom" constant="20" id="gZz-iB-pGc"/>
                 <constraint firstItem="dQD-eC-FPn" firstAttribute="top" secondItem="Rxe-5O-Pzc" secondAttribute="bottom" constant="12" id="i6t-mN-uTK"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rxe-5O-Pzc" secondAttribute="trailing" constant="20" symbolic="YES" id="j3H-7O-NoD"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dQD-eC-FPn" secondAttribute="trailing" constant="20" symbolic="YES" id="oka-t4-PVZ"/>
                 <constraint firstItem="0s4-Ga-4gg" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="uYa-EH-FO4"/>
-                <constraint firstItem="0s4-Ga-4gg" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="wOS-aT-RPY"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0s4-Ga-4gg" secondAttribute="trailing" constant="20" symbolic="YES" id="vxD-9a-W4G"/>
             </constraints>
             <point key="canvasLocation" x="267" y="305.5"/>
         </customView>

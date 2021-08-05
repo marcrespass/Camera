@@ -8,17 +8,11 @@
 /* Class = "NSButton"; ibShadowedToolTip = "Take picture"; ObjectID = "51"; */
 "51.ibShadowedToolTip" = "Sacar una foto";
 
+/* Class = "NSTextFieldCell"; title = "Searching for cameras…"; ObjectID = "2z1-4a-m1V"; */
+"2z1-4a-m1V.title" = "Buscando las cámaras…";
+
 /* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "No camera selected"; ObjectID = "7Ut-fm-MHY"; */
 "7Ut-fm-MHY.ibShadowedIsNilPlaceholder" = "Ningúna cámara seleccionada";
 
 /* Class = "NSButton"; ibShadowedToolTip = "Optical Character Recognition"; ObjectID = "XAk-50-me3"; */
 "XAk-50-me3.ibShadowedToolTip" = "Reconocer texto en la imagen (ROC)";
-
-/* Class = "NSButtonCell"; title = "Mirror saved image"; ObjectID = "cUk-3M-cQI"; */
-"cUk-3M-cQI.title" = "Reflejar la imagen guardada";
-
-/* Class = "NSButtonCell"; title = "Mirror preview"; ObjectID = "h4O-sl-CRb"; */
-"h4O-sl-CRb.title" = "Reflejar la vista previa";
-
-/* Class = "NSButtonCell"; title = "OCR"; ObjectID = "puC-6F-p8r"; */
-"puC-6F-p8r.title" = "ROC";
