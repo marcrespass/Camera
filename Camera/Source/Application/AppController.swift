@@ -17,7 +17,7 @@ final class AppController {
         let window = NSWindow(contentViewController: self.contentVC)
         window.title = NSLocalizedString("Camera", comment: "")
         window.tabbingMode = .disallowed
-        window.setFrameAutosaveName("CameraWindowFrame")
+        window.setFrameAutosaveName("MainWindowFrame")
         window.contentMinSize = AppController.minSize
         window.makeKeyAndOrderFront(nil)
         self.window = window
@@ -36,9 +36,6 @@ extension AppController {
 
         NotificationCenter.default.removeObserver(self, name: NSWindow.willCloseNotification,
                                                   object: window)
-
-        let frameDescriptor = window.frameDescriptor
-        UserDefaults.standard.setValue(frameDescriptor, forKey: "CameraWindowFrame")
         self.window = nil
     }
 }
