@@ -53,6 +53,7 @@ NSInteger kMaxSeconds = 3;
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
+    self.view.wantsLayer = YES;
     [self resetCountdown];
 }
 
