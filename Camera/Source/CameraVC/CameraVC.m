@@ -22,6 +22,7 @@
 @property (nonatomic, readwrite, strong) AVCaptureSession *captureSession;
 @property (nonatomic, readwrite, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @property (nonatomic, readwrite, strong) CountdownViewController *countdownViewController;
+@property (nonatomic, readwrite, strong) NSPopover *popover;
 @property (nonatomic, readwrite, strong) NSArray *observers;
 @property (nonatomic, readwrite, strong) NSArray *videoDevices;
 @property (nonatomic, readwrite, strong) dispatch_queue_t sessionQueue;
@@ -219,11 +220,15 @@
 - (IBAction)showPreferences:(NSButton *)sender;
 {
     sender.enabled = NO;
-    NSPopover *popover = [[NSPopover alloc] init];
-    popover.contentViewController = [[PreferencesVC alloc] init];
-    popover.behavior = NSPopoverBehaviorTransient;
-    popover.delegate = self;
-    [popover showRelativeToRect:sender.frame ofView:sender preferredEdge:NSRectEdgeMinY];
+    self.popover = [[NSPopover alloc] init];
+    self.popover.contentViewController = [[PreferencesVC alloc] init];
+    self.popover.behavior = NSPopoverBehaviorTransient;
+    self.popover.delegate = self;
+    [self.popover showRelativeToRect:sender.frame ofView:sender preferredEdge:NSRectEdgeMinX];
+//    You can do this instead but then PreferencesVC is the delegate of the popover
+//    So then self needs to be the delegate of PreferencesVC which would forward NSPopoverDelegate methods
+//    PreferencesVC *pvc = [[PreferencesVC alloc] init];
+//    [self presentViewController:pvc asPopoverRelativeToRect:sender.frame ofView:sender preferredEdge:NSRectEdgeMinY behavior:NSPopoverBehaviorTransient];
 }
 
 - (IBAction)captureImage:(id)sender;
@@ -341,6 +346,7 @@
 - (void)popoverDidClose:(NSNotification *)notification;
 {
     self.preferencesButton.enabled = YES;
+    self.popover = nil;
 }
 
 #pragma mark - Accessors

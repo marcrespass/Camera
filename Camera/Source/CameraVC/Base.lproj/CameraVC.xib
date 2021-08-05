@@ -16,14 +16,14 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="73">
-            <rect key="frame" x="0.0" y="0.0" width="379" height="290"/>
+            <rect key="frame" x="0.0" y="0.0" width="423" height="290"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14" userLabel="cameraDisplayView">
-                    <rect key="frame" x="20" y="52" width="339" height="218"/>
+                    <rect key="frame" x="20" y="52" width="383" height="218"/>
                     <subviews>
                         <progressIndicator maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="7dR-nw-KkY">
-                            <rect key="frame" x="154" y="93" width="32" height="32"/>
+                            <rect key="frame" x="176" y="93" width="32" height="32"/>
                             <connections>
                                 <binding destination="-2" name="animate" keyPath="self.videoConfigured" id="CZ6-gU-fOV">
                                     <dictionary key="options">
@@ -33,7 +33,7 @@
                             </connections>
                         </progressIndicator>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BYQ-9y-Cns">
-                            <rect key="frame" x="94" y="69" width="151" height="16"/>
+                            <rect key="frame" x="116" y="69" width="151" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" title="Searching for cameras…" id="2z1-4a-m1V">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -49,12 +49,12 @@
                         <constraint firstItem="7dR-nw-KkY" firstAttribute="centerY" secondItem="14" secondAttribute="centerY" id="Gga-JI-Zfa"/>
                         <constraint firstItem="7dR-nw-KkY" firstAttribute="centerX" secondItem="14" secondAttribute="centerX" id="PYg-b6-f05"/>
                         <constraint firstItem="BYQ-9y-Cns" firstAttribute="centerX" secondItem="14" secondAttribute="centerX" id="j7s-6D-6iI"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="339" id="mew-fw-04C"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="383" id="mew-fw-04C"/>
                         <constraint firstItem="BYQ-9y-Cns" firstAttribute="top" secondItem="7dR-nw-KkY" secondAttribute="bottom" constant="8" symbolic="YES" id="wes-h0-h5i"/>
                     </constraints>
                 </customView>
                 <popUpButton verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="45" userLabel="devicePopup">
-                    <rect key="frame" x="49" y="18" width="282" height="25"/>
+                    <rect key="frame" x="49" y="18" width="326" height="25"/>
                     <popUpButtonCell key="cell" type="push" title="Select camera" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingMiddle" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="48" id="46" userLabel="Camera menu">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -81,7 +81,7 @@
                     </connections>
                 </popUpButton>
                 <button toolTip="Take picture" verticalHuggingPriority="750" tag="2112" translatesAutoresizingMaskIntoConstraints="NO" id="51" userLabel="takePictureButton">
-                    <rect key="frame" x="335" y="19" width="24" height="26"/>
+                    <rect key="frame" x="379" y="19" width="24" height="26"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="51" secondAttribute="height" multiplier="1:1" id="Uxx-5v-yrt"/>
                         <constraint firstAttribute="width" constant="24" id="zBg-dF-BWh"/>
