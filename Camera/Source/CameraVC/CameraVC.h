@@ -7,6 +7,6 @@
 
 #import "CountdownViewController.h"
 
-@interface CameraVC : NSViewController <CountdownViewControllerDelegate, AVCapturePhotoCaptureDelegate>
+@interface CameraVC : NSViewController <CountdownViewControllerDelegate, AVCapturePhotoCaptureDelegate, NSPopoverDelegate>
 
 @end
