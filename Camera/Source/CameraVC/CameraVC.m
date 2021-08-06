@@ -238,6 +238,8 @@
         return;
     }
 
+    [self.popover performClose:sender];
+    
     self.takingPicture = YES;
 
     BOOL useCountdown = [NSUserDefaults.standardUserDefaults boolForKey:@"UseCountdown"];
