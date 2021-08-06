@@ -169,10 +169,22 @@
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.MirrorSavedImage" id="aJs-4n-4sX"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Recognize Text in Image" id="wpr-fR-Ztc">
+                            <menuItem title="Recognize Text in Images" id="wpr-fR-Ztc">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.OCR" id="wDk-Yv-tAv"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show 3 second countdown" id="0Vl-Qg-x1m">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.UseCountdown" id="1De-a0-Kpw"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Flash screen before taking picture" id="yhP-Gl-9H1">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.FlashScreen" id="IgB-gf-Eap"/>
                                 </connections>
                             </menuItem>
                         </items>

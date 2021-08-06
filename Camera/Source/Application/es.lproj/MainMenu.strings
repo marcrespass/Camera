@@ -1,4 +1,7 @@
 
+/* Class = "NSMenuItem"; title = "Show 3 second countdown"; ObjectID = "0Vl-Qg-x1m"; */
+"0Vl-Qg-x1m.title" = "Mostrar la cuenta atrás de 3 segundos";
+
 /* Class = "NSMenu"; title = "Speech"; ObjectID = "1L3-k3-uW0"; */
 "1L3-k3-uW0.title" = "Habla";
 
@@ -122,5 +125,5 @@
 /* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
 "wpr-3q-Mcd.title" = "Ayuda";
 
-/* Class = "NSMenuItem"; title = "Recognize Text in Image"; ObjectID = "wpr-fR-Ztc"; */
+/* Class = "NSMenuItem"; title = "Recognize Text in Images"; ObjectID = "wpr-fR-Ztc"; */
 "wpr-fR-Ztc.title" = "Reconocer texto en la imagen";

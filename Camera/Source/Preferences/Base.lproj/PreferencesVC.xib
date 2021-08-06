@@ -13,7 +13,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="268" height="219"/>
+            <rect key="frame" x="0.0" y="0.0" width="271" height="219"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0s4-Ga-4gg">
@@ -65,8 +65,8 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-bF-c2e" userLabel="FlashScreen">
-                    <rect key="frame" x="18" y="19" width="230" height="18"/>
-                    <buttonCell key="cell" type="check" title="Flash screen before picture" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fzy-HO-ccd">
+                    <rect key="frame" x="18" y="19" width="233" height="18"/>
+                    <buttonCell key="cell" type="check" title="Flash screen before taking picture" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fzy-HO-ccd">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
