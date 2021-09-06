@@ -11,23 +11,14 @@
 /* Class = "NSButtonCell"; title = "Mirror saved image"; ObjectID = "DCl-KR-abm"; */
 "DCl-KR-abm.title" = "Reflejar la imagen guardada";
 
-/* Class = "NSButton"; ibShadowedToolTip = "Recognize text in image (OCR)"; ObjectID = "Ip9-wR-kGA"; */
-"Ip9-wR-kGA.ibShadowedToolTip" = "Reconocer texto en la imagen (ROC)";
-
 /* Class = "NSBox"; title = "Mirroring"; ObjectID = "RSm-ra-hd4"; */
 "RSm-ra-hd4.title" = "Reflejar";
-
-/* Class = "NSButton"; ibShadowedToolTip = "Recognize text in image (OCR)"; ObjectID = "fC0-Si-yIz"; */
-"fC0-Si-yIz.ibShadowedToolTip" = "Recognize text in image (OCR)";
 
 /* Class = "NSButtonCell"; title = "Open saved image"; ObjectID = "fpN-V7-4po"; */
 "fpN-V7-4po.title" = "Abrir imagen guardada";
 
 /* Class = "NSButtonCell"; title = "Flash screen before taking picture"; ObjectID = "fzy-HO-ccd"; */
 "fzy-HO-ccd.title" = "Flashear la pantalla antes de sacar la foto";
-
-/* Class = "NSButton"; ibShadowedToolTip = "Recognize text in image (OCR)"; ObjectID = "j4N-aZ-Qfc"; */
-"j4N-aZ-Qfc.ibShadowedToolTip" = "Recognize text in image (OCR)";
 
 /* Class = "NSButtonCell"; title = "Recognize text in images"; ObjectID = "lSB-zf-Fr1"; */
 "lSB-zf-Fr1.title" = "Recognize text in images";
@@ -43,6 +34,3 @@
 
 /* Class = "NSButtonCell"; title = "Flash screen before picture"; ObjectID = "fzy-HO-ccd"; */
 "fzy-HO-ccd.title" = "Flashear la pantalla antes de sacar la foto";
-
-/* Class = "NSTextFieldCell"; title = "Camera preferences"; ObjectID = "phS-em-wSu"; */
-"phS-em-wSu.title" = "Preferencias";
