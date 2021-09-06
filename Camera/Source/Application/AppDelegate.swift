@@ -12,14 +12,7 @@ final class AppDelegate: NSObject {
     let appController = AppController()
 
     override init() {
-        let defaultsDictionary: [String: Any] = [
-            "UseCountdown": true,
-            "MirrorSavedImage": true,
-            "MirrorPreview": true,
-            "OCR": false,
-            "FlashScreen": true
-        ]
-        UserDefaults.standard.register(defaults: defaultsDictionary)
+        UserDefaults.standard.configureDefaults()
     }
 }
 

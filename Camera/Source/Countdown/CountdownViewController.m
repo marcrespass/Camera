@@ -11,6 +11,7 @@
 NSInteger kMaxSeconds = 3;
 
 @interface CountdownViewController()
+@property (nonatomic, readwrite, weak) IBOutlet NSButton *cancelButton;
 @property (nonatomic, readwrite, weak) IBOutlet NSImageView *imageView1;
 @property (nonatomic, readwrite, weak) IBOutlet NSImageView *imageView2;
 @property (nonatomic, readwrite, weak) IBOutlet NSImageView *imageView3;
@@ -118,6 +119,8 @@ NSInteger kMaxSeconds = 3;
 
 - (void)beginCountdown;
 {
+    [self.view.window makeFirstResponder:self.cancelButton];
+    
     [self setupEndAlert];
     [self resetCountdown];
 

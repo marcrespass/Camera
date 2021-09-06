@@ -19,6 +19,8 @@
 		D39BB6FC26BDC280000C698F /* PreferencesVC.strings in Resources */ = {isa = PBXBuildFile; fileRef = D39BB6F726BDC280000C698F /* PreferencesVC.strings */; };
 		D39BB6FD26BDC280000C698F /* PreferencesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D39BB6F926BDC280000C698F /* PreferencesVC.xib */; };
 		D39BB6FF26BDC298000C698F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D39BB70126BDC298000C698F /* Localizable.strings */; };
+		D3A84C7126E68CCC0053B3E6 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A84C7026E68CCB0053B3E6 /* UserDefaults+Extensions.swift */; };
+		D3A84C7326E68DA30053B3E6 /* CameraVC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A84C7226E68DA30053B3E6 /* CameraVC+Extensions.swift */; };
 		D3BB1B4E252638920092D58F /* CameraVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BB1B50252638920092D58F /* CameraVC.xib */; };
 		D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */; };
 		D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C6124CDD4E200A69248 /* Assets.xcassets */; };
@@ -57,7 +59,9 @@
 		D3A5A0D224CE28000011668C /* App-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Debug.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0D324CE28000011668C /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; };
 		D3A5A0D424CE28000011668C /* App-Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Shared.xcconfig"; sourceTree = "<group>"; };
-		D3A84C6D26E689D70053B3E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PreferencesVC.strings; sourceTree = "<group>"; };
+		D3A84C6F26E68AB40053B3E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PreferencesVC.strings; sourceTree = "<group>"; };
+		D3A84C7026E68CCB0053B3E6 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		D3A84C7226E68DA30053B3E6 /* CameraVC+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraVC+Extensions.swift"; sourceTree = "<group>"; };
 		D3BB1B4F252638920092D58F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CameraVC.xib; sourceTree = "<group>"; };
 		D3EC8C5C24CDD4DF00A69248 /* Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 		D3A9A8EB26BC63D90006948D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D3A84C7026E68CCB0053B3E6 /* UserDefaults+Extensions.swift */,
 				D34E0BF2269371E100628825 /* CGImage+Extensions.swift */,
 				D32AF47326B195A900A4F47A /* NSData+Extensions.swift */,
 				D31CE93326B4449800E78398 /* NSError+Extensions.swift */,
@@ -201,6 +206,7 @@
 			children = (
 				D3EC97AE2671B11700414666 /* CameraVC.h */,
 				D3EC97AF2671B11700414666 /* CameraVC.m */,
+				D3A84C7226E68DA30053B3E6 /* CameraVC+Extensions.swift */,
 				D3BB1B50252638920092D58F /* CameraVC.xib */,
 			);
 			path = CameraVC;
@@ -343,9 +349,11 @@
 			files = (
 				D39BB6FB26BDC280000C698F /* PreferencesVC.swift in Sources */,
 				D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */,
+				D3A84C7326E68DA30053B3E6 /* CameraVC+Extensions.swift in Sources */,
 				D3EC97B02671B11700414666 /* CameraVC.m in Sources */,
 				D3EC97B42671B1D300414666 /* CountdownViewController.m in Sources */,
 				D32AF47426B195A900A4F47A /* NSData+Extensions.swift in Sources */,
+				D3A84C7126E68CCC0053B3E6 /* UserDefaults+Extensions.swift in Sources */,
 				D34E0BF3269371E100628825 /* CGImage+Extensions.swift in Sources */,
 				D31CE93426B4449800E78398 /* NSError+Extensions.swift in Sources */,
 				D31CE93726B4452E00E78398 /* NSAlert+ILIOSAdditions.m in Sources */,
@@ -386,7 +394,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D39BB6FA26BDC280000C698F /* Base */,
-				D3A84C6D26E689D70053B3E6 /* es */,
+				D3A84C6F26E68AB40053B3E6 /* es */,
 			);
 			name = PreferencesVC.xib;
 			sourceTree = "<group>";

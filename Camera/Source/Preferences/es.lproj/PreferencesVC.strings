@@ -5,8 +5,8 @@
 /* Class = "NSButtonCell"; title = "Mirror preview"; ObjectID = "0YC-Sn-9E4"; */
 "0YC-Sn-9E4.title" = "Reflejar la vista previa";
 
-/* Class = "NSButtonCell"; title = "Recognize text in images"; ObjectID = "7Z5-bq-jdv"; */
-"7Z5-bq-jdv.title" = "Reconocer texto en las imagenes";
+/* Class = "NSButtonCell"; title = "Show saved image in Finder"; ObjectID = "7Z5-bq-jdv"; */
+"7Z5-bq-jdv.title" = "Mostrar la imagen guardada en Finder";
 
 /* Class = "NSButtonCell"; title = "Mirror saved image"; ObjectID = "DCl-KR-abm"; */
 "DCl-KR-abm.title" = "Reflejar la imagen guardada";
@@ -32,5 +32,5 @@
 /* Class = "NSButtonCell"; title = "Copy recognized text to pasteboard"; ObjectID = "qmP-HU-NEG"; */
 "qmP-HU-NEG.title" = "Copiar texto reconocido al portapapeles";
 
-/* Class = "NSButtonCell"; title = "Flash screen before picture"; ObjectID = "fzy-HO-ccd"; */
-"fzy-HO-ccd.title" = "Flashear la pantalla antes de sacar la foto";
+/* Class = "NSBox"; title = "Countdown"; ObjectID = "zrz-Kb-Y4d"; */
+"zrz-Kb-Y4d.title" = "Cuenta atrás";

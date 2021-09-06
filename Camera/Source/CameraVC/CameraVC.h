@@ -9,4 +9,6 @@
 
 @interface CameraVC : NSViewController <CountdownViewControllerDelegate, AVCapturePhotoCaptureDelegate, NSPopoverDelegate>
 
+@property (nonatomic, readonly, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+
 @end

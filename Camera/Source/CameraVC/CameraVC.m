@@ -106,6 +106,8 @@
     vpLayer.frame = self.cameraDisplayView.layer.bounds;
     vpLayer.videoGravity = AVLayerVideoGravityResizeAspect;
 
+    [self configureVideoMirrored:vpLayer];
+    /*
     // Mirror the connection for the video preview layer
     dispatch_async(dispatch_get_main_queue(), ^(void) {
         // MER 2021-07-16 videoPreviewLayer.connection is set automatically but not right away so dispatch_async
@@ -115,7 +117,7 @@
             vpLayer.connection.videoMirrored = mirrored;
         }
     });
-
+*/
     [self.cameraDisplayView.layer addSublayer:vpLayer];
     vpLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
     self.cameraDisplayView.layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
@@ -188,18 +190,18 @@
 }
 
 #pragma mark - Notifications
-- (void)toggleMirrorPreview:(NSNotification *)notification;
-{
-    BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
-    self.videoPreviewLayer.connection.automaticallyAdjustsVideoMirroring = NO;
-    self.videoPreviewLayer.connection.videoMirrored = mirrored;
-}
+//- (void)toggleMirrorPreview:(NSNotification *)notification;
+//{
+//    BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
+//    self.videoPreviewLayer.connection.automaticallyAdjustsVideoMirroring = NO;
+//    self.videoPreviewLayer.connection.videoMirrored = mirrored;
+//}
 
 #pragma mark - Camera Helpers
 - (void)flashScreen;
 {
-    BOOL flashScreen = [NSUserDefaults.standardUserDefaults boolForKey:@"FlashScreen"];
-    if(!flashScreen)
+//    BOOL flashScreen = [NSUserDefaults.standardUserDefaults boolForKey:@"FlashScreen"];
+    if(![self shouldFlashScreen])
     {
         return;
     }
@@ -242,9 +244,12 @@
     
     self.takingPicture = YES;
 
-    BOOL useCountdown = [NSUserDefaults.standardUserDefaults boolForKey:@"UseCountdown"];
+//    BOOL useCountdown = [NSUserDefaults.standardUserDefaults boolForKey:@"UseCountdown"];
+    BOOL useCountdown = [self shouldUseCountdown];
     if(useCountdown)
     {
+        [self.view.window resignFirstResponder];
+
         self.countdownViewController.view.alphaValue = 0;
         NSRect frame = self.countdownViewController.view.frame;
         frame.origin.y = 8.0;
@@ -277,7 +282,8 @@
 
 #pragma  mark - AVCapturePhotoCaptureDelegate
 - (void)saveDataToImage:(NSData *)photoData {
-    BOOL mirror = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorSavedImage"];
+//    BOOL mirror = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorSavedImage"];
+    BOOL mirror = [self mirrorSavedImage];
     NSImage *image = [photoData nsImageMirroring:mirror];
 
     NSError *writeError = nil;
@@ -285,7 +291,8 @@
     NSURL *url = [NSURL fileURLWithPath:filePath];
     if([image.TIFFRepresentation writeToURL:url options:0 error:&writeError])
     {
-        [NSWorkspace.sharedWorkspace openURL:url];
+//        [NSWorkspace.sharedWorkspace openURL:url];
+        [self handlePostImageOperationAt:url];
     }
     if(writeError != nil)
     {
@@ -313,7 +320,8 @@
     }
 
     [self saveDataToImage:photoData];
-    BOOL ocr = [NSUserDefaults.standardUserDefaults boolForKey:@"OCR"];
+//    BOOL ocr = [NSUserDefaults.standardUserDefaults boolForKey:@"OCR"];
+    BOOL ocr = [self recognizeText];
     if(ocr)
     {
         [photoData recognizeTextWithCompletionHandler:^(NSArray<NSString *> *strings, NSError *ocrError) {
@@ -323,8 +331,8 @@
                 return;
             }
             NSString *concat = [strings componentsJoinedByString:@" "];
+            [self copyRecognizedTextToPasteboard:concat];
             [[NSAlert.new ilios_alertWithTitle:@"Recognized text" message:concat] beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {
-
             }];
         }];
     }
@@ -389,7 +397,8 @@
                 self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
             }
             [self.captureSession addInput:videoDeviceInput];
-            BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
+//            BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
+            BOOL mirrored = [self mirrorPreview];
             self.videoPreviewLayer.connection.automaticallyAdjustsVideoMirroring = NO;
             self.videoPreviewLayer.connection.videoMirrored = mirrored;
             self.captureDeviceInput = videoDeviceInput;
