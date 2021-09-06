@@ -6,7 +6,7 @@
 "0YC-Sn-9E4.title" = "Reflejar la vista previa";
 
 /* Class = "NSButtonCell"; title = "Recognize text in images"; ObjectID = "7Z5-bq-jdv"; */
-"7Z5-bq-jdv.title" = "Reconocer texto en las fotos";
+"7Z5-bq-jdv.title" = "Reconocer texto en las imagenes";
 
 /* Class = "NSButtonCell"; title = "Mirror saved image"; ObjectID = "DCl-KR-abm"; */
 "DCl-KR-abm.title" = "Reflejar la imagen guardada";
@@ -21,7 +21,7 @@
 "fzy-HO-ccd.title" = "Flashear la pantalla antes de sacar la foto";
 
 /* Class = "NSButtonCell"; title = "Recognize text in images"; ObjectID = "lSB-zf-Fr1"; */
-"lSB-zf-Fr1.title" = "Recognize text in images";
+"lSB-zf-Fr1.title" = "Reconocer texto en las imagenes";
 
 /* Class = "NSBox"; title = "Images"; ObjectID = "lW7-f3-0Tw"; */
 "lW7-f3-0Tw.title" = "Imagenes";
