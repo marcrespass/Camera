@@ -1,0 +1,6 @@
+
+#include "2Project-Shared.xcconfig"
+
+ONLY_ACTIVE_ARCH = YES
+ENABLE_TESTABILITY = YES
+SWIFT_COMPILATION_MODE = singlefile

@@ -55,13 +55,15 @@
 		D39BB70226BDC29C000C698F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D39BB70426BDC450000C698F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		D3A5A0CA24CE28000011668C /* App-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Release.xcconfig"; sourceTree = "<group>"; };
-		D3A5A0D024CE28000011668C /* 2Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = 2Project.xcconfig; sourceTree = "<group>"; };
+		D3A5A0D024CE28000011668C /* 2Project-Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "2Project-Shared.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0D224CE28000011668C /* App-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Debug.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0D324CE28000011668C /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; };
 		D3A5A0D424CE28000011668C /* App-Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Shared.xcconfig"; sourceTree = "<group>"; };
 		D3A84C6F26E68AB40053B3E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PreferencesVC.strings; sourceTree = "<group>"; };
 		D3A84C7026E68CCB0053B3E6 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		D3A84C7226E68DA30053B3E6 /* CameraVC+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraVC+Extensions.swift"; sourceTree = "<group>"; };
+		D3A84C7426E698430053B3E6 /* 2Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Debug.xcconfig"; sourceTree = "<group>"; };
+		D3A84C7626E698430053B3E6 /* 2Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Release.xcconfig"; sourceTree = "<group>"; };
 		D3BB1B4F252638920092D58F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CameraVC.xib; sourceTree = "<group>"; };
 		D3EC8C5C24CDD4DF00A69248 /* Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,7 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				D3A5A0D324CE28000011668C /* 1XcodeWarnings.xcconfig */,
-				D3A5A0D024CE28000011668C /* 2Project.xcconfig */,
+				D3A5A0D024CE28000011668C /* 2Project-Shared.xcconfig */,
+				D3A84C7426E698430053B3E6 /* 2Project-Debug.xcconfig */,
+				D3A84C7626E698430053B3E6 /* 2Project-Release.xcconfig */,
 				D3A5A0D224CE28000011668C /* App-Debug.xcconfig */,
 				D3A5A0CA24CE28000011668C /* App-Release.xcconfig */,
 				D3A5A0D424CE28000011668C /* App-Shared.xcconfig */,
@@ -431,14 +435,14 @@
 /* Begin XCBuildConfiguration section */
 		D3EC8C6824CDD4E200A69248 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3A5A0D024CE28000011668C /* 2Project.xcconfig */;
+			baseConfigurationReference = D3A84C7426E698430053B3E6 /* 2Project-Debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		D3EC8C6924CDD4E200A69248 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3A5A0D024CE28000011668C /* 2Project.xcconfig */;
+			baseConfigurationReference = D3A84C7626E698430053B3E6 /* 2Project-Release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
