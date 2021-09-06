@@ -10,6 +10,16 @@ import AppKit
 import AVKit
 
 @objc public extension CameraVC {
+    // MARK: - Notifications
+    func toggleMirrorPreview(_ notification: Notification) {
+        guard let mirrored = UserDefaults.standard.value(for: .mirrorPreview),
+              let connection = self.videoPreviewLayer.connection else { return }
+
+        connection.automaticallyAdjustsVideoMirroring = false
+        connection.isVideoMirrored = mirrored
+    }
+
+    // MARK: - UserDefaults methods
     // Mirror the connection for the video preview layer
     func configureVideoMirrored(_ vpLayer: AVCaptureVideoPreviewLayer) {
         guard let mirrored = UserDefaults.standard.value(for: .mirrorPreview),
@@ -22,14 +32,6 @@ import AVKit
             }
 
         }
-    }
-
-    func toggleMirrorPreview(_ notification: Notification) {
-        guard let mirrored = UserDefaults.standard.value(for: .mirrorPreview),
-              let connection = self.videoPreviewLayer.connection else { return }
-
-        connection.automaticallyAdjustsVideoMirroring = false
-        connection.isVideoMirrored = mirrored
     }
 
     func handlePostImageOperation(at url: URL) {
@@ -55,6 +57,7 @@ import AVKit
         }
     }
 
+    // MARK: - Wrappers
     func shouldFlashScreen() -> Bool {
         return UserDefaults.standard.value(for: .flashScreen) ?? false
     }

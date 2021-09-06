@@ -107,17 +107,7 @@
     vpLayer.videoGravity = AVLayerVideoGravityResizeAspect;
 
     [self configureVideoMirrored:vpLayer];
-    /*
-    // Mirror the connection for the video preview layer
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-        // MER 2021-07-16 videoPreviewLayer.connection is set automatically but not right away so dispatch_async
-        BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
-        if (vpLayer.connection.supportsVideoMirroring) {
-            vpLayer.connection.automaticallyAdjustsVideoMirroring = NO;
-            vpLayer.connection.videoMirrored = mirrored;
-        }
-    });
-*/
+
     [self.cameraDisplayView.layer addSublayer:vpLayer];
     vpLayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
     self.cameraDisplayView.layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
@@ -189,18 +179,9 @@
     [self.captureSession startRunning];
 }
 
-#pragma mark - Notifications
-//- (void)toggleMirrorPreview:(NSNotification *)notification;
-//{
-//    BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
-//    self.videoPreviewLayer.connection.automaticallyAdjustsVideoMirroring = NO;
-//    self.videoPreviewLayer.connection.videoMirrored = mirrored;
-//}
-
 #pragma mark - Camera Helpers
 - (void)flashScreen;
 {
-//    BOOL flashScreen = [NSUserDefaults.standardUserDefaults boolForKey:@"FlashScreen"];
     if(![self shouldFlashScreen])
     {
         return;
@@ -244,7 +225,6 @@
     
     self.takingPicture = YES;
 
-//    BOOL useCountdown = [NSUserDefaults.standardUserDefaults boolForKey:@"UseCountdown"];
     BOOL useCountdown = [self shouldUseCountdown];
     if(useCountdown)
     {
@@ -282,7 +262,6 @@
 
 #pragma  mark - AVCapturePhotoCaptureDelegate
 - (void)saveDataToImage:(NSData *)photoData {
-//    BOOL mirror = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorSavedImage"];
     BOOL mirror = [self mirrorSavedImage];
     NSImage *image = [photoData nsImageMirroring:mirror];
 
@@ -291,7 +270,6 @@
     NSURL *url = [NSURL fileURLWithPath:filePath];
     if([image.TIFFRepresentation writeToURL:url options:0 error:&writeError])
     {
-//        [NSWorkspace.sharedWorkspace openURL:url];
         [self handlePostImageOperationAt:url];
     }
     if(writeError != nil)
@@ -320,7 +298,6 @@
     }
 
     [self saveDataToImage:photoData];
-//    BOOL ocr = [NSUserDefaults.standardUserDefaults boolForKey:@"OCR"];
     BOOL ocr = [self recognizeText];
     if(ocr)
     {
@@ -397,7 +374,6 @@
                 self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
             }
             [self.captureSession addInput:videoDeviceInput];
-//            BOOL mirrored = [NSUserDefaults.standardUserDefaults boolForKey:@"MirrorPreview"];
             BOOL mirrored = [self mirrorPreview];
             self.videoPreviewLayer.connection.automaticallyAdjustsVideoMirroring = NO;
             self.videoPreviewLayer.connection.videoMirrored = mirrored;
