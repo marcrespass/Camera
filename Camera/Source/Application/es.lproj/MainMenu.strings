@@ -19,8 +19,8 @@
 /* Class = "NSMenuItem"; title = "Camera"; ObjectID = "1Xt-HY-uBw"; */
 "1Xt-HY-uBw.title" = "Cámara";
 
-/* Class = "NSMenuItem"; title = "Mirror Saved Image"; ObjectID = "3ea-i8-w3d"; */
-"3ea-i8-w3d.title" = "Reflejar la imagen guardada";
+/* Class = "NSMenuItem"; title = "Mirror Preview"; ObjectID = "3ea-i8-w3d"; */
+"3ea-i8-w3d.title" = "Reflejar la vista previa";
 
 /* Class = "NSMenuItem"; title = "Enter Full Screen"; ObjectID = "4J7-dP-txa"; */
 "4J7-dP-txa.title" = "Ver en pantalla completa";
@@ -52,8 +52,8 @@
 /* Class = "NSMenu"; title = "View"; ObjectID = "HyV-fh-RgO"; */
 "HyV-fh-RgO.title" = "Visualización";
 
-/* Class = "NSMenuItem"; title = "Mirror Preview"; ObjectID = "KVI-Jy-5hJ"; */
-"KVI-Jy-5hJ.title" = "Reflejar la vista previa";
+/* Class = "NSMenuItem"; title = "Mirror Saved Image"; ObjectID = "KVI-Jy-5hJ"; */
+"ZbO-dU-Ix3.title" = "Reflejar la imagen guardada";
 
 /* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
 "Kd2-mp-pUS.title" = "Mostrar todo";
