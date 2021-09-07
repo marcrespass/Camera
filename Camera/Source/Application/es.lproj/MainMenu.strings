@@ -1,14 +1,14 @@
 /* Class = "NSMenuItem"; title = "Show saved image in Finder"; ObjectID = "375-hJ-yT4"; */
-"375-hJ-yT4.title" = "Show saved image in Finder";
+"375-hJ-yT4.title" = "Mostrar la imagen guardada en Finder";
 
 /* Class = "NSMenuItem"; title = "Open saved image"; ObjectID = "LKv-ga-PWj"; */
-"LKv-ga-PWj.title" = "Open saved image";
+"LKv-ga-PWj.title" = "Abrir imagen guardada";
 
 /* Class = "NSMenuItem"; title = "Copy recognized text to pasteboard"; ObjectID = "vE8-xi-2zB"; */
-"vE8-xi-2zB.title" = "Copy recognized text to pasteboard";
+"vE8-xi-2zB.title" = "Copiar texto reconocido al portapapeles";
 
 /* Class = "NSMenuItem"; title = "Flash screen before taking picture"; ObjectID = "yhP-Gl-9H1"; */
-"yhP-Gl-9H1.title" = "Flash screen before taking picture";
+"yhP-Gl-9H1.title" = "Flashear la pantalla antes de sacar la foto";
 
 /* Class = "NSMenuItem"; title = "Show 3 second countdown"; ObjectID = "0Vl-Qg-x1m"; */
 "0Vl-Qg-x1m.title" = "Mostrar la cuenta atrás de 3 segundos";
@@ -73,8 +73,8 @@
 /* Class = "NSMenuItem"; title = "Hide Camera"; ObjectID = "Olw-nP-bQN"; */
 "Olw-nP-bQN.title" = "Hide Cámara";
 
-/* Class = "NSMenu"; title = "Camera"; ObjectID = "Qg8-Hf-jUy"; */
-"Qg8-Hf-jUy.title" = "Cámara";
+/* Class = "NSMenu"; title = "Settings"; ObjectID = "Qg8-Hf-jUy"; */
+"Qg8-Hf-jUy.title" = "Settings";
 
 /* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
 "R4o-n2-Eq4.title" = "Maximizar";
