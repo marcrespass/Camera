@@ -1,3 +1,14 @@
+/* Class = "NSMenuItem"; title = "Show saved image in Finder"; ObjectID = "375-hJ-yT4"; */
+"375-hJ-yT4.title" = "Show saved image in Finder";
+
+/* Class = "NSMenuItem"; title = "Open saved image"; ObjectID = "LKv-ga-PWj"; */
+"LKv-ga-PWj.title" = "Open saved image";
+
+/* Class = "NSMenuItem"; title = "Copy recognized text to pasteboard"; ObjectID = "vE8-xi-2zB"; */
+"vE8-xi-2zB.title" = "Copy recognized text to pasteboard";
+
+/* Class = "NSMenuItem"; title = "Flash screen before taking picture"; ObjectID = "yhP-Gl-9H1"; */
+"yhP-Gl-9H1.title" = "Flash screen before taking picture";
 
 /* Class = "NSMenuItem"; title = "Show 3 second countdown"; ObjectID = "0Vl-Qg-x1m"; */
 "0Vl-Qg-x1m.title" = "Mostrar la cuenta atrás de 3 segundos";
@@ -68,8 +79,8 @@
 /* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
 "R4o-n2-Eq4.title" = "Maximizar";
 
-/* Class = "NSMenuItem"; title = "Camera"; ObjectID = "RUO-6K-xd8"; */
-"RUO-6K-xd8.title" = "Cámara";
+/* Class = "NSMenuItem"; title = "Settings"; ObjectID = "RUO-6K-xd8"; */
+"RUO-6K-xd8.title" = "Settings";
 
 /* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
 "Td7-aD-5lo.title" = "Ventana";
@@ -126,4 +137,4 @@
 "wpr-3q-Mcd.title" = "Ayuda";
 
 /* Class = "NSMenuItem"; title = "Recognize Text in Images"; ObjectID = "wpr-fR-Ztc"; */
-"wpr-fR-Ztc.title" = "Reconocer texto en la imagen";
+"wpr-fR-Ztc.title" = "Reconocer texto en las imagenes";

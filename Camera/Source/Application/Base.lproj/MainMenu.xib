@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19158" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19158"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -152,29 +153,49 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Camera" id="RUO-6K-xd8">
+                <menuItem title="Settings" id="RUO-6K-xd8">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Camera" id="Qg8-Hf-jUy">
+                    <menu key="submenu" title="Settings" id="Qg8-Hf-jUy">
                         <items>
-                            <menuItem title="Mirror Preview" id="KVI-Jy-5hJ">
+                            <menuItem title="Mirror Preview" id="3ea-i8-w3d">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="toggleMirrorPreview:" target="-1" id="yBD-ek-gDd"/>
-                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.MirrorPreview" id="OYb-VH-Big"/>
+                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.MirrorPreview" id="WJ0-AQ-fGq"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Mirror Saved Image" id="3ea-i8-w3d">
+                            <menuItem title="Mirror Saved Image" id="ZbO-dU-Ix3">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.MirrorSavedImage" id="aJs-4n-4sX"/>
+                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.MirrorSavedImage" id="Fqf-z9-i5e"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="cmf-pT-fEq"/>
+                            <menuItem title="Show saved image in Finder" id="375-hJ-yT4">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.ShowSavedImage" id="HLX-MJ-rwV"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Open saved image" id="LKv-ga-PWj">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.OpenSavedImage" id="KdN-0D-5ZM"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="2mE-T3-cxU"/>
                             <menuItem title="Recognize Text in Images" id="wpr-fR-Ztc">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.OCR" id="wDk-Yv-tAv"/>
+                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.RecognizeText" id="Pcm-Mu-VRh"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Copy recognized text to pasteboard" id="vE8-xi-2zB">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="9NV-cB-0To" name="value" keyPath="values.CopyRecognizedText" id="FI6-tm-gSx"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="N19-tH-ihE"/>
                             <menuItem title="Show 3 second countdown" id="0Vl-Qg-x1m">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
