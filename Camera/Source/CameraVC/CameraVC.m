@@ -7,9 +7,9 @@
 #import "Camera-Swift.h"
 
 #ifdef DEBUG
-#define MERLog(fmt, ...) NSLog(@"%s " fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
+#define MERLogDebug(fmt, ...) NSLog(@"%s " fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
 #else
-#define MERLog
+#define MERLogDebug(...)
 #endif
 
 @interface CameraVC ()
@@ -62,7 +62,7 @@
 
 - (void)dealloc;
 {
-    MERLog();
+    MERLogDebug();
     NSNotificationCenter *notificationCenter = NSNotificationCenter.defaultCenter;
 
     for(id observer in _observers)
@@ -164,7 +164,7 @@
 #pragma mark - Device selection
 - (void)refreshDevices
 {
-    MERLog();
+    MERLogDebug();
     self.videoDevices = self.videoDeviceDiscoverySession.devices;
 
     [self.captureSession beginConfiguration];
@@ -280,7 +280,7 @@
 
 - (void)captureOutput:(AVCapturePhotoOutput *)captureOutput didFinishProcessingPhoto:(AVCapturePhoto*)photo error:(nullable NSError*)error;
 {
-    MERLog();
+    MERLogDebug();
     self.takingPicture = NO;
 
     if(error != nil)
