@@ -9,6 +9,7 @@ import Cocoa
 
 @NSApplicationMain
 final class AppDelegate: NSObject {
+    var didFinish = false
     let appController = AppController()
 
     override init() {
@@ -19,9 +20,22 @@ final class AppDelegate: NSObject {
 extension AppDelegate: NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.appController.createNewWindow()
+        self.didFinish = true
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         true
+    }
+
+    // MER 2021-09-08 Sometimes the app does not terminate on last window closed
+    func applicationShouldOpenUntitledFile(_ sender: NSApplication) -> Bool {
+        return self.didFinish
+    }
+
+    func applicationOpenUntitledFile(_ sender: NSApplication) -> Bool {
+        if self.didFinish {
+            self.appController.createNewWindow()
+        }
+        return self.didFinish
     }
 }
