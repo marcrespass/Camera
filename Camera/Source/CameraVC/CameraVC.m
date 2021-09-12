@@ -6,7 +6,11 @@
 #import "NSAlert+ILIOSAdditions.h"
 #import "Camera-Swift.h"
 
+#ifdef DEBUG
 #define MERLog(fmt, ...) NSLog(@"%s " fmt, __PRETTY_FUNCTION__, ##__VA_ARGS__)
+#else
+#define MERLog
+#endif
 
 @interface CameraVC ()
 
@@ -15,7 +19,7 @@
 @property (nonatomic, readwrite, weak) IBOutlet NSButton *preferencesButton;
 @property (nonatomic, readonly, assign) BOOL hasRecordingDevice;
 @property (nonatomic, readwrite, assign) BOOL takingPicture;
-@property (nonatomic, readwrite, assign) BOOL videoConfigured;
+@property (nonatomic, readwrite, assign) BOOL videoConfigured; // Cocoa Binding
 @property (nonatomic, readwrite, strong) AVCaptureDeviceDiscoverySession* videoDeviceDiscoverySession;
 @property (nonatomic, readwrite, strong) AVCaptureDeviceInput *captureDeviceInput;
 @property (nonatomic, readwrite, strong) AVCapturePhotoOutput *capturePhotoOutput;
@@ -38,12 +42,13 @@
 }
 
 #pragma mark - init
-- (id)init;
+- (id)initWithCaptureDeviceDiscoverySession:(AVCaptureDeviceDiscoverySession *)session;
 {
     if(self = [super initWithNibName:nil bundle:nil])
     {
         // Communicate with the session and other session objects on this queue.
         _sessionQueue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL);
+        _videoDeviceDiscoverySession = session;
         return self;
     }
 
@@ -160,11 +165,6 @@
 - (void)refreshDevices
 {
     MERLog();
-    NSArray<AVCaptureDeviceType>* deviceTypes = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeExternalUnknown];
-    self.videoDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:deviceTypes
-                                                                                              mediaType:AVMediaTypeVideo
-                                                                                               position:AVCaptureDevicePositionUnspecified];
-
     self.videoDevices = self.videoDeviceDiscoverySession.devices;
 
     [self.captureSession beginConfiguration];

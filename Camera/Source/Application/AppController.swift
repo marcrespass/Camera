@@ -3,6 +3,7 @@
 // Swift version: 4.0 – macOS: 10.12
 
 import Cocoa
+import AVFoundation
 
 private extension Selector {
     static let appWindowWillClose = #selector(AppController.appWindowWillClose)
@@ -10,22 +11,38 @@ private extension Selector {
 
 final class AppController {
     static let minSize = CGSize(width: 379, height: 290)
-    let contentVC = CameraVC()
+
     var window: NSWindow?
+    let captureDeviceDiscoverySession: AVCaptureDevice.DiscoverySession
+
+    lazy var contentVC: CameraVC = {
+        return CameraVC(captureDeviceDiscoverySession: self.captureDeviceDiscoverySession)
+    }()
+
+    init() {
+        let deviceTypes = [AVCaptureDevice.DeviceType.builtInWideAngleCamera, AVCaptureDevice.DeviceType.externalUnknown]
+        self.captureDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes,
+                                                                             mediaType: AVMediaType.video,
+                                                                             position: .unspecified)
+    }
 
     @objc func createNewWindow() {
-        let window = NSWindow(contentViewController: self.contentVC)
-        window.title = NSLocalizedString("Camera", comment: "")
-        window.tabbingMode = .disallowed
-        window.setFrameAutosaveName("MainWindowFrame")
-        window.contentMinSize = AppController.minSize
-        window.makeKeyAndOrderFront(nil)
-        self.window = window
+        if self.window == nil {
+            let window = NSWindow(contentViewController: self.contentVC)
+            window.title = NSLocalizedString("Camera", comment: "")
+            window.tabbingMode = .disallowed
+            window.setFrameAutosaveName("MainWindowFrame")
+            window.contentMinSize = AppController.minSize
+            window.makeKeyAndOrderFront(nil)
+            self.window = window
 
-        NotificationCenter.default.addObserver(self,
-                                               selector: .appWindowWillClose,
-                                               name: NSWindow.willCloseNotification,
-                                               object: window)
+            NotificationCenter.default.addObserver(self,
+                                                   selector: .appWindowWillClose,
+                                                   name: NSWindow.willCloseNotification,
+                                                   object: window)
+        } else {
+            self.window?.makeKeyAndOrderFront(nil)
+        }
     }
 }
 

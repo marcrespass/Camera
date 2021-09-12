@@ -11,4 +11,6 @@
 
 @property (nonatomic, readonly, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 
+- (id)initWithCaptureDeviceDiscoverySession:(AVCaptureDeviceDiscoverySession *)session;
+
 @end
