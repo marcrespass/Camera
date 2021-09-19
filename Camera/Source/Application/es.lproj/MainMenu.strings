@@ -74,13 +74,13 @@
 "Olw-nP-bQN.title" = "Hide Cámara";
 
 /* Class = "NSMenu"; title = "Settings"; ObjectID = "Qg8-Hf-jUy"; */
-"Qg8-Hf-jUy.title" = "Settings";
+"Qg8-Hf-jUy.title" = "Preferencias";
 
 /* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
 "R4o-n2-Eq4.title" = "Maximizar";
 
 /* Class = "NSMenuItem"; title = "Settings"; ObjectID = "RUO-6K-xd8"; */
-"RUO-6K-xd8.title" = "Settings";
+"RUO-6K-xd8.title" = "Preferencias";
 
 /* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
 "Td7-aD-5lo.title" = "Ventana";
