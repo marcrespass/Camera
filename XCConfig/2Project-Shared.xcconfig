@@ -19,6 +19,7 @@ INFOPLIST_FILE = $(PRODUCT_NAME)/Info.plist
 COMBINE_HIDPI_IMAGES = YES
 
 SWIFT_VERSION = 5.0
+// FRAMEWORK_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/Frameworks
 
 // Code Signing Identity
 CODE_SIGN_STYLE = Automatic

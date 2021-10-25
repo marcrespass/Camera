@@ -18,8 +18,9 @@ LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks
 
 PRODUCT_BUNDLE_IDENTIFIER = $(PRODUCT_BUNDLE_PREFIX).$(PRODUCT_NAME)
 
+SWIFT_OBJC_BRIDGING_HEADER = $(PROJECT_DIR)/$(TARGET_NAME)/$(TARGET_NAME)-Bridging-Header.h
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 
-SWIFT_OBJC_BRIDGING_HEADER = $(PROJECT_DIR)/$(TARGET_NAME)/$(TARGET_NAME)-Bridging-Header.h
+CODE_SIGN_IDENTITY = Mac Developer
 
 CAMERA_PRIVACY_NOTICE = Roaster wants to use your camera to take pictures and add them to the Roaster photo library. The camera will never be used unless you activate it.
