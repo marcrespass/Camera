@@ -5,10 +5,6 @@
 import Cocoa
 import AVFoundation
 
-private extension Selector {
-    static let appWindowWillClose = #selector(AppController.appWindowWillClose)
-}
-
 final class AppController {
     static let minSize = CGSize(width: 379, height: 290)
 
@@ -35,24 +31,8 @@ final class AppController {
             window.contentMinSize = AppController.minSize
             window.makeKeyAndOrderFront(nil)
             self.window = window
-
-            NotificationCenter.default.addObserver(self,
-                                                   selector: .appWindowWillClose,
-                                                   name: NSWindow.willCloseNotification,
-                                                   object: window)
         } else {
             self.window?.makeKeyAndOrderFront(nil)
         }
-    }
-}
-
-// MARK: - Notifications
-extension AppController {
-    @objc func appWindowWillClose(notification: Notification) {
-        guard let window = notification.object as? NSWindow, window == self.window else { return }
-
-        NotificationCenter.default.removeObserver(self, name: NSWindow.willCloseNotification,
-                                                  object: window)
-        self.window = nil
     }
 }
