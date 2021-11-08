@@ -12,6 +12,15 @@
 #define MERLogDebug(...)
 #endif
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-selector-match"
+static inline BOOL IsEmpty(id thing) {
+    return thing == nil ||
+    ([thing respondsToSelector:@selector(length)] && [(id)thing length] == 0) ||
+    ([thing respondsToSelector:@selector(count)] && [(id)thing count] == 0);
+}
+#pragma clang diagnostic pop
+
 @interface CameraVC ()
 
 @property (nonatomic, readwrite, weak) IBOutlet NSView *cameraDisplayView;
@@ -308,9 +317,13 @@
                 return;
             }
             NSString *concat = [strings componentsJoinedByString:@" "];
-            [self copyRecognizedTextToPasteboard:concat];
-            [[NSAlert.new ilios_alertWithTitle:@"Recognized text" message:concat] beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {
-            }];
+            if(!IsEmpty(concat))
+            {
+                [self copyRecognizedTextToPasteboard:concat];
+                NSString *title = NSLocalizedString(@"Recognized text", @"");
+                NSAlert *alert = [NSAlert.new ilios_alertWithTitle:title message:concat];
+                [alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {}];
+            }
         }];
     }
 }
