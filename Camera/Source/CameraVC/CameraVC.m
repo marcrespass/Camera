@@ -38,6 +38,7 @@ static inline BOOL IsEmpty(id thing) {
 @property (nonatomic, readwrite, strong) NSPopover *popover;
 @property (nonatomic, readwrite, strong) NSArray *observers;
 @property (nonatomic, readwrite, strong) NSArray *videoDevices;
+@property (nonatomic, readwrite, strong) NSWindow *flashWindow;
 @property (nonatomic, readwrite, strong) dispatch_queue_t sessionQueue;
 
 @end
@@ -197,15 +198,15 @@ static inline BOOL IsEmpty(id thing) {
     }
     int windowLevel = CGShieldingWindowLevel();
     NSRect screenRect = NSScreen.mainScreen.frame;
-    NSWindow *window = [[NSWindow alloc] initWithContentRect:screenRect
+    self.flashWindow = [[NSWindow alloc] initWithContentRect:screenRect
                                                    styleMask:NSWindowStyleMaskBorderless
                                                      backing:NSBackingStoreBuffered
                                                        defer:NO
                                                       screen:[NSScreen mainScreen]];
-    window.level = windowLevel;
-    window.backgroundColor = NSColor.whiteColor;
-    [window makeKeyAndOrderFront:nil];
-    [window.animator setAlphaValue:0.0];
+    self.flashWindow.level = windowLevel;
+    self.flashWindow.backgroundColor = NSColor.whiteColor;
+    [self.flashWindow makeKeyAndOrderFront:nil];
+    [self.flashWindow.animator setAlphaValue:0.0];
 }
 
 #pragma mark - Actions
@@ -266,6 +267,10 @@ static inline BOOL IsEmpty(id thing) {
     [self flashScreen];
     dispatch_async(self.sessionQueue, ^{
         [self.capturePhotoOutput capturePhotoWithSettings:[AVCapturePhotoSettings photoSettings] delegate:self];
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            [self.flashWindow close];
+            self.flashWindow = nil;
+        });
     });
 }
 
