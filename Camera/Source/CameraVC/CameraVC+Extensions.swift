@@ -81,6 +81,17 @@ import AVKit
 
 extension CameraVC: DraggingViewDelegate {
     func didOpenDraggedFiles(fileURLs: [URL]) {
-        print(fileURLs)
+        for url in fileURLs {
+            self.createImageVC(fileURL: url)
+        }
+    }
+
+    func createImageVC(fileURL: URL) {
+        let imageVC = ImageOCRVC(recognizedText: fileURL.path)
+        let window = NSWindow(contentViewController: imageVC)
+        window.title = NSLocalizedString("Recognized Text", comment: "")
+        window.tabbingMode = .disallowed
+//        window.contentMinSize = AppController.minSize
+        window.makeKeyAndOrderFront(nil)
     }
 }
