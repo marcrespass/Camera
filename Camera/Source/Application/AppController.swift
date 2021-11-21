@@ -35,4 +35,12 @@ final class AppController {
             self.window?.makeKeyAndOrderFront(nil)
         }
     }
+
+    func open(filenames: [String]) {
+        self.createNewWindow()
+
+        for path in filenames {
+            print("Open: \(path)")
+        }
+    }
 }
