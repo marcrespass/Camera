@@ -50,14 +50,18 @@ final class AppController: NSObject {
 }
 
 extension AppController: OCRDelegate {
-    func displayRecognizedText(from imageData: Data, withTitle title: String) {
-        (imageData as NSData).recognizeText { text, error in
+    func displayRecognizedText(_ image: NSImage, withTitle title: String?) {
+        guard let imageData = image.tiffRepresentation as NSData? else { return }
+
+        imageData.recognizeText { text, error in
             if let error = error {
                 NSApp.presentError(error)
                 return
             }
+
             let recognized = text.joined(separator: " ")
             let imageVC = ImageOCRVC(recognizedText: recognized)
+            imageVC.imageView.image = image
 
             NSApp.activate(ignoringOtherApps: true)
 
@@ -68,7 +72,7 @@ extension AppController: OCRDelegate {
                 wfo.x += 20
                 window.cascadeTopLeft(from: wfo)
             }
-            window.title = NSLocalizedString(title, comment: "")
+            window.title = NSLocalizedString(title ?? "Recognized Text", comment: "")
             window.tabbingMode = .disallowed
             window.collectionBehavior = .fullScreenAuxiliary
             window.makeKeyAndOrderFront(nil)
@@ -81,9 +85,9 @@ extension AppController: OCRDelegate {
     }
 
     func displayRecognizedText(at fileURL: URL) {
-        guard let image = NSImage(contentsOf: fileURL), let imageData = image.tiffRepresentation else { return }
+        guard let image = NSImage(contentsOf: fileURL) else { return }
         let title = fileURL.deletingPathExtension().lastPathComponent
-        self.displayRecognizedText(from: imageData, withTitle: title)
+        self.displayRecognizedText(image, withTitle: title)
     }
 }
 

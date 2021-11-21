@@ -11,6 +11,8 @@ import Cocoa
 class ImageOCRVC: NSViewController {
 
     @IBOutlet weak var recognizedTextField: NSTextField!
+    @IBOutlet weak var imageView: NSImageView!
+
     var recognizedText: String?
 
     init(recognizedText: String) {

@@ -313,22 +313,8 @@
     BOOL ocr = [self recognizeText];
     if(ocr)
     {
-        [self.ocrDelegate displayRecognizedTextFromData:photoData withTitle:@"Recognized Text"];
-//        [photoData recognizeTextWithCompletionHandler:^(NSArray<NSString *> *strings, NSError *ocrError) {
-//            if(ocrError != nil)
-//            {
-//                [NSApp presentError:ocrError];
-//                return;
-//            }
-//            NSString *concat = [strings componentsJoinedByString:@" "];
-//            if(!IsEmpty(concat))
-//            {
-//                [self copyRecognizedTextToPasteboard:concat];
-//                NSString *title = NSLocalizedString(@"Recognized text", @"");
-//                NSAlert *alert = [NSAlert.new ilios_alertWithTitle:title message:concat];
-//                [alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {}];
-//            }
-//        }];
+        NSImage *image = [[NSImage alloc] initWithData:photoData];
+        [self.ocrDelegate displayRecognizedText:image withTitle:@"Recognized Text"];
     }
 }
 
