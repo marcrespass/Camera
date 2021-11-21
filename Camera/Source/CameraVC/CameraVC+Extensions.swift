@@ -82,7 +82,7 @@ import AVKit
 extension CameraVC: DraggingViewDelegate {
     func didOpenDraggedFiles(fileURLs: [URL]) {
         for url in fileURLs {
-            self.ocrDelegate.displayRecognizedText(url)
+            self.ocrDelegate.displayRecognizedText(at: url)
         }
     }
 }

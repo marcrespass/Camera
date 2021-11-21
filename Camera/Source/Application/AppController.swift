@@ -9,6 +9,7 @@ final class AppController: NSObject {
     static let minSize = CGSize(width: 379, height: 290)
 
     var window: NSWindow?
+    var ocrWindows: [NSWindow] = []
     let captureDeviceDiscoverySession: AVCaptureDevice.DiscoverySession
 
     lazy var contentVC: CameraVC = {
@@ -43,31 +44,55 @@ final class AppController: NSObject {
 
         for path in filenames {
             let url = URL(fileURLWithPath: path)
-            self.displayRecognizedText(url)
+            self.displayRecognizedText(at: url)
         }
     }
 }
 
 extension AppController: OCRDelegate {
-    func displayRecognizedText(_ fileURL: URL) {
-        guard let image = NSImage(contentsOf: fileURL),
-              let imageData: NSData = image.tiffRepresentation as NSData? else { return }
-
-        imageData.recognizeText { text, error in
+    func displayRecognizedText(from imageData: Data, withTitle title: String) {
+        (imageData as NSData).recognizeText { text, error in
             if let error = error {
-                print(error.localizedDescription)
+                NSApp.presentError(error)
                 return
             }
             let recognized = text.joined(separator: " ")
             let imageVC = ImageOCRVC(recognizedText: recognized)
 
+            NSApp.activate(ignoringOtherApps: true)
+
             let window = NSWindow(contentViewController: imageVC)
-            window.title = NSLocalizedString("Recognized Text", comment: "")
+            if let lastWindow = self.ocrWindows.last {
+                var wfo = lastWindow.frame.origin
+                wfo.y += lastWindow.frame.height - 20
+                wfo.x += 20
+                window.cascadeTopLeft(from: wfo)
+            }
+            window.title = NSLocalizedString(title, comment: "")
             window.tabbingMode = .disallowed
             window.collectionBehavior = .fullScreenAuxiliary
             window.makeKeyAndOrderFront(nil)
             window.contentMaxSize.height = imageVC.recognizedTextField.bounds.height + 40.0
             window.zoom(nil)
+            window.delegate = self
+
+            self.ocrWindows.append(window)
+        }
+    }
+
+    func displayRecognizedText(at fileURL: URL) {
+        guard let image = NSImage(contentsOf: fileURL), let imageData = image.tiffRepresentation else { return }
+        let title = fileURL.deletingPathExtension().lastPathComponent
+        self.displayRecognizedText(from: imageData, withTitle: title)
+    }
+}
+
+extension AppController: NSWindowDelegate {
+    func windowWillClose(_ notification: Notification) {
+        if let object = notification.object as? NSWindow {
+            self.ocrWindows.removeAll { window in
+                window == object
+            }
         }
     }
 }

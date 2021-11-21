@@ -9,7 +9,8 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol OCRDelegate <NSObject>
 
-- (void)displayRecognizedText:(NSURL *)fileURL;
+- (void)displayRecognizedTextAtURL:(NSURL *)fileURL;
+- (void)displayRecognizedTextFromData:(NSData *)imageData withTitle:(NSString *)title;
 
 @end
 

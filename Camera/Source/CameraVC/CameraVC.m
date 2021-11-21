@@ -12,15 +12,6 @@
 #define MERLogDebug(...)
 #endif
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wstrict-selector-match"
-static inline BOOL IsEmpty(id thing) {
-    return thing == nil ||
-    ([thing respondsToSelector:@selector(length)] && [(id)thing length] == 0) ||
-    ([thing respondsToSelector:@selector(count)] && [(id)thing count] == 0);
-}
-#pragma clang diagnostic pop
-
 @interface CameraVC ()
 
 @property (nonatomic, readwrite, weak) IBOutlet NSView *cameraDisplayView;
@@ -322,21 +313,22 @@ static inline BOOL IsEmpty(id thing) {
     BOOL ocr = [self recognizeText];
     if(ocr)
     {
-        [photoData recognizeTextWithCompletionHandler:^(NSArray<NSString *> *strings, NSError *ocrError) {
-            if(ocrError != nil)
-            {
-                [NSApp presentError:ocrError];
-                return;
-            }
-            NSString *concat = [strings componentsJoinedByString:@" "];
-            if(!IsEmpty(concat))
-            {
-                [self copyRecognizedTextToPasteboard:concat];
-                NSString *title = NSLocalizedString(@"Recognized text", @"");
-                NSAlert *alert = [NSAlert.new ilios_alertWithTitle:title message:concat];
-                [alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {}];
-            }
-        }];
+        [self.ocrDelegate displayRecognizedTextFromData:photoData withTitle:@"Recognized Text"];
+//        [photoData recognizeTextWithCompletionHandler:^(NSArray<NSString *> *strings, NSError *ocrError) {
+//            if(ocrError != nil)
+//            {
+//                [NSApp presentError:ocrError];
+//                return;
+//            }
+//            NSString *concat = [strings componentsJoinedByString:@" "];
+//            if(!IsEmpty(concat))
+//            {
+//                [self copyRecognizedTextToPasteboard:concat];
+//                NSString *title = NSLocalizedString(@"Recognized text", @"");
+//                NSAlert *alert = [NSAlert.new ilios_alertWithTitle:title message:concat];
+//                [alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {}];
+//            }
+//        }];
     }
 }
 
