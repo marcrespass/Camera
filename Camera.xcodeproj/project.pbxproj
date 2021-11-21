@@ -15,6 +15,7 @@
 		D3545B42252680BF00E8432D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3545B44252680BF00E8432D /* InfoPlist.strings */; };
 		D3721F5E2675483800C30D32 /* Beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = D3721F5B2675483800C30D32 /* Beep.wav */; };
 		D3721F602675483800C30D32 /* Camera.wav in Resources */ = {isa = PBXBuildFile; fileRef = D3721F5D2675483800C30D32 /* Camera.wav */; };
+		D375E84D274A9B0B007B31B4 /* DraggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375E84C274A9B0B007B31B4 /* DraggingView.swift */; };
 		D39BB6FB26BDC280000C698F /* PreferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BB6F626BDC280000C698F /* PreferencesVC.swift */; };
 		D39BB6FC26BDC280000C698F /* PreferencesVC.strings in Resources */ = {isa = PBXBuildFile; fileRef = D39BB6F726BDC280000C698F /* PreferencesVC.strings */; };
 		D39BB6FD26BDC280000C698F /* PreferencesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D39BB6F926BDC280000C698F /* PreferencesVC.xib */; };
@@ -49,6 +50,7 @@
 		D359798426E7BF1000B612CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		D3721F5B2675483800C30D32 /* Beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Beep.wav; sourceTree = "<group>"; };
 		D3721F5D2675483800C30D32 /* Camera.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Camera.wav; sourceTree = "<group>"; };
+		D375E84C274A9B0B007B31B4 /* DraggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggingView.swift; sourceTree = "<group>"; };
 		D39BB6F626BDC280000C698F /* PreferencesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesVC.swift; sourceTree = "<group>"; };
 		D39BB6F826BDC280000C698F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PreferencesVC.strings; sourceTree = "<group>"; };
 		D39BB6FA26BDC280000C698F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesVC.xib; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				D3EC97AE2671B11700414666 /* CameraVC.h */,
 				D3EC97AF2671B11700414666 /* CameraVC.m */,
 				D3A84C7226E68DA30053B3E6 /* CameraVC+Extensions.swift */,
+				D375E84C274A9B0B007B31B4 /* DraggingView.swift */,
 				D3BB1B50252638920092D58F /* CameraVC.xib */,
 			);
 			path = CameraVC;
@@ -354,6 +357,7 @@
 				D39BB6FB26BDC280000C698F /* PreferencesVC.swift in Sources */,
 				D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */,
 				D3A84C7326E68DA30053B3E6 /* CameraVC+Extensions.swift in Sources */,
+				D375E84D274A9B0B007B31B4 /* DraggingView.swift in Sources */,
 				D3EC97B02671B11700414666 /* CameraVC.m in Sources */,
 				D3EC97B42671B1D300414666 /* CountdownViewController.m in Sources */,
 				D32AF47426B195A900A4F47A /* NSData+Extensions.swift in Sources */,
