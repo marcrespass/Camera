@@ -87,11 +87,24 @@ extension CameraVC: DraggingViewDelegate {
     }
 
     func createImageVC(fileURL: URL) {
-        let imageVC = ImageOCRVC(recognizedText: fileURL.path)
-        let window = NSWindow(contentViewController: imageVC)
-        window.title = NSLocalizedString("Recognized Text", comment: "")
-        window.tabbingMode = .disallowed
-//        window.contentMinSize = AppController.minSize
-        window.makeKeyAndOrderFront(nil)
+        guard let image = NSImage(contentsOf: fileURL),
+              let imageData: NSData = image.tiffRepresentation as NSData? else { return }
+        
+        imageData.recognizeText { text, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            let recognized = text.joined(separator: " ")
+            let imageVC = ImageOCRVC(recognizedText: recognized)
+
+            let window = NSWindow(contentViewController: imageVC)
+            window.title = NSLocalizedString("Recognized Text", comment: "")
+            window.tabbingMode = .disallowed
+            window.collectionBehavior = .fullScreenAuxiliary
+            window.makeKeyAndOrderFront(nil)
+            window.contentMaxSize.height = imageVC.recognizedTextField.bounds.height + 40.0
+            window.zoom(nil)
+        }
     }
 }
