@@ -8,7 +8,13 @@
 
 import Cocoa
 
+@objc protocol DraggingViewDelegate: AnyObject {
+    func didOpenDraggedFiles(fileURLs: [URL])
+}
+
 class DraggingView: NSView {
+    @objc weak var delegate: DraggingViewDelegate?
+
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
 
@@ -32,15 +38,13 @@ extension DraggingView {
     }
 
     public override func performDragOperation(_ draggingInfo: NSDraggingInfo) -> Bool {
-        let urls = self.urlsFromDraggingInfo(draggingInfo)
-
-        if let fileURLs = urls as? [URL] {
-            //            self.processURLArray(fileURLs)
-            print(fileURLs)
+        if let urls = self.urlsFromDraggingInfo(draggingInfo) as? [URL] {
+            self.delegate?.didOpenDraggedFiles(fileURLs: urls)
+            return true
         }
-
-        return true
+        return false
     }
+    
     private func urlsFromDraggingInfo(_ draggingInfo: NSDraggingInfo) -> [Any]? {
         let pasteboard = draggingInfo.draggingPasteboard
         let options = [NSPasteboard.ReadingOptionKey.urlReadingFileURLsOnly: true]
