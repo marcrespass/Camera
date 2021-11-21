@@ -138,10 +138,22 @@ static inline BOOL IsEmpty(id thing) {
     self.countdownViewController = [[CountdownViewController alloc] init];
     self.countdownViewController.delegate = self;
 
+    [self _setupFlashWindow];
+
     dispatch_async(dispatch_get_main_queue(), ^(void) {
         [self initialSetup];
     });
+}
 
+- (void)_setupFlashWindow;
+{
+    self.flashWindow = [[NSWindow alloc] initWithContentRect:NSScreen.mainScreen.frame
+                                                   styleMask:NSWindowStyleMaskBorderless
+                                                     backing:NSBackingStoreBuffered
+                                                       defer:NO
+                                                      screen:NSScreen.mainScreen];
+    self.flashWindow.level = CGShieldingWindowLevel();
+    self.flashWindow.backgroundColor = NSColor.whiteColor;
 }
 
 - (void)setupObservers;
@@ -197,17 +209,15 @@ static inline BOOL IsEmpty(id thing) {
     {
         return;
     }
-    int windowLevel = CGShieldingWindowLevel();
-    NSRect screenRect = NSScreen.mainScreen.frame;
-    self.flashWindow = [[NSWindow alloc] initWithContentRect:screenRect
-                                                   styleMask:NSWindowStyleMaskBorderless
-                                                     backing:NSBackingStoreBuffered
-                                                       defer:NO
-                                                      screen:[NSScreen mainScreen]];
-    self.flashWindow.level = windowLevel;
-    self.flashWindow.backgroundColor = NSColor.whiteColor;
+    self.flashWindow.alphaValue = 1.0;
     [self.flashWindow makeKeyAndOrderFront:nil];
-    [self.flashWindow.animator setAlphaValue:0.0];
+
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+        context.duration = 0.2;
+        self.flashWindow.animator.alphaValue = 0.0;
+    } completionHandler:^{
+        [self.flashWindow orderOut:nil];
+    }];
 }
 
 #pragma mark - Actions
@@ -268,10 +278,6 @@ static inline BOOL IsEmpty(id thing) {
     [self flashScreen];
     dispatch_async(self.sessionQueue, ^{
         [self.capturePhotoOutput capturePhotoWithSettings:[AVCapturePhotoSettings photoSettings] delegate:self];
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            [self.flashWindow close];
-            self.flashWindow = nil;
-        });
     });
 }
 
