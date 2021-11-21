@@ -132,6 +132,8 @@ static inline BOOL IsEmpty(id thing) {
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
+    [(DraggingView *)self.view setDelegate:self];
+    
     self.cameraDisplayView.wantsLayer = YES;
     self.countdownViewController = [[CountdownViewController alloc] init];
     self.countdownViewController.delegate = self;
