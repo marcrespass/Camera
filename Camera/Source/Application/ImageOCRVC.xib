@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ImageOCRVC" customModule="Camera" customModuleProvider="target">
+            <connections>
+                <outlet property="recognizedTextField" destination="DJx-Ru-gfO" id="Wqp-he-F80"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="388" height="96"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iRj-jt-fO1">
+                    <rect key="frame" x="20" y="-1.5" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="X6d-tj-lEg"/>
+                        <constraint firstAttribute="height" constant="95" id="yd6-kf-Gd9"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="photo.fill" catalog="system" id="e3F-y1-KLb"/>
+                </imageView>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="DJx-Ru-gfO">
+                    <rect key="frame" x="126" y="40" width="244" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="eRy-07-WaC"/>
+                    </constraints>
+                    <textFieldCell key="cell" selectable="YES" placeholderString="&lt;Recognized text&gt;" id="3Vw-Yx-7C8">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="DJx-Ru-gfO" secondAttribute="trailing" constant="20" symbolic="YES" id="3EX-YU-F8v"/>
+                <constraint firstItem="iRj-jt-fO1" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="Vfa-UL-MRE"/>
+                <constraint firstItem="DJx-Ru-gfO" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="WNk-Cw-hDS"/>
+                <constraint firstItem="DJx-Ru-gfO" firstAttribute="leading" secondItem="iRj-jt-fO1" secondAttribute="trailing" constant="8" symbolic="YES" id="hst-8N-nR8"/>
+                <constraint firstItem="iRj-jt-fO1" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="yTu-DL-tUm"/>
+            </constraints>
+            <point key="canvasLocation" x="129" y="153"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="photo.fill" catalog="system" width="18" height="14"/>
+    </resources>
+</document>

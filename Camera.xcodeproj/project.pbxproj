@@ -16,6 +16,8 @@
 		D3721F5E2675483800C30D32 /* Beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = D3721F5B2675483800C30D32 /* Beep.wav */; };
 		D3721F602675483800C30D32 /* Camera.wav in Resources */ = {isa = PBXBuildFile; fileRef = D3721F5D2675483800C30D32 /* Camera.wav */; };
 		D375E84D274A9B0B007B31B4 /* DraggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375E84C274A9B0B007B31B4 /* DraggingView.swift */; };
+		D375E850274AA354007B31B4 /* ImageOCRVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375E84E274AA354007B31B4 /* ImageOCRVC.swift */; };
+		D375E851274AA354007B31B4 /* ImageOCRVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D375E84F274AA354007B31B4 /* ImageOCRVC.xib */; };
 		D39BB6FB26BDC280000C698F /* PreferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BB6F626BDC280000C698F /* PreferencesVC.swift */; };
 		D39BB6FC26BDC280000C698F /* PreferencesVC.strings in Resources */ = {isa = PBXBuildFile; fileRef = D39BB6F726BDC280000C698F /* PreferencesVC.strings */; };
 		D39BB6FD26BDC280000C698F /* PreferencesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D39BB6F926BDC280000C698F /* PreferencesVC.xib */; };
@@ -51,6 +53,8 @@
 		D3721F5B2675483800C30D32 /* Beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Beep.wav; sourceTree = "<group>"; };
 		D3721F5D2675483800C30D32 /* Camera.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Camera.wav; sourceTree = "<group>"; };
 		D375E84C274A9B0B007B31B4 /* DraggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggingView.swift; sourceTree = "<group>"; };
+		D375E84E274AA354007B31B4 /* ImageOCRVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOCRVC.swift; sourceTree = "<group>"; };
+		D375E84F274AA354007B31B4 /* ImageOCRVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageOCRVC.xib; sourceTree = "<group>"; };
 		D39BB6F626BDC280000C698F /* PreferencesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesVC.swift; sourceTree = "<group>"; };
 		D39BB6F826BDC280000C698F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PreferencesVC.strings; sourceTree = "<group>"; };
 		D39BB6FA26BDC280000C698F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesVC.xib; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 			children = (
 				D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */,
 				D3EC8C6D24CDD53C00A69248 /* AppController.swift */,
+				D375E84E274AA354007B31B4 /* ImageOCRVC.swift */,
+				D375E84F274AA354007B31B4 /* ImageOCRVC.xib */,
 				D3EC8C6124CDD4E200A69248 /* Assets.xcassets */,
 				D3EC8C6324CDD4E200A69248 /* MainMenu.xib */,
 			);
@@ -301,6 +307,7 @@
 				D39BB6FD26BDC280000C698F /* PreferencesVC.xib in Resources */,
 				D3EC97B82671B27100414666 /* Countdown.xcassets in Resources */,
 				D3721F5E2675483800C30D32 /* Beep.wav in Resources */,
+				D375E851274AA354007B31B4 /* ImageOCRVC.xib in Resources */,
 				D335924126753E37002D779B /* Credits.rtf in Resources */,
 				D39BB6FC26BDC280000C698F /* PreferencesVC.strings in Resources */,
 				D3EC8C6524CDD4E200A69248 /* MainMenu.xib in Resources */,
@@ -366,6 +373,7 @@
 				D31CE93426B4449800E78398 /* NSError+Extensions.swift in Sources */,
 				D31CE93726B4452E00E78398 /* NSAlert+ILIOSAdditions.m in Sources */,
 				D3EC8C6E24CDD53C00A69248 /* AppController.swift in Sources */,
+				D375E850274AA354007B31B4 /* ImageOCRVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
