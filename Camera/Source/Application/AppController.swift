@@ -72,7 +72,13 @@ extension AppController: OCRDelegate {
                 wfo.x += 20
                 window.cascadeTopLeft(from: wfo)
             }
-            window.title = NSLocalizedString(title ?? "Recognized Text", comment: "")
+            if let title = title {
+                window.title = title
+            } else if let imageName = image.name() {
+                window.title = imageName
+            } else {
+                window.title = NSLocalizedString("Recognized Text", comment: "")
+            }
             window.tabbingMode = .disallowed
             window.collectionBehavior = .fullScreenAuxiliary
             window.makeKeyAndOrderFront(nil)
