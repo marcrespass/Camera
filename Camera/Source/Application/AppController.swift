@@ -49,60 +49,41 @@ final class AppController: NSObject {
     }
 }
 
-extension NSWindow {
-    fileprivate func position(relativeWindow: NSWindow?, image: NSImage, windowTitle: String?) {
-        if let lastWindow = relativeWindow {
-            var wfo = lastWindow.frame.origin
-            wfo.y += lastWindow.frame.height - 20
-            wfo.x += 20
-            self.cascadeTopLeft(from: wfo)
-        } else {
-            self.center()
-        }
-        if let title = windowTitle {
-            self.title = title
-        } else if let imageName = image.name() {
-            self.title = imageName
-        } else {
-            self.title = NSLocalizedString("Recognized Text", comment: "")
-        }
-    }
-}
-
 extension AppController: OCRDelegate {
-    func displayRecognizedText(_ image: NSImage, withTitle title: String?) {
+    func displayRecognizedText(_ image: NSImage) {
         guard let imageData = image.tiffRepresentation as NSData? else { return }
 
-        imageData.recognizeText { text, error in
-            if let error = error {
-                NSApp.presentError(error)
-                return
+        imageData.recognizeText { result in
+            switch result {
+                case .success(let text):
+                    let recognized = text.joined(separator: " ")
+                    let imageVC = ImageOCRVC(recognizedText: recognized)
+
+                    let window = NSWindow(contentViewController: imageVC)
+
+                    window.tabbingMode = .disallowed
+                    window.collectionBehavior = .fullScreenAuxiliary
+                    window.contentMaxSize.height = imageVC.recognizedTextField.bounds.height + 40.0
+                    window.delegate = self
+
+                    window.position(relativeTo: self.ocrWindows.last, title: image.name())
+                    imageVC.imageView.image = image
+                    self.ocrWindows.append(window)
+
+                    NSApp.activate(ignoringOtherApps: true)
+                    window.makeKeyAndOrderFront(nil)
+                    window.zoom(nil)
+                case .failure(let error):
+                    NSApp.presentError(error)
             }
-
-            let recognized = text.joined(separator: " ")
-            let imageVC = ImageOCRVC(recognizedText: recognized)
-
-            let window = NSWindow(contentViewController: imageVC)
-
-            window.tabbingMode = .disallowed
-            window.collectionBehavior = .fullScreenAuxiliary
-            window.contentMaxSize.height = imageVC.recognizedTextField.bounds.height + 40.0
-            window.delegate = self
-
-            window.position(relativeWindow: self.ocrWindows.last, image: image, windowTitle: title)
-            imageVC.imageView.image = image
-            self.ocrWindows.append(window)
-
-            NSApp.activate(ignoringOtherApps: true)
-            window.makeKeyAndOrderFront(nil)
-            window.zoom(nil)
         }
     }
 
     func displayRecognizedText(at fileURL: URL) {
         guard let image = NSImage(contentsOf: fileURL) else { return }
         let title = fileURL.deletingPathExtension().lastPathComponent
-        self.displayRecognizedText(image, withTitle: title)
+        image.setName(title)
+        self.displayRecognizedText(image)
     }
 }
 
