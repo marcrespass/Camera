@@ -12,7 +12,7 @@ final class AppController: NSObject {
     var ocrWindows: [NSWindow] = []
     let captureDeviceDiscoverySession: AVCaptureDevice.DiscoverySession
 
-    lazy var contentVC: CameraVC = {
+    lazy var mainContentVC: CameraVC = {
         let cvc = CameraVC(captureDeviceDiscoverySession: self.captureDeviceDiscoverySession)
         cvc.ocrDelegate = self
         return cvc
@@ -27,7 +27,7 @@ final class AppController: NSObject {
 
     @objc func createNewWindow() {
         if self.window == nil {
-            let window = NSWindow(contentViewController: self.contentVC)
+            let window = NSWindow(contentViewController: self.mainContentVC)
             window.title = NSLocalizedString("Camera", comment: "")
             window.tabbingMode = .disallowed
             window.setFrameAutosaveName("MainWindowFrame")
@@ -49,6 +49,26 @@ final class AppController: NSObject {
     }
 }
 
+extension NSWindow {
+    fileprivate func position(relativeWindow: NSWindow?, image: NSImage, windowTitle: String?) {
+        if let lastWindow = relativeWindow {
+            var wfo = lastWindow.frame.origin
+            wfo.y += lastWindow.frame.height - 20
+            wfo.x += 20
+            self.cascadeTopLeft(from: wfo)
+        } else {
+            self.center()
+        }
+        if let title = windowTitle {
+            self.title = title
+        } else if let imageName = image.name() {
+            self.title = imageName
+        } else {
+            self.title = NSLocalizedString("Recognized Text", comment: "")
+        }
+    }
+}
+
 extension AppController: OCRDelegate {
     func displayRecognizedText(_ image: NSImage, withTitle title: String?) {
         guard let imageData = image.tiffRepresentation as NSData? else { return }
@@ -61,32 +81,21 @@ extension AppController: OCRDelegate {
 
             let recognized = text.joined(separator: " ")
             let imageVC = ImageOCRVC(recognizedText: recognized)
-            imageVC.imageView.image = image
-
-            NSApp.activate(ignoringOtherApps: true)
 
             let window = NSWindow(contentViewController: imageVC)
-            if let lastWindow = self.ocrWindows.last {
-                var wfo = lastWindow.frame.origin
-                wfo.y += lastWindow.frame.height - 20
-                wfo.x += 20
-                window.cascadeTopLeft(from: wfo)
-            }
-            if let title = title {
-                window.title = title
-            } else if let imageName = image.name() {
-                window.title = imageName
-            } else {
-                window.title = NSLocalizedString("Recognized Text", comment: "")
-            }
+
             window.tabbingMode = .disallowed
             window.collectionBehavior = .fullScreenAuxiliary
-            window.makeKeyAndOrderFront(nil)
             window.contentMaxSize.height = imageVC.recognizedTextField.bounds.height + 40.0
-            window.zoom(nil)
             window.delegate = self
 
+            window.position(relativeWindow: self.ocrWindows.last, image: image, windowTitle: title)
+            imageVC.imageView.image = image
             self.ocrWindows.append(window)
+
+            NSApp.activate(ignoringOtherApps: true)
+            window.makeKeyAndOrderFront(nil)
+            window.zoom(nil)
         }
     }
 
