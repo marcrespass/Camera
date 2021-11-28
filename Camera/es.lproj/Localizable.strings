@@ -7,5 +7,5 @@
 */
 
 "Camera" = "Cámara";
-"Recognized text" = "Texto reconocido";
+"Recognized Text" = "Texto reconocido";
 "Copy text to pasteboard failed." = "No pudo copiar el texto al portapapeles.";
