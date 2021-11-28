@@ -314,7 +314,7 @@
     if(ocr)
     {
         NSImage *image = [[NSImage alloc] initWithData:photoData];
-        [self.ocrDelegate displayRecognizedText:image withTitle:@"Recognized Text"];
+        [self.ocrDelegate displayRecognizedText:image];
     }
 }
 
