@@ -1,5 +1,5 @@
 /* Localized versions of Info.plist keys */
 
-CFBundleDisplayName = "Cámara";
+CFBundleDisplayName = "Cámara para Mac";
 CFBundleName = "Cámara";
 NSCameraUsageDescription = "¡Cámara quiere usar tu cámara para sacar las fotoas!";
