@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19158" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19158"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -16,11 +16,11 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
-                <menuItem title="Camera" id="1Xt-HY-uBw">
+                <menuItem title="Simple Camera" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Camera" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="Simple Camera" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
-                            <menuItem title="About Camera" id="5kV-Vb-QxS">
+                            <menuItem title="About Simple Camera" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
@@ -32,7 +32,7 @@
                                 <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                            <menuItem title="Hide Camera" keyEquivalent="h" id="Olw-nP-bQN">
+                            <menuItem title="Hide Simple Camera" keyEquivalent="h" id="Olw-nP-bQN">
                                 <connections>
                                     <action selector="hide:" target="-1" id="PnN-Uc-m68"/>
                                 </connections>
@@ -50,7 +50,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                            <menuItem title="Quit Camera" keyEquivalent="q" id="4sb-4s-VLi">
+                            <menuItem title="Quit Simple Camera" keyEquivalent="q" id="4sb-4s-VLi">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
                                 </connections>
@@ -170,13 +170,13 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="cmf-pT-fEq"/>
-                            <menuItem title="Show saved image in Finder" id="375-hJ-yT4">
+                            <menuItem title="Show Saved Image In Finder" id="375-hJ-yT4">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.ShowSavedImage" id="HLX-MJ-rwV"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Open saved image" id="LKv-ga-PWj">
+                            <menuItem title="Open Saved Image" id="LKv-ga-PWj">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.OpenSavedImage" id="KdN-0D-5ZM"/>
@@ -189,20 +189,20 @@
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.RecognizeText" id="Pcm-Mu-VRh"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Copy recognized text to pasteboard" id="vE8-xi-2zB">
+                            <menuItem title="Copy Recognized Text To Pasteboard" id="vE8-xi-2zB">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.CopyRecognizedText" id="FI6-tm-gSx"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="N19-tH-ihE"/>
-                            <menuItem title="Show 3 second countdown" id="0Vl-Qg-x1m">
+                            <menuItem title="Show 3 Second Countdown" id="0Vl-Qg-x1m">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.UseCountdown" id="1De-a0-Kpw"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Flash screen before taking picture" id="yhP-Gl-9H1">
+                            <menuItem title="Flash Screen Before Taking Picture" id="yhP-Gl-9H1">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.FlashScreen" id="IgB-gf-Eap"/>

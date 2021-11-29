@@ -73,7 +73,7 @@
 		D3A84C7426E698430053B3E6 /* 2Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Debug.xcconfig"; sourceTree = "<group>"; };
 		D3A84C7626E698430053B3E6 /* 2Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Release.xcconfig"; sourceTree = "<group>"; };
 		D3BB1B4F252638920092D58F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CameraVC.xib; sourceTree = "<group>"; };
-		D3EC8C5C24CDD4DF00A69248 /* Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3EC8C5C24CDD4DF00A69248 /* Simple Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Camera.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3EC8C6124CDD4E200A69248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3EC8C6424CDD4E200A69248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 		D3EC8C5D24CDD4DF00A69248 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D3EC8C5C24CDD4DF00A69248 /* Camera.app */,
+				D3EC8C5C24CDD4DF00A69248 /* Simple Camera.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,7 +259,7 @@
 			);
 			name = Camera;
 			productName = Camera;
-			productReference = D3EC8C5C24CDD4DF00A69248 /* Camera.app */;
+			productReference = D3EC8C5C24CDD4DF00A69248 /* Simple Camera.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

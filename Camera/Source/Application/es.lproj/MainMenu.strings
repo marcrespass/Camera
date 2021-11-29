@@ -17,7 +17,7 @@
 "1L3-k3-uW0.title" = "Habla";
 
 /* Class = "NSMenuItem"; title = "Camera"; ObjectID = "1Xt-HY-uBw"; */
-"1Xt-HY-uBw.title" = "Cámara";
+"1Xt-HY-uBw.title" = "Cámara Simple";
 
 /* Class = "NSMenuItem"; title = "Mirror Preview"; ObjectID = "3ea-i8-w3d"; */
 "3ea-i8-w3d.title" = "Reflejar la vista previa";
@@ -26,13 +26,13 @@
 "4J7-dP-txa.title" = "Ver en pantalla completa";
 
 /* Class = "NSMenuItem"; title = "Quit Camera"; ObjectID = "4sb-4s-VLi"; */
-"4sb-4s-VLi.title" = "Salir de Cámara";
+"4sb-4s-VLi.title" = "Salir de Cámara Simple";
 
 /* Class = "NSMenuItem"; title = "Speech"; ObjectID = "58r-pj-egh"; */
 "58r-pj-egh.title" = "Habla";
 
 /* Class = "NSMenuItem"; title = "About Camera"; ObjectID = "5kV-Vb-QxS"; */
-"5kV-Vb-QxS.title" = "Acerca de Cámara";
+"5kV-Vb-QxS.title" = "Acerca de Cámara Simple";
 
 /* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
 "AYu-sK-qS6.title" = "Main Menu";
@@ -71,7 +71,7 @@
 "OY7-WF-poV.title" = "Minimizar";
 
 /* Class = "NSMenuItem"; title = "Hide Camera"; ObjectID = "Olw-nP-bQN"; */
-"Olw-nP-bQN.title" = "Hide Cámara";
+"Olw-nP-bQN.title" = "Hide Cámara Simple";
 
 /* Class = "NSMenu"; title = "Settings"; ObjectID = "Qg8-Hf-jUy"; */
 "Qg8-Hf-jUy.title" = "Preferencias";
@@ -131,7 +131,7 @@
 "uNS-XO-HgS.title" = "Editión";
 
 /* Class = "NSMenu"; title = "Camera"; ObjectID = "uQy-DD-JDr"; */
-"uQy-DD-JDr.title" = "Cámara";
+"uQy-DD-JDr.title" = "Cámara Simple";
 
 /* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
 "wpr-3q-Mcd.title" = "Ayuda";
