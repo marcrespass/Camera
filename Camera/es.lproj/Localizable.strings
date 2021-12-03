@@ -6,6 +6,6 @@
   Copyright © 2020 ILIOS Inc. All rights reserved.
 */
 
-"Camera" = "Cámara Simple";
+"Simple Camera" = "Cámara Simple";
 "Recognized Text" = "Texto reconocido";
 "Copy text to pasteboard failed." = "No pudo copiar el texto al portapapeles.";

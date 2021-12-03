@@ -1,7 +1,4 @@
 /* Localized versions of Info.plist keys */
 
 CFBundleDisplayName = "Simple Camera";
-//CFBundleName = "Camera";
 NSCameraUsageDescription = "Simple Camera for Mac wants to use your camera to take pictures.";
-
-// ITMS-90129: The bundle uses a bundle name or display name that is already taken.

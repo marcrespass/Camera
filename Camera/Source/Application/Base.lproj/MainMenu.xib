@@ -67,6 +67,12 @@
                                     <action selector="captureImage:" target="-1" id="3f4-nV-f1X"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="1Z3-t5-a8y"/>
+                            <menuItem title="Open Image…" keyEquivalent="o" id="Zqa-IK-YrY">
+                                <connections>
+                                    <action selector="openImage:" target="-1" id="N7U-u6-sIf"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                             <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                 <connections>

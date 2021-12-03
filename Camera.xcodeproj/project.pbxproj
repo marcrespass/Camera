@@ -51,12 +51,14 @@
 		D3545B392526798500E8432D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D3545B43252680BF00E8432D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D3545B45252680C000E8432D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D359798426E7BF1000B612CF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		D3721F5B2675483800C30D32 /* Beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Beep.wav; sourceTree = "<group>"; };
 		D3721F5D2675483800C30D32 /* Camera.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Camera.wav; sourceTree = "<group>"; };
 		D375E84C274A9B0B007B31B4 /* DraggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggingView.swift; sourceTree = "<group>"; };
 		D375E84E274AA354007B31B4 /* ImageOCRVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOCRVC.swift; sourceTree = "<group>"; };
 		D375E84F274AA354007B31B4 /* ImageOCRVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageOCRVC.xib; sourceTree = "<group>"; };
+		D392F84E275A3F140094E8A3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D392F84F275A3F420094E8A3 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
+		D392F853275A4A4F0094E8A3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		D39BB6F626BDC280000C698F /* PreferencesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesVC.swift; sourceTree = "<group>"; };
 		D39BB6F826BDC280000C698F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PreferencesVC.strings; sourceTree = "<group>"; };
 		D39BB6FA26BDC280000C698F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesVC.xib; sourceTree = "<group>"; };
@@ -161,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				D3545B392526798500E8432D /* .swiftlint.yml */,
+				D392F84E275A3F140094E8A3 /* README.md */,
+				D392F84F275A3F420094E8A3 /* Notes.md */,
 				D3545B302526790E00E8432D /* Build-Phases */,
 				D3A5A0C924CE27F40011668C /* XCConfig */,
 				D3EC8C5E24CDD4DF00A69248 /* Camera */,
@@ -441,7 +445,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D3EC8C6424CDD4E200A69248 /* Base */,
-				D359798426E7BF1000B612CF /* es */,
+				D392F853275A4A4F0094E8A3 /* es */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
