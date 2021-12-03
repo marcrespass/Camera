@@ -226,6 +226,28 @@
 //    [self presentViewController:pvc asPopoverRelativeToRect:sender.frame ofView:sender preferredEdge:NSRectEdgeMinY behavior:NSPopoverBehaviorTransient];
 }
 
+- (IBAction)openImage:(id)sender;
+{
+    NSOpenPanel *openPanel = NSOpenPanel.openPanel;
+
+    openPanel.canChooseFiles = YES;
+    openPanel.allowsMultipleSelection = YES;
+    openPanel.canChooseDirectories = NO;
+    openPanel.allowedContentTypes = @[
+        [UTType typeWithIdentifier:@"public.image"]
+    ];
+
+    [openPanel beginSheetModalForWindow:self.view.window completionHandler:^(NSInteger result) {
+        if(result == NSModalResponseOK)
+        {
+            for(NSURL *imageURL in openPanel.URLs)
+            {
+                [self.ocrDelegate displayRecognizedTextAtURL:imageURL];
+            }
+        }
+    }];
+}
+
 - (IBAction)captureImage:(id)sender;
 {
     if(!self.captureDeviceInput)
