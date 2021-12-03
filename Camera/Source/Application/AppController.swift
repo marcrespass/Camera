@@ -33,6 +33,13 @@ final class AppController: NSObject {
             window.setFrameAutosaveName("MainWindowFrame")
             window.contentMinSize = AppController.minSize
             window.makeKeyAndOrderFront(nil)
+            if ProcessInfo.processInfo.arguments.contains("-screenshots") {
+                var frame = window.frame
+                frame.size.width = 1280
+                frame.size.height = 800
+                window.setFrame(frame, display: true)
+            }
+
             self.window = window
         } else {
             self.window?.makeKeyAndOrderFront(nil)
