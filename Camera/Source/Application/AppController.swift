@@ -30,20 +30,18 @@ final class AppController: NSObject {
             let window = NSWindow(contentViewController: self.mainContentVC)
             window.title = NSLocalizedString("Camera", comment: "")
             window.tabbingMode = .disallowed
-            window.setFrameAutosaveName("MainWindowFrame")
+            window.setFrameAutosaveName("CameraWindowFrame")
             window.contentMinSize = AppController.minSize
-            window.makeKeyAndOrderFront(nil)
             if ProcessInfo.processInfo.arguments.contains("-screenshots") {
+                print("\n*** -screenshots is set - forcing window frame ***\n")
                 var frame = window.frame
                 frame.size.width = 1280
                 frame.size.height = 800
                 window.setFrame(frame, display: true)
             }
-
             self.window = window
-        } else {
-            self.window?.makeKeyAndOrderFront(nil)
         }
+        self.window?.makeKeyAndOrderFront(nil)
     }
 
     func open(filenames: [String]) {
