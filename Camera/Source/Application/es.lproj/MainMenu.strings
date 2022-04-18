@@ -5,8 +5,8 @@
 /* Class = "NSMenu"; title = "Speech"; ObjectID = "1L3-k3-uW0"; */
 "1L3-k3-uW0.title" = "Habla";
 
-/* Class = "NSMenuItem"; title = "Simple Camera"; ObjectID = "1Xt-HY-uBw"; */
-"1Xt-HY-uBw.title" = "Cámara Simple";
+/* Class = "NSMenuItem"; title = "Camera"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "Cámara";
 
 /* Class = "NSMenuItem"; title = "Show saved image in Finder"; ObjectID = "375-hJ-yT4"; */
 "375-hJ-yT4.title" = "Mostrar la imagen guardada en Finder";
@@ -18,13 +18,13 @@
 "4J7-dP-txa.title" = "Ver en pantalla completa";
 
 /* Class = "NSMenuItem"; title = "Quit Camera"; ObjectID = "4sb-4s-VLi"; */
-"4sb-4s-VLi.title" = "Salir de Cámara Simple";
+"4sb-4s-VLi.title" = "Salir de Cámara";
 
 /* Class = "NSMenuItem"; title = "Speech"; ObjectID = "58r-pj-egh"; */
 "58r-pj-egh.title" = "Habla";
 
 /* Class = "NSMenuItem"; title = "About Camera"; ObjectID = "5kV-Vb-QxS"; */
-"5kV-Vb-QxS.title" = "Acerca de Cámara Simple";
+"5kV-Vb-QxS.title" = "Acerca de Cámara";
 
 /* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
 "AYu-sK-qS6.title" = "Main Menu";
@@ -63,7 +63,7 @@
 "OY7-WF-poV.title" = "Minimizar";
 
 /* Class = "NSMenuItem"; title = "Hide Camera"; ObjectID = "Olw-nP-bQN"; */
-"Olw-nP-bQN.title" = "Ocultar Cámara Simple";
+"Olw-nP-bQN.title" = "Ocultar Cámara";
 
 /* Class = "NSMenu"; title = "Settings"; ObjectID = "Qg8-Hf-jUy"; */
 "Qg8-Hf-jUy.title" = "Preferencias";
@@ -128,8 +128,8 @@
 /* Class = "NSMenu"; title = "Edit"; ObjectID = "uNS-XO-HgS"; */
 "uNS-XO-HgS.title" = "Editión";
 
-/* Class = "NSMenu"; title = "Simple Camera"; ObjectID = "uQy-DD-JDr"; */
-"uQy-DD-JDr.title" = "Cámara Simple";
+/* Class = "NSMenu"; title = "Camera"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "Cámara";
 
 /* Class = "NSMenuItem"; title = "Copy Recognized Text To Pasteboard"; ObjectID = "vE8-xi-2zB"; */
 "vE8-xi-2zB.title" = "Copiar texto reconocido al portapapeles";

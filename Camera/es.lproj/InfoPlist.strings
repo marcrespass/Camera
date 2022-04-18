@@ -1,4 +1,4 @@
 /* Localized versions of Info.plist keys */
 
-CFBundleDisplayName = "Cámara Simple";
-NSCameraUsageDescription = "¡Cámara Simple quiere usar tu cámara para sacar las fotoas!";
+CFBundleDisplayName = "Cámara";
+NSCameraUsageDescription = "¡Cámara quiere usar tu cámara para sacar las fotoas!";
