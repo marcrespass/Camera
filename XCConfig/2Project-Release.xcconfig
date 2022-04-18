@@ -1,4 +1,7 @@
 
 #include "2Project-Shared.xcconfig"
 
+COPY_PHASE_STRIP = YES
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+ENABLE_NS_ASSERTIONS = NO
 SWIFT_COMPILATION_MODE = wholemodule

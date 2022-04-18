@@ -12,15 +12,6 @@
 #define MERLogDebug(...)
 #endif
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wstrict-selector-match"
-static inline BOOL IsEmpty(id thing) {
-    return thing == nil ||
-    ([thing respondsToSelector:@selector(length)] && [(id)thing length] == 0) ||
-    ([thing respondsToSelector:@selector(count)] && [(id)thing count] == 0);
-}
-#pragma clang diagnostic pop
-
 @interface CameraVC ()
 
 @property (nonatomic, readwrite, weak) IBOutlet NSView *cameraDisplayView;
@@ -132,15 +123,28 @@ static inline BOOL IsEmpty(id thing) {
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
+    [(DraggingView *)self.view setDelegate:self];
+    
     self.cameraDisplayView.wantsLayer = YES;
-
     self.countdownViewController = [[CountdownViewController alloc] init];
     self.countdownViewController.delegate = self;
+
+    [self _setupFlashWindow];
 
     dispatch_async(dispatch_get_main_queue(), ^(void) {
         [self initialSetup];
     });
+}
 
+- (void)_setupFlashWindow;
+{
+    self.flashWindow = [[NSWindow alloc] initWithContentRect:NSScreen.mainScreen.frame
+                                                   styleMask:NSWindowStyleMaskBorderless
+                                                     backing:NSBackingStoreBuffered
+                                                       defer:NO
+                                                      screen:NSScreen.mainScreen];
+    self.flashWindow.level = CGShieldingWindowLevel();
+    self.flashWindow.backgroundColor = NSColor.whiteColor;
 }
 
 - (void)setupObservers;
@@ -196,17 +200,15 @@ static inline BOOL IsEmpty(id thing) {
     {
         return;
     }
-    int windowLevel = CGShieldingWindowLevel();
-    NSRect screenRect = NSScreen.mainScreen.frame;
-    self.flashWindow = [[NSWindow alloc] initWithContentRect:screenRect
-                                                   styleMask:NSWindowStyleMaskBorderless
-                                                     backing:NSBackingStoreBuffered
-                                                       defer:NO
-                                                      screen:[NSScreen mainScreen]];
-    self.flashWindow.level = windowLevel;
-    self.flashWindow.backgroundColor = NSColor.whiteColor;
+    self.flashWindow.alphaValue = 1.0;
     [self.flashWindow makeKeyAndOrderFront:nil];
-    [self.flashWindow.animator setAlphaValue:0.0];
+
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+        context.duration = 0.2;
+        self.flashWindow.animator.alphaValue = 0.0;
+    } completionHandler:^{
+        [self.flashWindow orderOut:nil];
+    }];
 }
 
 #pragma mark - Actions
@@ -222,6 +224,28 @@ static inline BOOL IsEmpty(id thing) {
 //    So then self needs to be the delegate of PreferencesVC which would forward NSPopoverDelegate methods
 //    PreferencesVC *pvc = [[PreferencesVC alloc] init];
 //    [self presentViewController:pvc asPopoverRelativeToRect:sender.frame ofView:sender preferredEdge:NSRectEdgeMinY behavior:NSPopoverBehaviorTransient];
+}
+
+- (IBAction)openImage:(id)sender;
+{
+    NSOpenPanel *openPanel = NSOpenPanel.openPanel;
+
+    openPanel.canChooseFiles = YES;
+    openPanel.allowsMultipleSelection = YES;
+    openPanel.canChooseDirectories = NO;
+    openPanel.allowedContentTypes = @[
+        [UTType typeWithIdentifier:@"public.image"]
+    ];
+
+    [openPanel beginSheetModalForWindow:self.view.window completionHandler:^(NSInteger result) {
+        if(result == NSModalResponseOK)
+        {
+            for(NSURL *imageURL in openPanel.URLs)
+            {
+                [self.ocrDelegate displayRecognizedTextAtURL:imageURL];
+            }
+        }
+    }];
 }
 
 - (IBAction)captureImage:(id)sender;
@@ -267,10 +291,6 @@ static inline BOOL IsEmpty(id thing) {
     [self flashScreen];
     dispatch_async(self.sessionQueue, ^{
         [self.capturePhotoOutput capturePhotoWithSettings:[AVCapturePhotoSettings photoSettings] delegate:self];
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            [self.flashWindow close];
-            self.flashWindow = nil;
-        });
     });
 }
 
@@ -315,21 +335,8 @@ static inline BOOL IsEmpty(id thing) {
     BOOL ocr = [self recognizeText];
     if(ocr)
     {
-        [photoData recognizeTextWithCompletionHandler:^(NSArray<NSString *> *strings, NSError *ocrError) {
-            if(ocrError != nil)
-            {
-                [NSApp presentError:ocrError];
-                return;
-            }
-            NSString *concat = [strings componentsJoinedByString:@" "];
-            if(!IsEmpty(concat))
-            {
-                [self copyRecognizedTextToPasteboard:concat];
-                NSString *title = NSLocalizedString(@"Recognized text", @"");
-                NSAlert *alert = [NSAlert.new ilios_alertWithTitle:title message:concat];
-                [alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {}];
-            }
-        }];
+        NSImage *image = [[NSImage alloc] initWithData:photoData];
+        [self.ocrDelegate displayRecognizedText:image];
     }
 }
 

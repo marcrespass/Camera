@@ -1,14 +1,3 @@
-/* Class = "NSMenuItem"; title = "Show saved image in Finder"; ObjectID = "375-hJ-yT4"; */
-"375-hJ-yT4.title" = "Mostrar la imagen guardada en Finder";
-
-/* Class = "NSMenuItem"; title = "Open saved image"; ObjectID = "LKv-ga-PWj"; */
-"LKv-ga-PWj.title" = "Abrir imagen guardada";
-
-/* Class = "NSMenuItem"; title = "Copy recognized text to pasteboard"; ObjectID = "vE8-xi-2zB"; */
-"vE8-xi-2zB.title" = "Copiar texto reconocido al portapapeles";
-
-/* Class = "NSMenuItem"; title = "Flash screen before taking picture"; ObjectID = "yhP-Gl-9H1"; */
-"yhP-Gl-9H1.title" = "Flashear la pantalla antes de sacar la foto";
 
 /* Class = "NSMenuItem"; title = "Show 3 second countdown"; ObjectID = "0Vl-Qg-x1m"; */
 "0Vl-Qg-x1m.title" = "Mostrar la cuenta atrás de 3 segundos";
@@ -18,6 +7,9 @@
 
 /* Class = "NSMenuItem"; title = "Camera"; ObjectID = "1Xt-HY-uBw"; */
 "1Xt-HY-uBw.title" = "Cámara";
+
+/* Class = "NSMenuItem"; title = "Show saved image in Finder"; ObjectID = "375-hJ-yT4"; */
+"375-hJ-yT4.title" = "Mostrar la imagen guardada en Finder";
 
 /* Class = "NSMenuItem"; title = "Mirror Preview"; ObjectID = "3ea-i8-w3d"; */
 "3ea-i8-w3d.title" = "Reflejar la vista previa";
@@ -52,14 +44,14 @@
 /* Class = "NSMenu"; title = "View"; ObjectID = "HyV-fh-RgO"; */
 "HyV-fh-RgO.title" = "Visualización";
 
-/* Class = "NSMenuItem"; title = "Mirror Saved Image"; ObjectID = "KVI-Jy-5hJ"; */
-"ZbO-dU-Ix3.title" = "Reflejar la imagen guardada";
-
 /* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
 "Kd2-mp-pUS.title" = "Mostrar todo";
 
 /* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
 "LE2-aR-0XJ.title" = "Traer todo al frente";
+
+/* Class = "NSMenuItem"; title = "Open Saved Image"; ObjectID = "LKv-ga-PWj"; */
+"LKv-ga-PWj.title" = "Abrir imagen guardada";
 
 /* Class = "NSMenuItem"; title = "Paste"; ObjectID = "LTz-qc-f9V"; */
 "LTz-qc-f9V.title" = "Pegar";
@@ -71,7 +63,7 @@
 "OY7-WF-poV.title" = "Minimizar";
 
 /* Class = "NSMenuItem"; title = "Hide Camera"; ObjectID = "Olw-nP-bQN"; */
-"Olw-nP-bQN.title" = "Hide Cámara";
+"Olw-nP-bQN.title" = "Ocultar Cámara";
 
 /* Class = "NSMenu"; title = "Settings"; ObjectID = "Qg8-Hf-jUy"; */
 "Qg8-Hf-jUy.title" = "Preferencias";
@@ -93,6 +85,12 @@
 
 /* Class = "NSMenuItem"; title = "Stop Speaking"; ObjectID = "WiS-kR-pbv"; */
 "WiS-kR-pbv.title" = "Detener locución";
+
+/* Class = "NSMenuItem"; title = "Mirror Saved Image"; ObjectID = "ZbO-dU-Ix3"; */
+"ZbO-dU-Ix3.title" = "Reflejar la imagen guardada";
+
+/* Class = "NSMenuItem"; title = "Open Image…"; ObjectID = "Zqa-IK-YrY"; */
+"Zqa-IK-YrY.title" = "Abrir Imagen…";
 
 /* Class = "NSMenuItem"; title = "Select All"; ObjectID = "ZtA-Pz-nj3"; */
 "ZtA-Pz-nj3.title" = "Seleccionar todo";
@@ -133,8 +131,14 @@
 /* Class = "NSMenu"; title = "Camera"; ObjectID = "uQy-DD-JDr"; */
 "uQy-DD-JDr.title" = "Cámara";
 
+/* Class = "NSMenuItem"; title = "Copy Recognized Text To Pasteboard"; ObjectID = "vE8-xi-2zB"; */
+"vE8-xi-2zB.title" = "Copiar texto reconocido al portapapeles";
+
 /* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
 "wpr-3q-Mcd.title" = "Ayuda";
 
 /* Class = "NSMenuItem"; title = "Recognize Text in Images"; ObjectID = "wpr-fR-Ztc"; */
 "wpr-fR-Ztc.title" = "Reconocer texto en las imagenes";
+
+/* Class = "NSMenuItem"; title = "Flash Screen Before Taking Picture"; ObjectID = "yhP-Gl-9H1"; */
+"yhP-Gl-9H1.title" = "Flashear la pantalla antes de sacar la foto";

@@ -23,9 +23,7 @@ extension AppDelegate: NSApplicationDelegate {
         self.didFinish = true
     }
 
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        true
-    }
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
 
     // MER 2021-09-08 Sometimes the app does not terminate on last window closed
     func applicationShouldOpenUntitledFile(_ sender: NSApplication) -> Bool {
@@ -37,5 +35,14 @@ extension AppDelegate: NSApplicationDelegate {
             self.appController.createNewWindow()
         }
         return self.didFinish
+    }
+
+    func application(_ sender: NSApplication, openFile path: String) -> Bool {
+        self.appController.open(filenames: [path])
+        return true
+    }
+
+    func application(_ sender: NSApplication, openFiles filenames: [String]) {
+        self.appController.open(filenames: filenames)
     }
 }

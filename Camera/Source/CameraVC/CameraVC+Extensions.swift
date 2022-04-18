@@ -78,3 +78,11 @@ import AVKit
         return UserDefaults.standard.value(for: .recognizeText) ?? false
     }
 }
+
+extension CameraVC: DraggingViewDelegate {
+    func didOpenDraggedFiles(fileURLs: [URL]) {
+        for url in fileURLs {
+            self.ocrDelegate.displayRecognizedText(at: url)
+        }
+    }
+}

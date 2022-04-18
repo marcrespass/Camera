@@ -9,6 +9,8 @@
 import Foundation
 import Vision
 
+typealias RecognizedResult = Result<[String], Error
+>
 // MARK: - Vision text recognition
 // https://developer.apple.com/documentation/vision/recognizing_text_in_images
 @objc extension NSData {
@@ -33,10 +35,11 @@ import Vision
         }
     }
 
-    func recognizeText(completionHandler: @escaping ([String], Error?) -> Void) {
+    @nonobjc
+    func recognizeText(completionHandler: @escaping (RecognizedResult) -> Void) {
         guard let cgImage = self.cgImage() else {
             let error = NSError(with: "Unable to get CGImage from data")
-            completionHandler([], error)
+            completionHandler(.failure(error))
             return
         }
         let requestHandler = VNImageRequestHandler(cgImage: cgImage)
@@ -44,7 +47,7 @@ import Vision
         // Create a new request to recognize text.
         let request = VNRecognizeTextRequest { request, error in
             if let error = error {
-                completionHandler([], error)
+                completionHandler(.failure(error))
                 return
             }
 
@@ -52,12 +55,12 @@ import Vision
             let recognizedStrings = observations.compactMap { observation in
                 observation.topCandidates(1).first?.string // Return the string of the top VNRecognizedText instance.
             }
-            completionHandler(recognizedStrings, nil)
+            completionHandler(.success(recognizedStrings))
         }
         do {
             try requestHandler.perform([request])
         } catch {
-            completionHandler([], error)
+            completionHandler(.failure(error))
         }
     }
 }

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19158" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19158"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -65,6 +64,12 @@
                             <menuItem title="Take Photo" keyEquivalent="n" id="Was-JA-tGl">
                                 <connections>
                                     <action selector="captureImage:" target="-1" id="3f4-nV-f1X"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="1Z3-t5-a8y"/>
+                            <menuItem title="Open Image…" keyEquivalent="o" id="Zqa-IK-YrY">
+                                <connections>
+                                    <action selector="openImage:" target="-1" id="N7U-u6-sIf"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
@@ -170,13 +175,13 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="cmf-pT-fEq"/>
-                            <menuItem title="Show saved image in Finder" id="375-hJ-yT4">
+                            <menuItem title="Show Saved Image In Finder" id="375-hJ-yT4">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.ShowSavedImage" id="HLX-MJ-rwV"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Open saved image" id="LKv-ga-PWj">
+                            <menuItem title="Open Saved Image" id="LKv-ga-PWj">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.OpenSavedImage" id="KdN-0D-5ZM"/>
@@ -189,20 +194,20 @@
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.RecognizeText" id="Pcm-Mu-VRh"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Copy recognized text to pasteboard" id="vE8-xi-2zB">
+                            <menuItem title="Copy Recognized Text To Pasteboard" id="vE8-xi-2zB">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.CopyRecognizedText" id="FI6-tm-gSx"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="N19-tH-ihE"/>
-                            <menuItem title="Show 3 second countdown" id="0Vl-Qg-x1m">
+                            <menuItem title="Show 3 Second Countdown" id="0Vl-Qg-x1m">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.UseCountdown" id="1De-a0-Kpw"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Flash screen before taking picture" id="yhP-Gl-9H1">
+                            <menuItem title="Flash Screen Before Taking Picture" id="yhP-Gl-9H1">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="9NV-cB-0To" name="value" keyPath="values.FlashScreen" id="IgB-gf-Eap"/>
