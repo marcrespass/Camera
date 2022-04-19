@@ -16,13 +16,7 @@ SWIFT_OBJC_BRIDGING_HEADER = $(PROJECT_DIR)/$(TARGET_NAME)/$(TARGET_NAME)-Bridgi
 // Override
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks
 
-// Generated Info Plist File
 GENERATE_INFOPLIST_FILE = NO
-//INFOPLIST_KEY_NSHumanReadableCopyright = $(HUMAN_READABLE_COPYRIGHT)
-//INFOPLIST_KEY_LSApplicationCategoryType = public.app-category.utilities
-//INFOPLIST_KEY_NSMainNibFile = MainMenu
-// INFOPLIST_KEY_NSMainStoryboardFile = Main
-//INFOPLIST_KEY_NSPrincipalClass = NSApplication
 
 // Warning overrides
 // These two are needed when Obj-C is used
