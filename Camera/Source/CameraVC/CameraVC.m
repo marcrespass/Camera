@@ -43,7 +43,7 @@
 }
 
 #pragma mark - init
-- (id)initWithCaptureDeviceDiscoverySession:(AVCaptureDeviceDiscoverySession *)session;
+- (instancetype)initWithCaptureDeviceDiscoverySession:(AVCaptureDeviceDiscoverySession *)session;
 {
     if(self = [super initWithNibName:nil bundle:nil])
     {
@@ -53,6 +53,16 @@
         return self;
     }
 
+    return nil;
+}
+
+- (instancetype)initWithNibName:(nullable NSNibName)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
+{
+    return nil;
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
+{
     return nil;
 }
 
@@ -123,7 +133,7 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
-    [(DraggingView *)self.view setDelegate:self];
+    ((DraggingView *)self.view).delegate = self;
     
     self.cameraDisplayView.wantsLayer = YES;
     self.countdownViewController = [[CountdownViewController alloc] init];
@@ -299,9 +309,9 @@
     BOOL mirror = [self mirrorSavedImage];
     NSImage *image = [photoData nsImageMirroring:mirror];
 
-    NSError *writeError = nil;
     NSString *filePath = [[NSTemporaryDirectory() stringByAppendingPathComponent:NSUUID.UUID.UUIDString] stringByAppendingPathExtension:@"jpg"];
     NSURL *url = [NSURL fileURLWithPath:filePath];
+    NSError *writeError = nil;
     if([image.TIFFRepresentation writeToURL:url options:0 error:&writeError])
     {
         [self handlePostImageOperationAt:url];
@@ -326,7 +336,7 @@
     NSData *photoData = [photo fileDataRepresentation];
     if(photoData == nil)
     {
-        NSError *dataError = [NSError errorWithDomain:@"Camera" code:2112 userInfo:@{NSLocalizedDescriptionKey : @"fileDataRepresentation is nil"}];
+        NSError *dataError = [[NSError alloc] initWith:@"fileDataRepresentation is nil"];
         [NSApp presentError:dataError];
         return;
     }
@@ -385,7 +395,8 @@
     if(selectedVideoDevice)
     {
         NSError *error = nil;
-        AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:selectedVideoDevice error:&error];
+        AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:selectedVideoDevice
+                                                                                       error:&error];
         if(videoDeviceInput == nil)
         {
             dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -412,7 +423,7 @@
 #pragma mark - NSUserInterfaceValidations
 - (BOOL)validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>)anItem;
 {
-    if([anItem action] == @selector(captureImage:))
+    if(anItem.action == @selector(captureImage:))
     {
         return (self.hasRecordingDevice && !self.takingPicture);
     }

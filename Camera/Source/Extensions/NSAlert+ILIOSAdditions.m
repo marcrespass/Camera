@@ -16,10 +16,8 @@
     NSAssert(title, @"title is required");
     NSAssert(message, @"message is required");
 
-    [self setMessageText:title];
-
-    [self setInformativeText:message];
-
+    self.messageText = title;
+    self.informativeText = message;
     [self addButtonWithTitle:NSLocalizedString(@"OK", @"OK")];
 
     return self;
@@ -33,8 +31,8 @@
     NSAssert(message, @"message is required");
     NSAssert(okTitle, @"okTitle is required");
 
-    [self setMessageText:title];
-    [self setInformativeText:message];
+    self.messageText = title;
+    self.informativeText = message;
     [self addButtonWithTitle:okTitle];
 
     return self;
@@ -51,8 +49,8 @@
     NSAssert(okTitle, @"okTitle is required");
     NSAssert(okTitle, @"okTitle is required");
 
-    [self setMessageText:title];
-    [self setInformativeText:message];
+    self.messageText = title;
+    self.informativeText = message;
     [self addButtonWithTitle:okTitle];
     [self addButtonWithTitle:cancelTitle];
 
