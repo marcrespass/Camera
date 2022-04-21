@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D30B727C2811F3D7001630C2 /* PreferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B72772811F3D6001630C2 /* PreferencesVC.swift */; };
+		D30B727D2811F3D7001630C2 /* PreferencesVC.strings in Resources */ = {isa = PBXBuildFile; fileRef = D30B72782811F3D6001630C2 /* PreferencesVC.strings */; };
+		D30B727E2811F3D7001630C2 /* PreferencesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D30B727A2811F3D6001630C2 /* PreferencesVC.xib */; };
 		D31CE93426B4449800E78398 /* NSError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31CE93326B4449800E78398 /* NSError+Extensions.swift */; };
 		D31CE93726B4452E00E78398 /* NSAlert+ILIOSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CE93626B4452E00E78398 /* NSAlert+ILIOSAdditions.m */; };
 		D32AF47426B195A900A4F47A /* NSData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AF47326B195A900A4F47A /* NSData+Extensions.swift */; };
@@ -19,9 +22,6 @@
 		D375E84D274A9B0B007B31B4 /* DraggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375E84C274A9B0B007B31B4 /* DraggingView.swift */; };
 		D375E850274AA354007B31B4 /* ImageOCRVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375E84E274AA354007B31B4 /* ImageOCRVC.swift */; };
 		D375E851274AA354007B31B4 /* ImageOCRVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D375E84F274AA354007B31B4 /* ImageOCRVC.xib */; };
-		D39BB6FB26BDC280000C698F /* PreferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39BB6F626BDC280000C698F /* PreferencesVC.swift */; };
-		D39BB6FC26BDC280000C698F /* PreferencesVC.strings in Resources */ = {isa = PBXBuildFile; fileRef = D39BB6F726BDC280000C698F /* PreferencesVC.strings */; };
-		D39BB6FD26BDC280000C698F /* PreferencesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D39BB6F926BDC280000C698F /* PreferencesVC.xib */; };
 		D39BB6FF26BDC298000C698F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D39BB70126BDC298000C698F /* Localizable.strings */; };
 		D3A84C7126E68CCC0053B3E6 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A84C7026E68CCB0053B3E6 /* UserDefaults+Extensions.swift */; };
 		D3A84C7326E68DA30053B3E6 /* CameraVC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A84C7226E68DA30053B3E6 /* CameraVC+Extensions.swift */; };
@@ -37,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D30B72772811F3D6001630C2 /* PreferencesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesVC.swift; sourceTree = "<group>"; };
+		D30B72792811F3D6001630C2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PreferencesVC.strings; sourceTree = "<group>"; };
+		D30B727B2811F3D6001630C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesVC.xib; sourceTree = "<group>"; };
 		D31CE93326B4449800E78398 /* NSError+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSError+Extensions.swift"; sourceTree = "<group>"; };
 		D31CE93526B4452E00E78398 /* NSAlert+ILIOSAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+ILIOSAdditions.h"; sourceTree = "<group>"; };
 		D31CE93626B4452E00E78398 /* NSAlert+ILIOSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+ILIOSAdditions.m"; sourceTree = "<group>"; };
@@ -59,9 +62,6 @@
 		D392F84E275A3F140094E8A3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D392F84F275A3F420094E8A3 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 		D392F853275A4A4F0094E8A3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		D39BB6F626BDC280000C698F /* PreferencesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesVC.swift; sourceTree = "<group>"; };
-		D39BB6F826BDC280000C698F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PreferencesVC.strings; sourceTree = "<group>"; };
-		D39BB6FA26BDC280000C698F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesVC.xib; sourceTree = "<group>"; };
 		D39BB70026BDC298000C698F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D39BB70226BDC29C000C698F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D3A5A0CA24CE28000011668C /* App-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Release.xcconfig"; sourceTree = "<group>"; };
@@ -69,7 +69,6 @@
 		D3A5A0D224CE28000011668C /* App-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Debug.xcconfig"; sourceTree = "<group>"; };
 		D3A5A0D324CE28000011668C /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; };
 		D3A5A0D424CE28000011668C /* App-Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "App-Shared.xcconfig"; sourceTree = "<group>"; };
-		D3A84C6F26E68AB40053B3E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PreferencesVC.strings; sourceTree = "<group>"; };
 		D3A84C7026E68CCB0053B3E6 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		D3A84C7226E68DA30053B3E6 /* CameraVC+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraVC+Extensions.swift"; sourceTree = "<group>"; };
 		D3A84C7426E698430053B3E6 /* 2Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +102,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D30B72762811F3D6001630C2 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				D30B72772811F3D6001630C2 /* PreferencesVC.swift */,
+				D30B72782811F3D6001630C2 /* PreferencesVC.strings */,
+				D30B727A2811F3D6001630C2 /* PreferencesVC.xib */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		D3545B302526790E00E8432D /* Build-Phases */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,16 +128,6 @@
 				D3721F5D2675483800C30D32 /* Camera.wav */,
 			);
 			path = Audio;
-			sourceTree = "<group>";
-		};
-		D39BB6F526BDC280000C698F /* Preferences */ = {
-			isa = PBXGroup;
-			children = (
-				D39BB6F626BDC280000C698F /* PreferencesVC.swift */,
-				D39BB6F726BDC280000C698F /* PreferencesVC.strings */,
-				D39BB6F926BDC280000C698F /* PreferencesVC.xib */,
-			);
-			path = Preferences;
 			sourceTree = "<group>";
 		};
 		D3A5A0C924CE27F40011668C /* XCConfig */ = {
@@ -238,7 +237,7 @@
 				D3FF4610268F668F00CEF6CB /* Application */,
 				D3FF4611268F66A200CEF6CB /* CameraVC */,
 				D3FF460F268F668400CEF6CB /* Countdown */,
-				D39BB6F526BDC280000C698F /* Preferences */,
+				D30B72762811F3D6001630C2 /* Preferences */,
 				D3A9A8EB26BC63D90006948D /* Extensions */,
 			);
 			path = Source;
@@ -310,13 +309,13 @@
 				D3545B42252680BF00E8432D /* InfoPlist.strings in Resources */,
 				D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */,
 				D3BB1B4E252638920092D58F /* CameraVC.xib in Resources */,
+				D30B727E2811F3D7001630C2 /* PreferencesVC.xib in Resources */,
 				D3EC97B52671B1D300414666 /* CountdownViewController.xib in Resources */,
-				D39BB6FD26BDC280000C698F /* PreferencesVC.xib in Resources */,
 				D3EC97B82671B27100414666 /* Countdown.xcassets in Resources */,
 				D3721F5E2675483800C30D32 /* Beep.wav in Resources */,
 				D375E851274AA354007B31B4 /* ImageOCRVC.xib in Resources */,
+				D30B727D2811F3D7001630C2 /* PreferencesVC.strings in Resources */,
 				D335924126753E37002D779B /* Credits.rtf in Resources */,
-				D39BB6FC26BDC280000C698F /* PreferencesVC.strings in Resources */,
 				D3EC8C6524CDD4E200A69248 /* MainMenu.xib in Resources */,
 				D3721F602675483800C30D32 /* Camera.wav in Resources */,
 			);
@@ -368,12 +367,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D39BB6FB26BDC280000C698F /* PreferencesVC.swift in Sources */,
 				D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */,
 				D3A84C7326E68DA30053B3E6 /* CameraVC+Extensions.swift in Sources */,
 				D375E84D274A9B0B007B31B4 /* DraggingView.swift in Sources */,
 				D3EC97B02671B11700414666 /* CameraVC.m in Sources */,
 				D3EC97B42671B1D300414666 /* CountdownViewController.m in Sources */,
+				D30B727C2811F3D7001630C2 /* PreferencesVC.swift in Sources */,
 				D32AF47426B195A900A4F47A /* NSData+Extensions.swift in Sources */,
 				D3A84C7126E68CCC0053B3E6 /* UserDefaults+Extensions.swift in Sources */,
 				D3472461275403CD0047686B /* NSWindow+Extensions.swift in Sources */,
@@ -388,6 +387,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D30B72782811F3D6001630C2 /* PreferencesVC.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D30B72792811F3D6001630C2 /* es */,
+			);
+			name = PreferencesVC.strings;
+			sourceTree = "<group>";
+		};
+		D30B727A2811F3D6001630C2 /* PreferencesVC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D30B727B2811F3D6001630C2 /* Base */,
+			);
+			name = PreferencesVC.xib;
+			sourceTree = "<group>";
+		};
 		D335924326753E37002D779B /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -404,23 +419,6 @@
 				D3545B45252680C000E8432D /* es */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D39BB6F726BDC280000C698F /* PreferencesVC.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D39BB6F826BDC280000C698F /* es */,
-			);
-			name = PreferencesVC.strings;
-			sourceTree = "<group>";
-		};
-		D39BB6F926BDC280000C698F /* PreferencesVC.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D39BB6FA26BDC280000C698F /* Base */,
-				D3A84C6F26E68AB40053B3E6 /* es */,
-			);
-			name = PreferencesVC.xib;
 			sourceTree = "<group>";
 		};
 		D39BB70126BDC298000C698F /* Localizable.strings */ = {

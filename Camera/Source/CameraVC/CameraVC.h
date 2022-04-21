@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @property (nonatomic, readwrite, strong) id<OCRDelegate> ocrDelegate;
 
-- (id)initWithCaptureDeviceDiscoverySession:(AVCaptureDeviceDiscoverySession *)session;
+- (instancetype)initWithCaptureDeviceDiscoverySession:(AVCaptureDeviceDiscoverySession *)session NS_DESIGNATED_INITIALIZER;
 
 @end
 NS_ASSUME_NONNULL_END

@@ -9,7 +9,7 @@
 import Foundation
 
 extension NSError {
-    convenience init(with string: String) {
+    @objc convenience init(with string: String) {
         let userInfo = [NSLocalizedDescriptionKey: string]
         self.init(domain: NSCocoaErrorDomain, code: 2112, userInfo: userInfo)
     }

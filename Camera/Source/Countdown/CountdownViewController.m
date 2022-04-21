@@ -30,7 +30,7 @@ NSInteger kMaxSeconds = 3;
 
 @implementation CountdownViewController
 
-- (id)init;
+- (instancetype)init;
 {
     if(self = [super initWithNibName:nil bundle:nil])
     {
