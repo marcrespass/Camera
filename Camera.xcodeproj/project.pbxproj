@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		D31CE93726B4452E00E78398 /* NSAlert+ILIOSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D31CE93626B4452E00E78398 /* NSAlert+ILIOSAdditions.m */; };
 		D32AF47426B195A900A4F47A /* NSData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AF47326B195A900A4F47A /* NSData+Extensions.swift */; };
 		D335924126753E37002D779B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D335924326753E37002D779B /* Credits.rtf */; };
+		D345E22B2F915F5D00CF46DB /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = D345E22A2F915F5D00CF46DB /* AppIcon.icon */; };
 		D3472461275403CD0047686B /* NSWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3472460275403CD0047686B /* NSWindow+Extensions.swift */; };
 		D34E0BF3269371E100628825 /* CGImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E0BF2269371E100628825 /* CGImage+Extensions.swift */; };
 		D3545B42252680BF00E8432D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3545B44252680BF00E8432D /* InfoPlist.strings */; };
@@ -27,7 +28,6 @@
 		D3A84C7326E68DA30053B3E6 /* CameraVC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A84C7226E68DA30053B3E6 /* CameraVC+Extensions.swift */; };
 		D3BB1B4E252638920092D58F /* CameraVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BB1B50252638920092D58F /* CameraVC.xib */; };
 		D3EC8C6024CDD4DF00A69248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */; };
-		D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C6124CDD4E200A69248 /* Assets.xcassets */; };
 		D3EC8C6524CDD4E200A69248 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EC8C6324CDD4E200A69248 /* MainMenu.xib */; };
 		D3EC8C6E24CDD53C00A69248 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC8C6D24CDD53C00A69248 /* AppController.swift */; };
 		D3EC97B02671B11700414666 /* CameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC97AF2671B11700414666 /* CameraVC.m */; };
@@ -47,6 +47,8 @@
 		D33386E126BC7D21004611C2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/CameraVC.strings; sourceTree = "<group>"; };
 		D335924226753E37002D779B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
 		D335924426753E3B002D779B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D345E1EC2F915E5B00CF46DB /* .swiftlint_refinement.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint_refinement.yml; sourceTree = "<group>"; };
+		D345E22A2F915F5D00CF46DB /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		D3472460275403CD0047686B /* NSWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+Extensions.swift"; sourceTree = "<group>"; };
 		D34E0BF2269371E100628825 /* CGImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Extensions.swift"; sourceTree = "<group>"; };
 		D3545B312526790E00E8432D /* build-script */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "build-script"; sourceTree = "<group>"; };
@@ -75,7 +77,6 @@
 		D3BB1B4F252638920092D58F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CameraVC.xib; sourceTree = "<group>"; };
 		D3EC8C5C24CDD4DF00A69248 /* Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EC8C5F24CDD4DF00A69248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3EC8C6124CDD4E200A69248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3EC8C6424CDD4E200A69248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D3EC8C6624CDD4E200A69248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3EC8C6724CDD4E200A69248 /* Camera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Camera.entitlements; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				D3545B392526798500E8432D /* .swiftlint.yml */,
+				D345E1EC2F915E5B00CF46DB /* .swiftlint_refinement.yml */,
 				D392F84E275A3F140094E8A3 /* README.md */,
 				D3545B302526790E00E8432D /* Build-Phases */,
 				D3A5A0C924CE27F40011668C /* XCConfig */,
@@ -211,7 +213,6 @@
 				D3EC8C6D24CDD53C00A69248 /* AppController.swift */,
 				D375E84E274AA354007B31B4 /* ImageOCRVC.swift */,
 				D375E84F274AA354007B31B4 /* ImageOCRVC.xib */,
-				D3EC8C6124CDD4E200A69248 /* Assets.xcassets */,
 				D3EC8C6324CDD4E200A69248 /* MainMenu.xib */,
 			);
 			path = Application;
@@ -232,6 +233,7 @@
 		D3FF4612268F66C100CEF6CB /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D345E22A2F915F5D00CF46DB /* AppIcon.icon */,
 				D3FF4610268F668F00CEF6CB /* Application */,
 				D3FF4611268F66A200CEF6CB /* CameraVC */,
 				D3FF460F268F668400CEF6CB /* Countdown */,
@@ -269,8 +271,9 @@
 		D3EC8C5424CDD4DF00A69248 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 2630;
 				ORGANIZATIONNAME = "ILIOS Inc.";
 				TargetAttributes = {
 					D3EC8C5B24CDD4DF00A69248 = {
@@ -304,8 +307,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D39BB6FF26BDC298000C698F /* Localizable.strings in Resources */,
+				D345E22B2F915F5D00CF46DB /* AppIcon.icon in Resources */,
 				D3545B42252680BF00E8432D /* InfoPlist.strings in Resources */,
-				D3EC8C6224CDD4E200A69248 /* Assets.xcassets in Resources */,
 				D3BB1B4E252638920092D58F /* CameraVC.xib in Resources */,
 				D30B727E2811F3D7001630C2 /* PreferencesVC.xib in Resources */,
 				D3EC97B52671B1D300414666 /* CountdownViewController.xib in Resources */,
@@ -324,6 +327,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		D3545B362526792900E8432D /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -339,9 +343,11 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Build-Phases/swiftlint-command\n";
+			showEnvVarsInLog = 0;
 		};
 		D3545B372526794000E8432D /* Build Script */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -357,6 +363,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Build-Phases/build-script\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -453,6 +460,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3A84C7426E698430053B3E6 /* 2Project-Debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 			};
 			name = Debug;
 		};
@@ -460,6 +471,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3A84C7626E698430053B3E6 /* 2Project-Release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 			};
 			name = Release;
 		};
@@ -467,6 +482,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3A5A0D224CE28000011668C /* App-Debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readwrite;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = YES;
+				ENABLE_RESOURCE_ACCESS_CAMERA = YES;
+				ENABLE_RESOURCE_ACCESS_USB = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 			};
 			name = Debug;
 		};
@@ -474,6 +498,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3A5A0CA24CE28000011668C /* App-Release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readwrite;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = YES;
+				ENABLE_RESOURCE_ACCESS_CAMERA = YES;
+				ENABLE_RESOURCE_ACCESS_USB = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 			};
 			name = Release;
 		};
