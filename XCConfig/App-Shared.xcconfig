@@ -36,3 +36,4 @@ SUPPORTED_PLATFORMS = macosx
 // CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO
 CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = NO
 GCC_WARN_UNUSED_PARAMETER = NO
+CAMERA_PRIVACY_NOTICE = "Camera wants to use your camera to take photos. Nothing is shared and it has not network connectivity. Photos are stored on your Mac."
