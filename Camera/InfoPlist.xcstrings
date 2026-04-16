@@ -19,19 +19,6 @@
         }
       }
     },
-    "CFBundleGetInfoString" : {
-      "comment" : "Get Info string",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "CFBundleName" : {
       "comment" : "Bundle name",
       "extractionState" : "extracted_with_value",
@@ -69,7 +56,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : ""
+            "value" : "Version: 1.0 (219) - Copyright © 2020-2026 ILIOS Incorporated. All rights reserved."
           }
         }
       },

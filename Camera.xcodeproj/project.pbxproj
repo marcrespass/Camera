@@ -12,18 +12,8 @@
 		D3EC8C5C24CDD4DF00A69248 /* Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D345D8A52F913E2F00CF46DB /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = D3EC8C5B24CDD4DF00A69248 /* Camera */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D345D8892F913E2F00CF46DB /* Camera */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D345D8A52F913E2F00CF46DB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Camera; sourceTree = "<group>"; };
+		D345D8892F913E2F00CF46DB /* Camera */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Camera; sourceTree = "<group>"; };
 		D345D8AD2F913E3400CF46DB /* XCConfig */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = XCConfig; sourceTree = "<group>"; };
 		D345D8B02F913E3700CF46DB /* Build-Scripts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Build-Scripts"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */

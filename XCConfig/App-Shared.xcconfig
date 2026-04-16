@@ -16,11 +16,14 @@ CODE_SIGN_IDENTITY = Apple Development
 ENABLE_HARDENED_RUNTIME = YES
 ENABLE_USER_SELECTED_FILES = readonly
 
-INFOPLIST_FILE = $(TARGET_NAME)/Info.plist
+//INFOPLIST_FILE = $(TARGET_NAME)/Info.plist
 // https://useyourloaf.com/blog/localize-iphone-application-name/
 // CFBundleDisplayName is set to the name of the >> bundle << and then localized in InfoPlist.strings
 INFOPLIST_KEY_CFBundleDisplayName = $(PRODUCT_NAME)
 INFOPLIST_KEY_LSApplicationCategoryType = public.app-category.utilities
+INFOPLIST_KEY_NSPrincipalClass = NSApplication
+INFOPLIST_KEY_NSMainNibFile = MainMenu
+INFOPLIST_KEY_NSCameraUsageDescription = $(CAMERA_PRIVACY_NOTICE)
 
 STRING_CATALOG_GENERATE_SYMBOLS = YES
 SWIFT_APPROACHABLE_CONCURRENCY = YES
@@ -36,4 +39,4 @@ SUPPORTED_PLATFORMS = macosx
 // CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO
 CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = NO
 GCC_WARN_UNUSED_PARAMETER = NO
-CAMERA_PRIVACY_NOTICE = "Camera wants to use your camera to take photos. Nothing is shared and it has not network connectivity. Photos are stored on your Mac."
+CAMERA_PRIVACY_NOTICE = Camera wants to use your camera to take photos. Nothing is shared and it has not network connectivity. Photos are stored on your Mac.
