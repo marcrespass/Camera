@@ -1,0 +1,222 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "0X7-9X-PKy.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show 3 second countdown\"; ObjectID = \"0X7-9X-PKy\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show 3 second countdown"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar la cuenta atrás de 3 segundos"
+          }
+        }
+      }
+    },
+    "0YC-Sn-9E4.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Mirror preview\"; ObjectID = \"0YC-Sn-9E4\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mirror preview"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reflejar la vista previa"
+          }
+        }
+      }
+    },
+    "7Z5-bq-jdv.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show saved image in Finder\"; ObjectID = \"7Z5-bq-jdv\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show saved image in Finder"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar la imagen guardada en Finder"
+          }
+        }
+      }
+    },
+    "DCl-KR-abm.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Mirror saved image\"; ObjectID = \"DCl-KR-abm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mirror saved image"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reflejar la imagen guardada"
+          }
+        }
+      }
+    },
+    "fpN-V7-4po.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Open saved image\"; ObjectID = \"fpN-V7-4po\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open saved image"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir imagen guardada"
+          }
+        }
+      }
+    },
+    "fzy-HO-ccd.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Flash screen before taking picture\"; ObjectID = \"fzy-HO-ccd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Flash screen before taking picture"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flashear la pantalla antes de sacar la foto"
+          }
+        }
+      }
+    },
+    "lSB-zf-Fr1.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Recognize text in images\"; ObjectID = \"lSB-zf-Fr1\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Recognize text in images"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reconocer texto en las imagenes"
+          }
+        }
+      }
+    },
+    "lW7-f3-0Tw.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Images\"; ObjectID = \"lW7-f3-0Tw\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Images"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imagenes"
+          }
+        }
+      }
+    },
+    "phS-em-wSu.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Preferences\"; ObjectID = \"phS-em-wSu\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Preferences"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferencias"
+          }
+        }
+      }
+    },
+    "qmP-HU-NEG.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Copy recognized text to pasteboard\"; ObjectID = \"qmP-HU-NEG\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Copy recognized text to pasteboard"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar texto reconocido al portapapeles"
+          }
+        }
+      }
+    },
+    "RSm-ra-hd4.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Mirroring\"; ObjectID = \"RSm-ra-hd4\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mirroring"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reflejar"
+          }
+        }
+      }
+    },
+    "zrz-Kb-Y4d.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Countdown\"; ObjectID = \"zrz-Kb-Y4d\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Countdown"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuenta atrás"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}

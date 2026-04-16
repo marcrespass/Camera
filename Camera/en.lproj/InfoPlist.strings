@@ -1,4 +1,0 @@
-/* Localized versions of Info.plist keys */
-
-CFBundleDisplayName = "Camera";
-NSCameraUsageDescription = "Camera wants to use your camera to take pictures.";
