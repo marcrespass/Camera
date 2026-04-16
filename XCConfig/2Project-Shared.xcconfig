@@ -1,13 +1,13 @@
 
 #include "1XcodeWarnings.xcconfig"
 
-//https://nshipster.com/xcconfig/
-//TIP: run a build of your project with `-DAPI_TO_BE_DEPRECATED=10_14` in your CFLAGS. (Substitute 10_14 with your deploy target as needed.)
-//This gives you a preview of APIs that are soft deprecated and may be hard deprecated in the future, and many of them come with fix-its now.
-OTHER_CFLAGS = -DAPI_TO_BE_DEPRECATED=11_0
-
 // Versioning
 BUNDLE_SHORT_VERSION_STRING = 1.0
+ENABLE_USER_SCRIPT_SANDBOXING = NO
+
+DEAD_CODE_STRIPPING = YES
+STRING_CATALOG_GENERATE_SYMBOLS = YES
+ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES
 
 // User Defined
 MTL_ENABLE_DEBUG_INFO = NO
@@ -40,3 +40,10 @@ SWIFT_EMIT_LOC_STRINGS = YES
 SWIFT_VERSION = 5.0
 SWIFT_OPTIMIZATION_LEVEL = -O
 VALIDATE_PRODUCT = YES // https://useyourloaf.com/blog/xcode-322-validate-built-product/
+
+ENABLE_APP_SANDBOX = YES
+ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readwrite
+ENABLE_RESOURCE_ACCESS_BLUETOOTH = YES
+ENABLE_RESOURCE_ACCESS_CAMERA = YES
+ENABLE_RESOURCE_ACCESS_USB = YES
+ENABLE_USER_SELECTED_FILES = readwrite
