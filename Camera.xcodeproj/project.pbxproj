@@ -189,9 +189,6 @@
 			baseConfigurationReferenceAnchor = D345D8AD2F913E3400CF46DB /* XCConfig */;
 			baseConfigurationReferenceRelativePath = "2Project-Debug.xcconfig";
 			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				DEVELOPMENT_TEAM = 2WW9KC8P4G;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 			};
 			name = Debug;
 		};
@@ -200,9 +197,6 @@
 			baseConfigurationReferenceAnchor = D345D8AD2F913E3400CF46DB /* XCConfig */;
 			baseConfigurationReferenceRelativePath = "2Project-Release.xcconfig";
 			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				DEVELOPMENT_TEAM = 2WW9KC8P4G;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 			};
 			name = Release;
 		};
@@ -211,12 +205,6 @@
 			baseConfigurationReferenceAnchor = D345D8AD2F913E3400CF46DB /* XCConfig */;
 			baseConfigurationReferenceRelativePath = "App-Debug.xcconfig";
 			buildSettings = {
-				INFOPLIST_KEY_CFBundleDisplayName = Camera;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(CAMERA_PRIVACY_NOTICE)";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Version: 1.0 (220) - Copyright © 2020-2026 ILIOS Incorporated. All rights reserved.";
-				INFOPLIST_KEY_NSMainNibFile = MainMenu;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 			};
 			name = Debug;
 		};
@@ -225,12 +213,6 @@
 			baseConfigurationReferenceAnchor = D345D8AD2F913E3400CF46DB /* XCConfig */;
 			baseConfigurationReferenceRelativePath = "App-Release.xcconfig";
 			buildSettings = {
-				INFOPLIST_KEY_CFBundleDisplayName = Camera;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(CAMERA_PRIVACY_NOTICE)";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Version: 1.0 (220) - Copyright © 2020-2026 ILIOS Incorporated. All rights reserved.";
-				INFOPLIST_KEY_NSMainNibFile = MainMenu;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 			};
 			name = Release;
 		};
