@@ -60,7 +60,6 @@
 		D375E84E274AA354007B31B4 /* ImageOCRVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOCRVC.swift; sourceTree = "<group>"; };
 		D375E84F274AA354007B31B4 /* ImageOCRVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageOCRVC.xib; sourceTree = "<group>"; };
 		D392F84E275A3F140094E8A3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D392F84F275A3F420094E8A3 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 		D392F853275A4A4F0094E8A3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		D39BB70026BDC298000C698F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D39BB70226BDC29C000C698F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -163,7 +162,6 @@
 			children = (
 				D3545B392526798500E8432D /* .swiftlint.yml */,
 				D392F84E275A3F140094E8A3 /* README.md */,
-				D392F84F275A3F420094E8A3 /* Notes.md */,
 				D3545B302526790E00E8432D /* Build-Phases */,
 				D3A5A0C924CE27F40011668C /* XCConfig */,
 				D3EC8C5E24CDD4DF00A69248 /* Camera */,
