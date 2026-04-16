@@ -16,7 +16,7 @@ CODE_SIGN_IDENTITY = Apple Development
 ENABLE_HARDENED_RUNTIME = YES
 ENABLE_USER_SELECTED_FILES = readonly
 
-//INFOPLIST_FILE = $(TARGET_NAME)/Info.plist
+INFOPLIST_FILE = $(TARGET_NAME)/Info.plist
 // https://useyourloaf.com/blog/localize-iphone-application-name/
 // CFBundleDisplayName is set to the name of the >> bundle << and then localized in InfoPlist.strings
 INFOPLIST_KEY_CFBundleDisplayName = $(PRODUCT_NAME)
