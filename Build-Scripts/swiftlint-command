@@ -1,0 +1,32 @@
+#!/bin/zsh
+
+# Add Run Script phase and put this in there
+# $SRCROOT/Build-Scripts/swiftlint-command
+
+# Disable rules in code
+#
+# Rules can be disabled with a comment inside a source file with the following format:
+#
+# // swiftlint:disable <rule1> [<rule2> <rule3>...]
+#
+# The rules will be disabled until the end of the file or until the linter sees a matching enable comment:
+#
+# // swiftlint:enable <rule1> [<rule2> <rule3>...]
+#
+# For example:
+#
+# // swiftlint:disable colon
+# let noWarning :String = "" // No warning about colons immediately after variable names!
+# // swiftlint:enable colon
+# let hasWarning :String = "" // Warning generated about colons immediately after variable names
+# Including the all keyword will disable all rules until the linter sees a matching enable comment:
+#
+
+source ~/.zshrc
+
+if which swiftlint >/dev/null; then
+    echo "Running swiftlint for target: ${TARGET_NAME}"
+    swiftlint ${PROJECT_DIR}/${TARGET_NAME}
+else
+    echo "error: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+fi

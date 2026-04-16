@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "**** Running todo-fixme ****"
+
+KEYWORDS="TODO:|FIXME:|\?\?\?:|\!\!\!:"
+find "${PROJECT_DIR}/${TARGET_NAME}" \( -name "*.h" -or -name "*.m" \) -print0 | xargs -0 egrep --with-filename --line-number --only-matching "($KEYWORDS).*\$" | perl -p -e "s/($KEYWORDS)/ warning: \$1/" 2>/dev/null

@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# https://www.regular-expressions.info/optional.html
+# version-extractor runs pom_version.swift to extract the version from pom.xml
+# Those values are set as MARKETING_VERSION
+# CURRENT_PROJECT_VERSION is fixed as 0000 as it must be a number but it is
+# set by maven so its value in development is irrelevant and 0000 means a Dev build.
+# These lines are written to 2Project-Version.xcconfig which is imported by 2Project-Shared.xcconfig
+
+# Configure in the scheme for Build > Pre-action the following
+# # Type a script or drag a script file from your workspace to insert its path.
+# if [ "${CONFIGURATION}" = "Debug" ]; then
+#     cd $PROJECT_DIR; ./Build-Scripts/version-extractor
+# fi
+
+project_version=1.0
+build_number=$(git rev-list --count HEAD)
+xcconfig_filepath="${PROJECT_DIR}/XCConfig/2Project-Version.xcconfig"
+
+echo "MARKETING_VERSION = ${project_version}\nCURRENT_PROJECT_VERSION = ${build_number}" > ${xcconfig_filepath}
