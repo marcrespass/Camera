@@ -12,8 +12,18 @@
 		D3EC8C5C24CDD4DF00A69248 /* Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D345DDA92F915C9500CF46DB /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D3EC8C5B24CDD4DF00A69248 /* Camera */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D345D8892F913E2F00CF46DB /* Camera */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Camera; sourceTree = "<group>"; };
+		D345D8892F913E2F00CF46DB /* Camera */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D345DDA92F915C9500CF46DB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Camera; sourceTree = "<group>"; };
 		D345D8AD2F913E3400CF46DB /* XCConfig */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = XCConfig; sourceTree = "<group>"; };
 		D345D8B02F913E3700CF46DB /* Build-Scripts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Build-Scripts"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -201,6 +211,12 @@
 			baseConfigurationReferenceAnchor = D345D8AD2F913E3400CF46DB /* XCConfig */;
 			baseConfigurationReferenceRelativePath = "App-Debug.xcconfig";
 			buildSettings = {
+				INFOPLIST_KEY_CFBundleDisplayName = Camera;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(CAMERA_PRIVACY_NOTICE)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Version: 1.0 (220) - Copyright © 2020-2026 ILIOS Incorporated. All rights reserved.";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 			};
 			name = Debug;
 		};
@@ -209,6 +225,12 @@
 			baseConfigurationReferenceAnchor = D345D8AD2F913E3400CF46DB /* XCConfig */;
 			baseConfigurationReferenceRelativePath = "App-Release.xcconfig";
 			buildSettings = {
+				INFOPLIST_KEY_CFBundleDisplayName = Camera;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(CAMERA_PRIVACY_NOTICE)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Version: 1.0 (220) - Copyright © 2020-2026 ILIOS Incorporated. All rights reserved.";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 			};
 			name = Release;
 		};
