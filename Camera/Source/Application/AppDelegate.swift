@@ -45,4 +45,8 @@ extension AppDelegate: NSApplicationDelegate {
     func application(_ sender: NSApplication, openFiles filenames: [String]) {
         self.appController.open(filenames: filenames)
     }
+
+    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+        false
+    }
 }
