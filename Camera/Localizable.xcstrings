@@ -4,6 +4,12 @@
     "Camera" : {
       "comment" : "Localizable.strings\n  Camera\n\n  Created by Marc Respass on 10/1/20.\n  Copyright © 2020 ILIOS Inc. All rights reserved.",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camera"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
